@@ -1,0 +1,3 @@
+public enum Token {
+    ADD, SUBTRACT, MULTIPLY, DIVIDE, LPAREN, RPAREN, END
+}
