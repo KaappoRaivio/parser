@@ -1,8 +1,9 @@
 import lexer.Token;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
+@SuppressWarnings("WeakerAccess")
 public class TokenTest {
     @Test
     public void operator_shouldEqual () {
@@ -16,9 +17,9 @@ public class TokenTest {
     @Test
     public void operator_shouldNotEqual () {
         assertFalse(Token.ADD.matches("-"));
-        assertFalse(Token.ADD.matches("+*"));
-        assertFalse(Token.SUBTRACT.matches("-*"));
-        assertFalse(Token.MULTIPLY.matches("+*"));
+        assertFalse(Token.ADD.matches("*"));
+        assertFalse(Token.SUBTRACT.matches("/"));
+        assertFalse(Token.MULTIPLY.matches("+"));
     }
 
     @Test
@@ -52,5 +53,12 @@ public class TokenTest {
         assertFalse(Token.END.matches("asdasd"));
     }
 
-
+    @Test
+    public void getToken () {
+        assertSame(Token.getToken("-3 + 2"), Token.NUMBER);
+        assertSame(Token.getToken("+ 2"), Token.ADD);
+        assertSame(Token.getToken("2"), Token.NUMBER);
+        assertSame(Token.getToken("() + 2"), Token.LPAREN);
+        assertSame(Token.getToken(")"), Token.RPAREN);
+    }
 }
