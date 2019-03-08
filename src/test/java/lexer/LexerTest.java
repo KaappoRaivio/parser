@@ -1,5 +1,6 @@
 package lexer;
 
+import lexer.token.Token;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -7,27 +8,28 @@ import static org.junit.jupiter.api.Assertions.*;
 @SuppressWarnings("WeakerAccess")
 public class LexerTest {
 
+    @SuppressWarnings("AssertEqualsBetweenInconvertibleTypes")
     @Test
     public void getNextToken () {
-        System.out.println("moi");
         Lexer goodLexer = new Lexer("-0.2 + (12,45 - 5 / 2 * 4.2) - 8");
-        assertSame(goodLexer.getNextToken(), Token.NUMBER);
-        assertSame(goodLexer.getNextToken(), Token.ADD);
-        assertSame(goodLexer.getNextToken(), Token.LPAREN);
-        assertSame(goodLexer.getNextToken(), Token.NUMBER);
-        assertSame(goodLexer.getNextToken(), Token.SUBTRACT);
-        assertSame(goodLexer.getNextToken(), Token.NUMBER);
-        assertSame(goodLexer.getNextToken(), Token.DIVIDE);
-        assertSame(goodLexer.getNextToken(), Token.NUMBER);
-        assertSame(goodLexer.getNextToken(), Token.MULTIPLY);
-        assertSame(goodLexer.getNextToken(), Token.NUMBER);
-        assertSame(goodLexer.getNextToken(), Token.RPAREN);
-        assertSame(goodLexer.getNextToken(), Token.SUBTRACT);
-        assertSame(goodLexer.getNextToken(), Token.NUMBER);
+        assertEquals(goodLexer.getNextToken(), Token.NUMBER);
+        assertEquals(goodLexer.getNextToken(), Token.ADD);
+        assertEquals(goodLexer.getNextToken(), Token.LPAREN);
+        assertEquals(goodLexer.getNextToken(), Token.NUMBER);
+        assertEquals(goodLexer.getNextToken(), Token.SUBTRACT);
+        assertEquals(goodLexer.getNextToken(), Token.NUMBER);
+        assertEquals(goodLexer.getNextToken(), Token.DIVIDE);
+        assertEquals(goodLexer.getNextToken(), Token.NUMBER);
+        assertEquals(goodLexer.getNextToken(), Token.MULTIPLY);
+        assertEquals(goodLexer.getNextToken(), Token.NUMBER);
+        assertEquals(goodLexer.getNextToken(), Token.RPAREN);
+        assertEquals(goodLexer.getNextToken(), Token.SUBTRACT);
+        assertEquals(goodLexer.getNextToken(), Token.NUMBER);
+        assertEquals(goodLexer.getNextToken(), Token.END);
 
 
-        Lexer badLexer = new Lexer("-0,.2 + (12,.45 - 5 / 2 * 4.2) - 8");
-        assertThrows(UnknownTokenException.class, badLexer::getNextToken);
+
+        assertThrows(UnknownTokenException.class, () -> new Lexer("-0,.2 + (12,.45 - 5 / 2 * 4.2) - 8"));
 
     }
 }
