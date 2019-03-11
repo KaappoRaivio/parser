@@ -1,6 +1,7 @@
 package lexer.token;
 
 
+import java.util.List;
 import java.util.Objects;
 
 public class FoundToken {
@@ -15,14 +16,20 @@ public class FoundToken {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals (Object o) {
         if (o == null) return false;
-        if (o.getClass() == Token.class) return tokenType == o;
+
         if (getClass() != o.getClass()) return false;
         if (this == o) return true;
 
         FoundToken that = (FoundToken) o;
         return tokenType == that.tokenType;
+    }
+
+    public boolean is (Object o) {
+        if (o == null) return false;
+        else if (o.getClass() == Token.class) return tokenType == o;
+        else return false;
     }
 
     @Override
@@ -33,5 +40,18 @@ public class FoundToken {
     @Override
     public String toString() {
         return tokenType.toString();
+    }
+
+    public boolean isIn (List<Token> tokenList) {
+        boolean found = false;
+
+        for (var a : tokenList) {
+            if (is(a)) {
+                found = true;
+                break;
+            }
+        }
+
+        return found;
     }
 }

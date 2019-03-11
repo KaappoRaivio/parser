@@ -4,20 +4,20 @@ import lexer.token.FoundToken;
 import lexer.token.NumberToken;
 import lexer.token.Token;
 
+import java.util.Deque;
 import java.util.LinkedList;
-import java.util.Queue;
 import java.util.regex.Matcher;
 
 public class Lexer {
     private String input;
 
 
-    private Queue<FoundToken> tokens = new LinkedList<>();
-    private Queue<FoundToken> alreadyRequestedTokens = new LinkedList<>();
+    private Deque<FoundToken> tokens = new LinkedList<>();
+    private Deque<FoundToken> alreadyRequestedTokens = new LinkedList<>();
 
     @Override
     public String toString() {
-        return tokens.toString();
+        return tokens.toString() + " at " + alreadyRequestedTokens.size();
     }
 
     public Lexer (String input) {
@@ -25,7 +25,7 @@ public class Lexer {
         processInput(new LinkedList<>());
     }
 
-    private void processInput(Queue<FoundToken> alreadyProcessed) {
+    private void processInput(Deque<FoundToken> alreadyProcessed) {
         if (input.length() == 0) {
             alreadyProcessed.add(new FoundToken(Token.END));
             tokens = alreadyProcessed;
@@ -58,11 +58,11 @@ public class Lexer {
     }
 
     public FoundToken getNextToken () {
-        alreadyRequestedTokens.add(tokens.peek());
-        return tokens.remove();
+        alreadyRequestedTokens.addFirst(tokens.peekFirst());
+        return tokens.pop();
     }
 
     public void revert () {
-        tokens.add(alreadyRequestedTokens.remove());
+        tokens.addFirst(alreadyRequestedTokens.pop());
     }
 }

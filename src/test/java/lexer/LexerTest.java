@@ -12,20 +12,20 @@ public class LexerTest {
     @Test
     public void getNextToken () {
         Lexer goodLexer = new Lexer("-0.2 + (12,45 - 5 / 2 * 4.2) - 8");
-        assertEquals(goodLexer.getNextToken(), Token.NUMBER);
-        assertEquals(goodLexer.getNextToken(), Token.ADD);
-        assertEquals(goodLexer.getNextToken(), Token.LPAREN);
-        assertEquals(goodLexer.getNextToken(), Token.NUMBER);
-        assertEquals(goodLexer.getNextToken(), Token.SUBTRACT);
-        assertEquals(goodLexer.getNextToken(), Token.NUMBER);
-        assertEquals(goodLexer.getNextToken(), Token.DIVIDE);
-        assertEquals(goodLexer.getNextToken(), Token.NUMBER);
-        assertEquals(goodLexer.getNextToken(), Token.MULTIPLY);
-        assertEquals(goodLexer.getNextToken(), Token.NUMBER);
-        assertEquals(goodLexer.getNextToken(), Token.RPAREN);
-        assertEquals(goodLexer.getNextToken(), Token.SUBTRACT);
-        assertEquals(goodLexer.getNextToken(), Token.NUMBER);
-        assertEquals(goodLexer.getNextToken(), Token.END);
+        assertTrue(goodLexer.getNextToken().is(Token.NUMBER));
+        assertTrue(goodLexer.getNextToken().is(Token.ADD));
+        assertTrue(goodLexer.getNextToken().is(Token.LPAREN));
+        assertTrue(goodLexer.getNextToken().is(Token.NUMBER));
+        assertTrue(goodLexer.getNextToken().is(Token.SUBTRACT));
+        assertTrue(goodLexer.getNextToken().is(Token.NUMBER));
+        assertTrue(goodLexer.getNextToken().is(Token.DIVIDE));
+        assertTrue(goodLexer.getNextToken().is(Token.NUMBER));
+        assertTrue(goodLexer.getNextToken().is(Token.MULTIPLY));
+        assertTrue(goodLexer.getNextToken().is(Token.NUMBER));
+        assertTrue(goodLexer.getNextToken().is(Token.RPAREN));
+        assertTrue(goodLexer.getNextToken().is(Token.SUBTRACT));
+        assertTrue(goodLexer.getNextToken().is(Token.NUMBER));
+        assertTrue(goodLexer.getNextToken().is(Token.END));
 
 
 

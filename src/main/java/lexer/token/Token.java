@@ -2,20 +2,22 @@ package lexer.token;
 
 import lexer.UnknownTokenException;
 
+import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public enum Token {
-    ADD ("\\+", "PLUS", 1),
-    SUBTRACT ("\\-", "MINUS", 1),
-    MULTIPLY ("\\*", "ASTERISK", 1),
-    DIVIDE ("\\/", "SLASH", 1),
-    LPAREN ("\\(", "OPENING BRACKET", 1),
-    RPAREN ("\\)", "CLOSING BRACKET", 1),
-    END ("$", "END", 1),
-    NUMBER ("(-)?([0123456789])+([.,]([0123456789])+)?", "NUMBER", 2);
+    ADD ("\\+", "Plus", 1),
+    SUBTRACT ("\\-", "Minus", 1),
+    MULTIPLY ("\\*", "Asterisk", 1),
+    DIVIDE ("\\/", "Slash", 1),
+    LPAREN ("\\(", "Left parenthesis", 1),
+    RPAREN ("\\)", "Right parenthesis", 1),
+    END ("$", "End", 1),
+    NUMBER ("(-)?([0123456789])+([.,]([0123456789])+)?", "Number", 2),
+    ABS ("\\|", "Pipe", 1);
 
     private final Pattern regex;
     private final String repr;
