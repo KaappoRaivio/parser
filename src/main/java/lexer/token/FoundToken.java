@@ -45,7 +45,7 @@ public class FoundToken {
     public boolean isIn (List<Token> tokenList) {
         boolean found = false;
 
-        for (var a : tokenList) {
+        for (Token a : tokenList) {
             if (is(a)) {
                 found = true;
                 break;
