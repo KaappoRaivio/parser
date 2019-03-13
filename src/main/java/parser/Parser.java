@@ -15,6 +15,9 @@ public class Parser {
     public Parser (String input) {
         this.input = input;
         lexer = new Lexer(input);
+        if (lexer.isEmpty()) {
+            throw new RuntimeException("Input cannot be nothing!");
+        }
     }
 
     public Number parse () {

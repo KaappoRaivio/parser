@@ -8,15 +8,28 @@ public class Fraction {
     private BigInteger numerator;
     private BigInteger denominator;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Fraction other = (Fraction) o;
-        Fraction a = expand(other.denominator);
-        Fraction b = other.expand(denominator);
+    public Fraction(BigInteger numerator, BigInteger denominator) {
+        this(numerator, denominator, true);
+    }
 
-        return a.numerator.equals(b.numerator) && a.denominator.equals(b.denominator);
+    @Override
+    public boolean equals (Object o) {
+        if (o == null) {
+            return false;
+        } else if (this == o) {
+            return true;
+        } else if (o instanceof Integer) {
+            return numerator.equals(new BigInteger(String.valueOf((int) o))) && denominator.equals(BigInteger.ONE);
+        } else if (o instanceof Fraction) {
+            Fraction other = (Fraction) o;
+            Fraction a = expand(other.denominator);
+            Fraction b = other.expand(denominator);
+
+            return a.numerator.equals(b.numerator) && a.denominator.equals(b.denominator);
+        } else {
+            return false;
+        }
+
     }
 
     @Override
@@ -28,31 +41,35 @@ public class Fraction {
         this(new BigInteger(String.valueOf(numerator)), new BigInteger(String.valueOf(denominator)));
     }
 
-    public Fraction (BigInteger numerator, BigInteger denominator) {
+    public Fraction (BigInteger numerator, BigInteger denominator, boolean compact) {
         if (denominator.equals(BigInteger.ZERO)) {
-            throw new RuntimeException("Denominator cannot be zero!");
+            throw new ArithmeticException("Denominator cannot be zero!");
         }
 
         this.numerator = numerator;
         this.denominator = denominator;
 
 
-        BigInteger gcd = gcd(this.numerator, this.denominator);
-        this.numerator = this.numerator.divide(gcd);
-        this.denominator = this.denominator.divide(gcd);
+        if (compact) {
+            BigInteger gcd = gcd(this.numerator, this.denominator);
+            this.numerator = this.numerator.divide(gcd);
+            this.denominator = this.denominator.divide(gcd);
+        }
     }
 
+    public BigInteger value () {
+        return numerator.divide(denominator);
+    }
 
     public Fraction add (Fraction other) {
         Fraction a = this.expand(other.denominator);
         Fraction b = other.expand(this.denominator);
 
-        System.out.println(a + ", " + b);
         return new Fraction(a.numerator.add(b.numerator), a.denominator);
     }
 
     public Fraction add (int other) {
-        return add(new Fraction(denominator.multiply(new BigInteger(String.valueOf(other))), BigInteger.ONE)).compact();
+        return add(new Fraction(new BigInteger(String.valueOf(other)), BigInteger.ONE));
     }
 
     public Fraction subtract (Fraction other) {
@@ -97,7 +114,7 @@ public class Fraction {
     }
 
     Fraction expand(BigInteger amount) {
-        return new Fraction(numerator.multiply(amount), denominator.multiply(amount));
+        return new Fraction(numerator.multiply(amount), denominator.multiply(amount), false);
     }
 
     private static BigInteger gcd (BigInteger num, BigInteger den) {

@@ -65,4 +65,8 @@ public class Lexer {
     public void revert () {
         tokens.addFirst(alreadyRequestedTokens.pop());
     }
+
+    public boolean isEmpty() {
+        return tokens.size() == 1; // 1 for the END token
+    }
 }
