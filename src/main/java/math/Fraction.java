@@ -1,7 +1,10 @@
 package math;
 
+import misc.Pair;
+
 import java.math.BigInteger;
 import java.util.Objects;
+import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 public class Fraction {
@@ -129,5 +132,67 @@ public class Fraction {
     @Override
     public String toString() {
         return "(" + numerator + " / " + denominator + ")";
+    }
+
+    public static Fraction fromRepeatingDecimal (String representation) {
+        var pair = findPattern(representation);
+        int comma = getCurrentCommaPlace(representation);
+
+        String base = pair.getV();
+        String cycle =  pair.getK();
+
+        String stripped = representation.replaceAll("[,.]", "");
+
+        int wantedCommaPlace1 = base.length() + cycle.length();
+        int wantedCommaPlace2 = base.length();
+
+        String cycleLeft = insertComma(wantedCommaPlace1, stripped);
+        String cycleRight = insertComma(wantedCommaPlace2, stripped);
+
+        int xCoeff1 = (int) Math.pow(10, wantedCommaPlace1 - comma);
+        int xCoeff2 = (int) Math.pow(10, wantedCommaPlace2 - comma);
+
+        int numerator = (int) Double.parseDouble(cycleLeft) - (int) Double.parseDouble(cycleRight);
+        int denominator = xCoeff1 - xCoeff2;
+
+        return new Fraction(numerator, denominator);
+    }
+
+    private static String insertComma (int position, String number) {
+        if (position >= number.length()) {
+            return insertComma(position, number + "0");
+        }
+        return (number.substring(0, position) + "." + number.substring(position)).replaceAll("^0*", "");
+    }
+
+    private static int getCurrentCommaPlace(String string) {
+        char[] charArray = string.toCharArray();
+        for (int i = 0; i < charArray.length; i++) {
+            char a = charArray[i];
+
+            if (a == ',' || a == '.') {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    private static Pair<String, String> findPattern (String s) {
+        s = s.replaceAll("([.,])", "");
+
+        var pattern = Pattern.compile("^(.+?)\\1+$");
+
+        for (int i = 0; i < s.length(); i++) {
+            if (pattern.matcher(s.substring(i)).matches()) {
+                return new Pair<>(s.substring(i).replaceAll("^(.+?)\\1+$", "$1"), s.substring(0, i));
+            }
+        }
+        return new Pair<>(s, s);
+    }
+
+    public static void main(String[] args) {
+//        System.out.println(findPattern("3,3323332"));
+        System.out.println(fromRepeatingDecimal("10.233"));
     }
 }

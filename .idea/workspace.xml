@@ -2,26 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c5d0c37b-dd10-46d2-8faf-1ac2c9187819" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/math/FractionConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/parser/ParserTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/misc/Pair.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/lexer/Lexer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/lexer/Lexer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/lexer/UnknownTokenException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/lexer/UnknownTokenException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/lexer/token/FoundToken.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/lexer/token/FoundToken.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/lexer/token/NumberToken.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/lexer/token/NumberToken.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/lexer/token/Token.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/lexer/token/Token.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/classes/math/Fraction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/math/Fraction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/parser/Parser$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/parser/Parser$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/parser/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/parser/Parser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/classes/lexer/FoundTokenTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/lexer/FoundTokenTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/classes/lexer/LexerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/lexer/LexerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/classes/lexer/TokenTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/lexer/TokenTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/classes/math/FractionTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/math/FractionTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lexer/Lexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lexer/Lexer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/math/Fraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/math/Fraction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/parser/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/parser/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/math/FractionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/math/FractionTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -33,10 +17,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DarkyenusTimeTracker">
-    <option name="totalTimeSeconds" value="33029" />
+    <option name="totalTimeSeconds" value="38641" />
     <option name="gitIntegration" value="true" />
     <option name="naggedAbout" value="1" />
   </component>
+  <component name="ExportTestResults" outputFolder="$PROJECT_DIR$" userTempatePath="" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -61,91 +46,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/lexer/Lexer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="752">
-              <caret line="69" column="57" selection-start-line="69" selection-start-column="57" selection-end-line="69" selection-end-column="57" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1712#1713#0" expanded="true" />
-                <element signature="e#1773#1774#0" expanded="true" />
-                <element signature="e#1805#1806#0" expanded="true" />
-                <element signature="e#1869#1870#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/parser/Parser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/parser/ParserTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="53" selection-start-line="15" selection-start-column="53" selection-end-line="15" selection-end-column="53" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#104#137#1" expanded="true" />
-                <element signature="e#220#221#0" expanded="true" />
-                <element signature="e#294#295#0" expanded="true" />
-                <element signature="e#349#350#0" expanded="true" />
-                <element signature="e#409#410#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/math/FractionConverter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="7" lean-forward="true" selection-start-line="3" selection-start-column="10" selection-end-line="5" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/math/Fraction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="13" lean-forward="true" selection-start-column="13" selection-end-column="13" />
+            <state relative-caret-position="305">
+              <caret line="187" column="22" selection-start-line="187" selection-start-column="22" selection-end-line="187" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#264#265#0" expanded="true" />
-                <element signature="e#285#286#0" expanded="true" />
-                <element signature="e#1080#1081#0" expanded="true" />
-                <element signature="e#1856#1857#0" expanded="true" />
-                <element signature="e#2221#2222#0" expanded="true" />
-                <element signature="e#2312#2313#0" expanded="true" />
-                <element signature="e#2584#2585#0" expanded="true" />
-                <element signature="e#3132#3133#0" expanded="true" />
-                <element signature="e#3848#3849#0" expanded="true" />
-                <element signature="e#4144#4145#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/math/FractionTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="24" column="83" selection-start-line="24" selection-start-column="83" selection-end-line="24" selection-end-column="83" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#650#651#0" expanded="true" />
-                <element signature="e#745#746#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -180,6 +87,7 @@
       <find>system</find>
       <find>throw new</find>
       <find>equals</find>
+      <find>getV</find>
     </findStrings>
     <replaceStrings>
       <replace>Token</replace>
@@ -214,9 +122,10 @@
         <option value="$PROJECT_DIR$/src/main/java/lexer/Lexer.java" />
         <option value="$PROJECT_DIR$/src/main/java/parser/Parser.java" />
         <option value="$PROJECT_DIR$/src/test/java/parser/ParserTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/math/FractionTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/misc/Pair.java" />
         <option value="$PROJECT_DIR$/src/main/java/math/FractionConverter.java" />
         <option value="$PROJECT_DIR$/src/main/java/math/Fraction.java" />
-        <option value="$PROJECT_DIR$/src/test/java/math/FractionTest.java" />
       </list>
     </option>
   </component>
@@ -262,6 +171,13 @@
               <item name="Kaappo_Raivio" type="2674bda8:ScopeViewTreeModel$GroupNode" />
               <item name="main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
               <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="misc" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="Kaappo Raivio" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="Kaappo_Raivio" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="parser" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
@@ -289,7 +205,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552493041075" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552549400140" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
@@ -324,7 +240,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.FractionTest">
+  <component name="RunManager" selected="Application.Fraction">
+    <configuration name="Fraction" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="math.Fraction" />
+      <module name="Kaappo_Raivio.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="math.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main without tests" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Kaappo_Raivio.main" />
@@ -403,9 +332,11 @@
       <item itemvalue="JUnit.LexerTest" />
       <item itemvalue="JUnit.FractionTest.shouldAddNumbers" />
       <item itemvalue="JUnit.FractionTest" />
+      <item itemvalue="Application.Fraction" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Fraction" />
         <item itemvalue="JUnit.FractionTest" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.FractionTest.shouldAddNumbers" />
@@ -470,7 +401,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32983682" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3293348" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3293348" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997669" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -479,7 +410,7 @@
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Build" order="10" weight="0.3293348" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.3293348" />
+      <window_info active="true" anchor="bottom" id="Messages" order="11" visible="true" weight="0.3293348" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -704,13 +635,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/parser/Parser.java">
+    <entry file="jar:///usr/lib/jvm/jdk-11.0.2/lib/src.zip!/java.base/java/math/MutableBigInteger.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+        <state relative-caret-position="195">
+          <caret line="1176" column="22" selection-start-line="1176" selection-start-column="22" selection-end-line="1176" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/jdk-11.0.2/lib/src.zip!/java.base/java/math/BigInteger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="2295" column="16" lean-forward="true" selection-start-line="2295" selection-start-column="16" selection-end-line="2295" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/math/FractionTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="31" column="40" lean-forward="true" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#650#651#0" expanded="true" />
+            <element signature="e#745#746#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/math/FractionConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="7" lean-forward="true" selection-start-line="3" selection-start-column="10" selection-end-line="5" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -729,24 +683,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/math/FractionConverter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/parser/Parser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="7" lean-forward="true" selection-start-line="3" selection-start-column="10" selection-end-line="5" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/jdk-11.0.2/lib/src.zip!/java.base/java/math/MutableBigInteger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="1176" column="22" selection-start-line="1176" selection-start-column="22" selection-end-line="1176" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/jdk-11.0.2/lib/src.zip!/java.base/java/math/BigInteger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="2295" column="16" lean-forward="true" selection-start-line="2295" selection-start-column="16" selection-end-line="2295" selection-end-column="16" />
+        <state relative-caret-position="150">
+          <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -764,34 +707,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/math/Fraction.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/misc/Pair.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="13" lean-forward="true" selection-start-column="13" selection-end-column="13" />
+        <state relative-caret-position="60">
+          <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#264#265#0" expanded="true" />
-            <element signature="e#285#286#0" expanded="true" />
-            <element signature="e#1080#1081#0" expanded="true" />
-            <element signature="e#1856#1857#0" expanded="true" />
-            <element signature="e#2221#2222#0" expanded="true" />
-            <element signature="e#2312#2313#0" expanded="true" />
-            <element signature="e#2584#2585#0" expanded="true" />
-            <element signature="e#3132#3133#0" expanded="true" />
-            <element signature="e#3848#3849#0" expanded="true" />
-            <element signature="e#4144#4145#0" expanded="true" />
+            <element signature="e#249#250#0" expanded="true" />
+            <element signature="e#277#278#0" expanded="true" />
+            <element signature="e#301#302#0" expanded="true" />
+            <element signature="e#330#331#0" expanded="true" />
+            <element signature="e#666#667#0" expanded="true" />
+            <element signature="e#716#717#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/math/FractionTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/math/Fraction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="24" column="83" selection-start-line="24" selection-start-column="83" selection-end-line="24" selection-end-column="83" />
+        <state relative-caret-position="305">
+          <caret line="187" column="22" selection-start-line="187" selection-start-column="22" selection-end-line="187" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#650#651#0" expanded="true" />
-            <element signature="e#745#746#0" expanded="true" />
           </folding>
         </state>
       </provider>
