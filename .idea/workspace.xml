@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c5d0c37b-dd10-46d2-8faf-1ac2c9187819" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/misc/Pair.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/misc/StringUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/lexer/token/Token.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/lexer/token/Token.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/classes/math/Fraction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/math/Fraction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/misc/Pair.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/misc/Pair.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/math/FractionTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/math/FractionTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lexer/token/Token.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lexer/token/Token.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/math/Fraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/math/Fraction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/misc/Pair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/misc/Pair.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/math/FractionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/math/FractionTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -17,7 +23,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DarkyenusTimeTracker">
-    <option name="totalTimeSeconds" value="38641" />
+    <option name="totalTimeSeconds" value="53100" />
     <option name="gitIntegration" value="true" />
     <option name="naggedAbout" value="1" />
   </component>
@@ -46,13 +52,111 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/math/Fraction.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/lexer/Lexer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="187" column="22" selection-start-line="187" selection-start-column="22" selection-end-line="187" selection-end-column="22" />
+            <state relative-caret-position="530">
+              <caret line="69" column="57" selection-start-line="69" selection-start-column="57" selection-end-line="69" selection-end-column="57" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1712#1713#0" expanded="true" />
+                <element signature="e#1773#1774#0" expanded="true" />
+                <element signature="e#1805#1806#0" expanded="true" />
+                <element signature="e#1869#1870#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/math/Fraction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="141">
+              <caret line="160" column="29" selection-start-line="160" selection-start-column="29" selection-end-line="160" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#3122#3123#0" expanded="true" />
+                <element signature="e#3158#3159#0" expanded="true" />
+                <element signature="e#6041#6042#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar:///usr/lib/jvm/jdk-11.0.2/lib/src.zip!/java.base/java/lang/NumberFormatException.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="64" selection-start-line="64" selection-end-line="64" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar:///usr/lib/jvm/jdk-11.0.2/lib/src.zip!/java.base/java/lang/Integer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="651" selection-start-line="651" selection-end-line="651" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar:///usr/lib/jvm/jdk-11.0.2/lib/src.zip!/java.base/java/math/BigInteger.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="186">
+              <caret line="533" selection-start-line="533" selection-end-line="533" />
+              <folding>
+                <element signature="e#26551#26552#0" expanded="true" />
+                <element signature="e#26580#26581#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/misc/StringUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="297">
+              <caret line="32" column="48" lean-forward="true" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
+              <folding>
+                <element signature="e#1808#1809#0" expanded="true" />
+                <element signature="e#1864#1865#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/misc/StringUtilTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/lexer/token/Token.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/math/FractionTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="380">
+              <caret line="59" column="84" selection-start-line="59" selection-start-column="84" selection-end-line="59" selection-end-column="84" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#650#651#0" expanded="true" />
+                <element signature="e#743#744#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -65,8 +169,8 @@
       <list>
         <option value="JUnit4 Test Class" />
         <option value="Enum" />
-        <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -79,7 +183,6 @@
       <find>toString</find>
       <find>getRm</find>
       <find>FoundToken</find>
-      <find>System.out.println</find>
       <find>assertEquals</find>
       <find>matcher.lo</find>
       <find>println</find>
@@ -88,6 +191,9 @@
       <find>throw new</find>
       <find>equals</find>
       <find>getV</find>
+      <find>findPa</find>
+      <find>getComma</find>
+      <find>System.out.println</find>
     </findStrings>
     <replaceStrings>
       <replace>Token</replace>
@@ -115,17 +221,19 @@
         <option value="$PROJECT_DIR$/src/main/java/lexer/TokenType.java" />
         <option value="$PROJECT_DIR$/src/main/java/lexer/token/NumberToken.java" />
         <option value="$PROJECT_DIR$/src/test/java/lexer/LexerTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/lexer/token/Token.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/lexer/token/FoundToken.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/lexer/Lexer.java" />
         <option value="$PROJECT_DIR$/src/main/java/parser/Parser.java" />
         <option value="$PROJECT_DIR$/src/test/java/parser/ParserTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/math/FractionTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/misc/Pair.java" />
         <option value="$PROJECT_DIR$/src/main/java/math/FractionConverter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/lexer/token/Token.java" />
+        <option value="$PROJECT_DIR$/src/main/java/misc/Pair.java" />
+        <option value="$PROJECT_DIR$/src/test/java/misc/StringUtilTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/misc/StringUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/math/Fraction.java" />
+        <option value="$PROJECT_DIR$/src/test/java/math/FractionTest.java" />
       </list>
     </option>
   </component>
@@ -141,71 +249,11 @@
     <panes>
       <pane id="ProjectPane" />
       <pane id="PackagesPane" />
-      <pane id="Scope">
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
-          <expand>
-            <path>
-              <item name="Kaappo Raivio" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="Kaappo_Raivio" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-            </path>
-            <path>
-              <item name="Kaappo Raivio" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="Kaappo_Raivio" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-            </path>
-            <path>
-              <item name="Kaappo Raivio" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="Kaappo_Raivio" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="Kaappo Raivio" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="Kaappo_Raivio" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="math" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="Kaappo Raivio" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="Kaappo_Raivio" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="misc" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="Kaappo Raivio" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="Kaappo_Raivio" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="parser" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="Kaappo Raivio" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="Kaappo_Raivio" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="test" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-            </path>
-            <path>
-              <item name="Kaappo Raivio" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="Kaappo_Raivio" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="test" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="Kaappo Raivio" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="Kaappo_Raivio" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="test" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="math" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552549400140" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553176103478" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
@@ -219,10 +267,14 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="misc" />
       <recent name="parser" />
       <recent name="math" />
       <recent name="lexer" />
       <recent name="" />
+    </key>
+    <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="misc.StringUtil" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -240,7 +292,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Fraction">
+  <component name="RunManager" selected="JUnit.FractionTest.shouldParseNumbers">
     <configuration name="Fraction" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="math.Fraction" />
       <module name="Kaappo_Raivio.main" />
@@ -261,16 +313,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="Kaappo_Raivio.main" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-        <option name="RunConfigurationTask" enabled="true" run_configuration_name="TokenTest" run_configuration_type="JUnit" />
-        <option name="RunConfigurationTask" enabled="true" run_configuration_name="LexerTest" run_configuration_type="JUnit" />
-      </method>
-    </configuration>
-    <configuration name="FractionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FractionTest.shouldParseNumbers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Kaappo_Raivio.test" />
       <extension name="coverage">
         <pattern>
@@ -280,22 +323,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="math" />
       <option name="MAIN_CLASS_NAME" value="math.FractionTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="FractionTest.shouldAddNumbers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Kaappo_Raivio.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="math.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="math" />
-      <option name="MAIN_CLASS_NAME" value="math.FractionTest" />
-      <option name="METHOD_NAME" value="shouldAddNumbers" />
+      <option name="METHOD_NAME" value="shouldParseNumbers" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -316,6 +344,53 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="StringUtilTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Kaappo_Raivio.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="misc.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="misc" />
+      <option name="MAIN_CLASS_NAME" value="misc.StringUtilTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StringUtilTest.insertComma" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Kaappo_Raivio.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="misc.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="misc" />
+      <option name="MAIN_CLASS_NAME" value="misc.StringUtilTest" />
+      <option name="METHOD_NAME" value="insertComma" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StringUtilTest.moveComma" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Kaappo_Raivio.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="misc.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="misc" />
+      <option name="MAIN_CLASS_NAME" value="misc.StringUtilTest" />
+      <option name="METHOD_NAME" value="moveComma" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TokenTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="Kaappo_Raivio.test" />
       <option name="PACKAGE_NAME" value="lexer" />
@@ -327,19 +402,21 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main without tests" />
-      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.Fraction" />
       <item itemvalue="JUnit.TokenTest" />
       <item itemvalue="JUnit.LexerTest" />
-      <item itemvalue="JUnit.FractionTest.shouldAddNumbers" />
-      <item itemvalue="JUnit.FractionTest" />
-      <item itemvalue="Application.Fraction" />
+      <item itemvalue="JUnit.StringUtilTest.insertComma" />
+      <item itemvalue="JUnit.StringUtilTest" />
+      <item itemvalue="JUnit.StringUtilTest.moveComma" />
+      <item itemvalue="JUnit.FractionTest.shouldParseNumbers" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.FractionTest.shouldParseNumbers" />
         <item itemvalue="Application.Fraction" />
-        <item itemvalue="JUnit.FractionTest" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.FractionTest.shouldAddNumbers" />
+        <item itemvalue="JUnit.StringUtilTest.moveComma" />
+        <item itemvalue="JUnit.StringUtilTest" />
+        <item itemvalue="JUnit.StringUtilTest.insertComma" />
       </list>
     </recent_temporary>
   </component>
@@ -357,42 +434,42 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="LexerTest - 2019.03.13 at 16h 43m 05s.xml">
-      <configuration name="LexerTest" configurationId="JUnit" />
+    <history-entry file="FractionTest_shouldParseNumbers - 2019.03.21 at 15h 44m 00s.xml">
+      <configuration name="FractionTest.shouldParseNumbers" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FractionTest - 2019.03.13 at 17h 21m 00s.xml">
-      <configuration name="FractionTest" configurationId="JUnit" />
+    <history-entry file="FractionTest_shouldParseNumbers - 2019.03.21 at 15h 44m 46s.xml">
+      <configuration name="FractionTest.shouldParseNumbers" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FractionTest - 2019.03.13 at 17h 21m 41s.xml">
-      <configuration name="FractionTest" configurationId="JUnit" />
+    <history-entry file="FractionTest_shouldParseNumbers - 2019.03.21 at 15h 44m 56s.xml">
+      <configuration name="FractionTest.shouldParseNumbers" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FractionTest - 2019.03.13 at 17h 23m 47s.xml">
-      <configuration name="FractionTest" configurationId="JUnit" />
+    <history-entry file="FractionTest_shouldParseNumbers - 2019.03.21 at 15h 45m 05s.xml">
+      <configuration name="FractionTest.shouldParseNumbers" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FractionTest - 2019.03.13 at 17h 26m 37s.xml">
-      <configuration name="FractionTest" configurationId="JUnit" />
+    <history-entry file="FractionTest_shouldParseNumbers - 2019.03.21 at 15h 45m 30s.xml">
+      <configuration name="FractionTest.shouldParseNumbers" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FractionTest - 2019.03.13 at 17h 27m 55s.xml">
-      <configuration name="FractionTest" configurationId="JUnit" />
+    <history-entry file="FractionTest_shouldParseNumbers - 2019.03.21 at 15h 45m 56s.xml">
+      <configuration name="FractionTest.shouldParseNumbers" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FractionTest - 2019.03.13 at 17h 29m 42s.xml">
-      <configuration name="FractionTest" configurationId="JUnit" />
+    <history-entry file="FractionTest_shouldParseNumbers - 2019.03.21 at 15h 46m 05s.xml">
+      <configuration name="FractionTest.shouldParseNumbers" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FractionTest - 2019.03.13 at 17h 38m 38s.xml">
-      <configuration name="FractionTest" configurationId="JUnit" />
+    <history-entry file="FractionTest_shouldParseNumbers - 2019.03.21 at 15h 47m 33s.xml">
+      <configuration name="FractionTest.shouldParseNumbers" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FractionTest - 2019.03.13 at 17h 45m 30s.xml">
-      <configuration name="FractionTest" configurationId="JUnit" />
+    <history-entry file="FractionTest_shouldParseNumbers - 2019.03.21 at 15h 47m 59s.xml">
+      <configuration name="FractionTest.shouldParseNumbers" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FractionTest - 2019.03.13 at 18h 01m 05s.xml">
-      <configuration name="FractionTest" configurationId="JUnit" />
+    <history-entry file="FractionTest_shouldParseNumbers - 2019.03.21 at 15h 48m 22s.xml">
+      <configuration name="FractionTest.shouldParseNumbers" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="27" width="1853" height="1053" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19037078" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20143884" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -401,8 +478,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32983682" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3293348" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3997669" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3293348" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3991276" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -410,7 +487,7 @@
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Build" order="10" weight="0.3293348" />
-      <window_info active="true" anchor="bottom" id="Messages" order="11" visible="true" weight="0.3293348" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.3293348" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -608,16 +685,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lexer/token/Token.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -639,25 +706,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="1176" column="22" selection-start-line="1176" selection-start-column="22" selection-end-line="1176" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/jdk-11.0.2/lib/src.zip!/java.base/java/math/BigInteger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="2295" column="16" lean-forward="true" selection-start-line="2295" selection-start-column="16" selection-end-line="2295" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/math/FractionTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="31" column="40" lean-forward="true" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#650#651#0" expanded="true" />
-            <element signature="e#745#746#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -693,9 +741,62 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar:///usr/lib/jvm/jdk-11.0.2/lib/src.zip!/java.base/java/lang/StringLatin1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="232" column="22" selection-start-line="232" selection-start-column="22" selection-end-line="232" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/misc/Pair.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="11" column="47" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/jdk-11.0.2/lib/src.zip!/java.base/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="2754" column="19" selection-start-line="2754" selection-start-column="19" selection-end-line="2754" selection-end-column="19" />
+          <folding>
+            <element signature="e#110077#110078#0" expanded="true" />
+            <element signature="e#110134#110135#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lexer/token/Token.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/misc/StringUtilTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/misc/StringUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="32" column="48" lean-forward="true" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
+          <folding>
+            <element signature="e#1808#1809#0" expanded="true" />
+            <element signature="e#1864#1865#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/lexer/Lexer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="752">
+        <state relative-caret-position="530">
           <caret line="69" column="57" selection-start-line="69" selection-start-column="57" selection-end-line="69" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -707,27 +808,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/misc/Pair.java">
+    <entry file="jar:///usr/lib/jvm/jdk-11.0.2/lib/src.zip!/java.base/java/lang/NumberFormatException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+        <state relative-caret-position="210">
+          <caret line="64" selection-start-line="64" selection-end-line="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/jdk-11.0.2/lib/src.zip!/java.base/java/lang/Integer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="651" selection-start-line="651" selection-end-line="651" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/jdk-11.0.2/lib/src.zip!/java.base/java/math/BigInteger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="533" selection-start-line="533" selection-end-line="533" />
           <folding>
-            <element signature="e#249#250#0" expanded="true" />
-            <element signature="e#277#278#0" expanded="true" />
-            <element signature="e#301#302#0" expanded="true" />
-            <element signature="e#330#331#0" expanded="true" />
-            <element signature="e#666#667#0" expanded="true" />
-            <element signature="e#716#717#0" expanded="true" />
+            <element signature="e#26551#26552#0" expanded="true" />
+            <element signature="e#26580#26581#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/math/Fraction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="187" column="22" selection-start-line="187" selection-start-column="22" selection-end-line="187" selection-end-column="22" />
+        <state relative-caret-position="141">
+          <caret line="160" column="29" selection-start-line="160" selection-start-column="29" selection-end-line="160" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3122#3123#0" expanded="true" />
+            <element signature="e#3158#3159#0" expanded="true" />
+            <element signature="e#6041#6042#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/math/FractionTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="59" column="84" selection-start-line="59" selection-start-column="84" selection-end-line="59" selection-end-column="84" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#650#651#0" expanded="true" />
+            <element signature="e#743#744#0" expanded="true" />
           </folding>
         </state>
       </provider>

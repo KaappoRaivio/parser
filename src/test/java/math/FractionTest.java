@@ -45,4 +45,23 @@ class FractionTest {
         assertEquals(new Fraction(1 , 10).divide(new Fraction(3, 4)), new Fraction(4, 30));
     }
 
+    @Test
+    public void shouldParseNumbers () {
+//        assertEquals(Fraction.fromDecimal("0.33", true), new Fraction(1, 3));
+//        assertEquals(Fraction.fromDecimal("0.5", false), new Fraction(1, 2));
+//        assertEquals(Fraction.fromDecimal("0.5", true), new Fraction(1, 2));
+//        assertEquals(Fraction.fromDecimal("5,42", true), new Fraction(542, 100));
+//        assertEquals(Fraction.fromDecimal("5,4242", true), new Fraction(179, 33));
+        assertEquals(Fraction.fromRepeatingDecimal("551.23123"), new Fraction(183560, 333));
+        assertEquals(Fraction.fromRepeatingDecimal("0.33"), new Fraction(1, 3));
+        assertEquals(Fraction.fromRepeatingDecimal("5.4242"), new Fraction(179, 33));
+        assertEquals(Fraction.fromRepeatingDecimal("033,30"), new Fraction(100, 3));
+        assertEquals(Fraction.fromRepeatingDecimal("0.285714285714"), new Fraction(2, 7));
+        assertEquals(Fraction.fromRepeatingDecimal("1.23123"), new Fraction(410, 333));
+
+
+
+
+    }
+
 }

@@ -9,10 +9,8 @@ public class Pair<K, V> {
 
     @Override
     public String toString() {
-        return "Pair{" +
-                "first=" + first +
-                ", second=" + second +
-                '}';
+        return "{" + first + ", " + second + "}";
+
     }
 
     public Pair (K first, V second) {

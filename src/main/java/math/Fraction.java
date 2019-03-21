@@ -1,10 +1,10 @@
 package math;
 
 import misc.Pair;
+import misc.StringUtil;
 
 import java.math.BigInteger;
 import java.util.Objects;
-import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 public class Fraction {
@@ -13,6 +13,10 @@ public class Fraction {
 
     public Fraction(BigInteger numerator, BigInteger denominator) {
         this(numerator, denominator, true);
+    }
+
+    public Fraction(String numerator, String denominator) {
+        this(new BigInteger(numerator), new BigInteger(denominator));
     }
 
     @Override
@@ -92,7 +96,11 @@ public class Fraction {
     }
 
     public Fraction multiply (int other) {
-        return new Fraction(numerator.multiply(new BigInteger(String.valueOf(other))), denominator).compact();
+        return new Fraction(numerator.multiply(BigInteger.valueOf(other)), denominator).compact();
+    }
+
+    public Fraction pow (int other) {
+        return new Fraction(numerator.pow(other), denominator.pow(other));
     }
 
     private Fraction compact () {
@@ -134,65 +142,49 @@ public class Fraction {
         return "(" + numerator + " / " + denominator + ")";
     }
 
-    public static Fraction fromRepeatingDecimal (String representation) {
-        var pair = findPattern(representation);
-        int comma = getCurrentCommaPlace(representation);
-
-        String base = pair.getV();
-        String cycle =  pair.getK();
-
-        String stripped = representation.replaceAll("[,.]", "");
-
-        int wantedCommaPlace1 = base.length() + cycle.length();
-        int wantedCommaPlace2 = base.length();
-
-        String cycleLeft = insertComma(wantedCommaPlace1, stripped);
-        String cycleRight = insertComma(wantedCommaPlace2, stripped);
-
-        int xCoeff1 = (int) Math.pow(10, wantedCommaPlace1 - comma);
-        int xCoeff2 = (int) Math.pow(10, wantedCommaPlace2 - comma);
-
-        int numerator = (int) Double.parseDouble(cycleLeft) - (int) Double.parseDouble(cycleRight);
-        int denominator = xCoeff1 - xCoeff2;
-
-        return new Fraction(numerator, denominator);
-    }
-
-    private static String insertComma (int position, String number) {
-        if (position >= number.length()) {
-            return insertComma(position, number + "0");
-        }
-        return (number.substring(0, position) + "." + number.substring(position)).replaceAll("^0*", "");
-    }
-
-    private static int getCurrentCommaPlace(String string) {
-        char[] charArray = string.toCharArray();
-        for (int i = 0; i < charArray.length; i++) {
-            char a = charArray[i];
-
-            if (a == ',' || a == '.') {
-                return i;
+    public static Fraction fromDecimal (String representation, boolean repeating) {
+        if (repeating) {
+            if (!representation.contains(".") && !representation.contains(",")) {
+                throw new NumberFormatException("No comma or decimal point found in number " + representation + "!");
             }
+            return fromRepeatingDecimal(representation);
+        } else {
+            int commaPlace = StringUtil.getCurrentCommaPlace(representation);
+//            System.out.println(Integer.parseInt(representation) + ", " + (int) Math.pow(10, representation.length()));
+            representation = representation.replaceAll("[.,]", "");
+            return new Fraction(Integer.parseInt(representation), (int) Math.pow(10, representation.length() - commaPlace));
         }
-
-        return -1;
     }
 
-    private static Pair<String, String> findPattern (String s) {
-        s = s.replaceAll("([.,])", "");
+    static Fraction fromRepeatingDecimal(String x) {
+        x = x.replaceAll("^0+", "");
+        x = x.replaceAll("0+$", "");
 
-        var pattern = Pattern.compile("^(.+?)\\1+$");
+        Pair<String, String> pattern = StringUtil.findPattern(x);
 
-        for (int i = 0; i < s.length(); i++) {
-            if (pattern.matcher(s.substring(i)).matches()) {
-                return new Pair<>(s.substring(i).replaceAll("^(.+?)\\1+$", "$1"), s.substring(0, i));
-            }
-        }
-        return new Pair<>(s, s);
+        String base = pattern.getK();
+        String cycle = pattern.getV();
+
+        int commaPlace = StringUtil.getCurrentCommaPlace(x);
+        int coefficient = base.length() - commaPlace;
+
+
+        var frac1 = new Fraction(StringUtil.moveComma(base, -coefficient), "1");
+        var frac2 = new Fraction(new BigInteger(cycle), new BigInteger(StringUtil.moveComma("1.0", cycle.length())).subtract(BigInteger.ONE)).multiply((int) Math.pow(10, -coefficient));
+
+
+        return frac1.add(frac2);
     }
+
+    private static int findCommaplace (double number) {
+        return (int) Math.log10(number);
+    }
+
 
     public static void main(String[] args) {
 //        System.out.println(findPattern("3,3323332"));
-        System.out.println(fromRepeatingDecimal("10.233"));
+//        System.out.println(fromDecimal("33", false));
+        System.out.println(fromRepeatingDecimal("51,23123"));
+        System.out.println(fromRepeatingDecimal("3.3"));
     }
 }

@@ -17,7 +17,8 @@ public enum Token {
     RPAREN ("\\)", "Right parenthesis", 1),
     END ("$", "End", 1),
     NUMBER ("(-)?([0123456789])+([.,]([0123456789])+)?", "Number", 2),
-    ABS ("\\|", "Pipe", 1);
+    ABS ("\\|", "Pipe", 1),
+    ELLIPSIS ("\\.\\.\\.", "Ellipsis", 1);
 
     private final Pattern regex;
     private final String repr;
