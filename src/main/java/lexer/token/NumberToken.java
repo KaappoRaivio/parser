@@ -7,6 +7,8 @@ public class NumberToken extends FoundToken {
         return value;
     }
 
+
+
     @Override
     public String toString() {
         return super.toString() + "{" + value + "}";

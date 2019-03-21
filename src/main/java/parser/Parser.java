@@ -4,24 +4,27 @@ import lexer.Lexer;
 import lexer.token.FoundToken;
 import lexer.token.NumberToken;
 import lexer.token.Token;
+import math.Calculator;
+import math.Fraction;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class Parser {
-    private String input;
+public class Parser<T extends Fraction> {
     private Lexer lexer;
+    private Calculator<T> calculator;
 
-    public Parser (String input) {
-        this.input = input;
+    public Parser (String input, Calculator<T> calculator) {
         lexer = new Lexer(input);
+        this.calculator = calculator;
+
         if (lexer.isEmpty()) {
             throw new RuntimeException("Input cannot be nothing!");
         }
     }
 
-    public Number parse () {
-        Number expressionValue = expression();
+    public T parse () {
+        T expressionValue = expression();
 
         FoundToken token = lexer.getNextToken();
         if (!token.is(Token.END)) {
@@ -31,22 +34,22 @@ public class Parser {
         }
     }
 
-    private Number expression () {
+    private T expression () {
         final List<Token> additiveOperators = Arrays.asList(Token.ADD, Token.SUBTRACT);
 
 
-        Double leftOperand = factor().doubleValue();
+        T leftOperand = factor();
         FoundToken operator = lexer.getNextToken();
 
         while (operator.isIn(additiveOperators)) {
-            Double rightOperand = factor().doubleValue();
+            T rightOperand = factor();
 
             switch (operator.getTokenType()) {
                 case ADD:
-                    leftOperand += rightOperand;
+                    leftOperand = calculator.add(leftOperand, rightOperand);
                     break;
                 case SUBTRACT:
-                    leftOperand -= rightOperand;
+                    leftOperand = calculator.subtract(leftOperand, rightOperand);
                     break;
                 default:
                     throw new RuntimeException("Unknown exception @ expression!");
@@ -59,22 +62,22 @@ public class Parser {
 
     }
 
-    private Number factor () {
+    private T factor () {
         final List<Token> multiplicativeOperators = Arrays.asList(Token.MULTIPLY, Token.DIVIDE);
 
 
-        Double leftOperand = number().doubleValue();
+        T leftOperand = number();
         FoundToken operator = lexer.getNextToken();
 
         while (operator.isIn(multiplicativeOperators)) {
-            Double rightOperand = number().doubleValue();
+            T rightOperand = number();
 
             switch (operator.getTokenType()) {
                 case MULTIPLY:
-                    leftOperand *= rightOperand;
+                    leftOperand = calculator.multiply(leftOperand, rightOperand);
                     break;
                 case DIVIDE:
-                    leftOperand /= rightOperand;
+                    leftOperand = calculator.divide(leftOperand, rightOperand);
                     break;
                 default:
                     throw new RuntimeException("Unknown exception @ factor");
@@ -87,11 +90,11 @@ public class Parser {
         return leftOperand;
     }
 
-    private Number number () {
+    private T number () {
         int sign = 1;
         FoundToken token = lexer.getNextToken();
 
-        Number value;
+        T value;
 
         if (token.is(Token.SUBTRACT)) {
             sign = -1;
@@ -99,6 +102,14 @@ public class Parser {
         } else if (token.is(Token.ADD)) {
             sign = 1;
             token = lexer.getNextToken();
+        }
+
+        boolean repeating = false;
+        FoundToken possibleEllipsis = lexer.getNextToken();
+        if (possibleEllipsis.is(Token.ELLIPSIS)) {
+            repeating = true;
+        } else {
+            lexer.revert();
         }
 
         if (token.is(Token.LPAREN)) {
@@ -109,18 +120,18 @@ public class Parser {
             }
 
         } else if (token.is(Token.ABS)) {
-            value = Math.abs(expression().doubleValue());
+            value = calculator.abs(expression());
             FoundToken expectedClosingPipe = lexer.getNextToken();
             if (!expectedClosingPipe.is(Token.ABS)) {
                 throw new RuntimeException("Unbalanced pipes!" + expectedClosingPipe);
             }
         } else if (token.getClass() == NumberToken.class) {
-            value = ((NumberToken) token).getValue();
+            value = calculator.valueOf(((NumberToken) token).getValue().toString(), repeating);
         } else {
             throw new RuntimeException("Invalid token " + token);
         }
 
-        return value.doubleValue() * sign;
+        return calculator.multiply(value, sign);
     }
 
     public Lexer getLexer() {

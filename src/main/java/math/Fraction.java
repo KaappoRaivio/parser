@@ -108,8 +108,33 @@ public class Fraction {
         return reduce(gcd);
     }
 
-    public Fraction invert () {
+    public Fraction inverse () {
         return new Fraction(denominator, numerator);
+    }
+
+
+    public Fraction abs() {
+        return new Fraction(numerator.abs(), denominator.abs());
+    }
+
+
+    public Fraction valueOf(String string, boolean repeating) {
+        return fromDecimal(string, repeating);
+    }
+
+
+    public Fraction valueOf(int integer, boolean repeating) {
+        return valueOf(String.valueOf(integer), repeating);
+    }
+
+
+    public Fraction valueOf(double integer, boolean repeating) {
+        return valueOf(String.valueOf(integer), repeating);
+    }
+
+
+    public Fraction valueOf(float integer, boolean repeating) {
+        return valueOf(String.valueOf(integer), repeating);
     }
 
     public Fraction divide (Fraction other) {
@@ -149,11 +174,14 @@ public class Fraction {
             }
             return fromRepeatingDecimal(representation);
         } else {
-            int commaPlace = StringUtil.getCurrentCommaPlace(representation);
-//            System.out.println(Integer.parseInt(representation) + ", " + (int) Math.pow(10, representation.length()));
-            representation = representation.replaceAll("[.,]", "");
-            return new Fraction(Integer.parseInt(representation), (int) Math.pow(10, representation.length() - commaPlace));
+            return fromNonRepeatingDecimal(representation);
         }
+    }
+
+    private static Fraction fromNonRepeatingDecimal (String x) {
+        int commaPlace = StringUtil.getCurrentCommaPlace(x);
+        x = x.replaceAll("[.,]", "");
+        return new Fraction(x, StringUtil.moveComma("1.0", x.length() - commaPlace));
     }
 
     static Fraction fromRepeatingDecimal(String x) {
@@ -165,15 +193,34 @@ public class Fraction {
         String base = pattern.getK();
         String cycle = pattern.getV();
 
+        System.out.println(base + " " + cycle);
+
         int commaPlace = StringUtil.getCurrentCommaPlace(x);
         int coefficient = base.length() - commaPlace;
 
+        Fraction frac1;
+        Fraction frac2;
 
-        var frac1 = new Fraction(StringUtil.moveComma(base, -coefficient), "1");
-        var frac2 = new Fraction(new BigInteger(cycle), new BigInteger(StringUtil.moveComma("1.0", cycle.length())).subtract(BigInteger.ONE)).multiply((int) Math.pow(10, -coefficient));
-
+        try {
+            frac1 = new Fraction(StringUtil.moveComma(base, -coefficient), "1");
+            frac2 = new Fraction(new BigInteger(cycle), new BigInteger(StringUtil.moveComma("1.0", cycle.length())).subtract(BigInteger.ONE)).multiply(tenExp(-coefficient));
+        } catch (NumberFormatException e) {
+            return fromNonRepeatingDecimal(x);
+        }
+//        System.out.println(frac1);
 
         return frac1.add(frac2);
+    }
+
+
+    private static Fraction tenExp (int exponent) {
+        if (exponent < 0) {
+            return new Fraction(1, (int) Math.pow(10, -exponent));
+        } else if (exponent > 0) {
+            return new Fraction((int) Math.pow(10, exponent), 1);
+        } else {
+            return new Fraction(1, 1);
+        }
     }
 
     private static int findCommaplace (double number) {
