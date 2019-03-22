@@ -193,17 +193,16 @@ public class Fraction {
         String base = pattern.getK();
         String cycle = pattern.getV();
 
-        System.out.println(base + " " + cycle);
 
         int commaPlace = StringUtil.getCurrentCommaPlace(x);
-        int coefficient = base.length() - commaPlace;
+        int exponent = base.length() - commaPlace;
 
         Fraction frac1;
         Fraction frac2;
 
         try {
-            frac1 = new Fraction(StringUtil.moveComma(base, -coefficient), "1");
-            frac2 = new Fraction(new BigInteger(cycle), new BigInteger(StringUtil.moveComma("1.0", cycle.length())).subtract(BigInteger.ONE)).multiply(tenExp(-coefficient));
+            frac1 = new Fraction(StringUtil.moveComma(base, -exponent), "1");
+            frac2 = new Fraction(new BigInteger(cycle), new BigInteger(StringUtil.moveComma("1.0", cycle.length())).subtract(BigInteger.ONE)).multiply(tenExp(-exponent));
         } catch (NumberFormatException e) {
             return fromNonRepeatingDecimal(x);
         }

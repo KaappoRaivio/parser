@@ -2,7 +2,6 @@ package lexer.token;
 
 import lexer.UnknownTokenException;
 
-import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -16,7 +15,7 @@ public enum Token {
     LPAREN ("\\(", "Left parenthesis", 1),
     RPAREN ("\\)", "Right parenthesis", 1),
     END ("$", "End", 1),
-    NUMBER ("(-)?([0123456789])+([.,]([0123456789])+)?", "Number", 2),
+    NUMBER ("([0123456789])+([.,]([0123456789])+)?", "Number", 2),
     ABS ("\\|", "Pipe", 1),
     ELLIPSIS ("\\.\\.\\.", "Ellipsis", 1);
 

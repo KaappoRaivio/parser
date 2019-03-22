@@ -15,6 +15,11 @@ class ParserTest {
 
     @Test
     public void shouldIgnoreWhitespace () {
-        assertEquals(new Parser<>("3 + 2", new Calculator<Fraction>()).parse(), new Fraction(5, 1));
+        assertEquals(new Parser<>("3      +   2", new Calculator<Fraction>()).parse(), new Fraction(5, 1));
+    }
+
+    @Test
+    public void shouldIgnoreBrackets () {
+        assertEquals(new Parser<>("((((((3))))))", new Calculator<Fraction>()).parse(), new Fraction(3, 1));
     }
 }
