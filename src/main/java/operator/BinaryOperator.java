@@ -1,4 +1,4 @@
-package lexer;
+package operator;
 
 import lexer.token.Token;
 import math.Fraction;
@@ -12,11 +12,24 @@ public class BinaryOperator<T extends Fraction> implements Operator<Fraction> {
         this.function = function;
     }
 
+    @Override
+    public String toString() {
+        return "BinaryOperator{" +
+                "function=" + function +
+                ", token=" + token +
+                '}';
+    }
+
     public T invoke (T a, T b) {
         return function.apply(a, b);
     }
 
     public static void main(String[] args) {
         new BinaryOperator<Fraction>(Token.ADD, Fraction::add);
+    }
+
+    @Override
+    public Token getTokenType() {
+        return token;
     }
 }

@@ -128,6 +128,7 @@ public class Parser<T extends Fraction> {
         } else if (token.getClass() == NumberToken.class) {
             value = calculator.valueOf(((NumberToken) token).getValue().toString(), repeating);
         } else {
+            System.out.println(lexer);
             throw new RuntimeException("Invalid token " + token);
         }
 

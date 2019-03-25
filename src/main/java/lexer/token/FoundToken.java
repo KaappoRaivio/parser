@@ -1,6 +1,10 @@
 package lexer.token;
 
 
+import math.Fraction;
+import operator.Operator;
+import operator.OperatorGroup;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -47,6 +51,19 @@ public class FoundToken {
 
         for (Token a : tokenList) {
             if (is(a)) {
+                found = true;
+                break;
+            }
+        }
+
+        return found;
+    }
+
+    public <T extends Fraction> boolean isIn(OperatorGroup<T> currentOperators) {
+        boolean found = false;
+
+        for (Operator<T> a : currentOperators.getOperators()) {
+            if (is(a.getTokenType())) {
                 found = true;
                 break;
             }
