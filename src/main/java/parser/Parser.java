@@ -94,6 +94,7 @@ public class Parser<T extends Fraction> {
         int sign = 1;
         FoundToken token = lexer.getNextToken();
 
+        boolean squareRoot = false;
         T value;
 
         if (token.is(Token.SUBTRACT)) {
@@ -102,7 +103,18 @@ public class Parser<T extends Fraction> {
         } else if (token.is(Token.ADD)) {
             sign = 1;
             token = lexer.getNextToken();
+        } else if (token.is(Token.SQRT)) {
+            return calculator.root(number(), 2);
         }
+
+        FoundToken possibleSqrt = lexer.getNextToken();
+        if (possibleSqrt.is(Token.SQRT)) {
+            return calculator.root(number(), 2);
+        } else {
+            lexer.revert();
+        }
+
+
 
         boolean repeating = false;
         FoundToken possibleEllipsis = lexer.getNextToken();

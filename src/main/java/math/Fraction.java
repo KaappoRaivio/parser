@@ -10,7 +10,7 @@ import java.util.Objects;
 import java.util.stream.Stream;
 
 public class Fraction {
-    private static final int PRECISION = 10;
+    public static final int PRECISION = 10;
     private BigInteger numerator;
     private BigInteger denominator;
 
@@ -116,7 +116,7 @@ public class Fraction {
         Fraction b = other.expand(this.denominator);
 
 
-        return new Fraction(a.numerator.add(b.numerator), a.denominator);
+        return new Fraction(a.numerator.add(b.numerator), a.denominator, approx || other.approx);
     }
 
     public Fraction add (int other) {
@@ -154,8 +154,9 @@ public class Fraction {
 
     public Fraction root (int n) {
         String a = RootCalculus.nthRoot(n, toDecimal()).toString();
+//        System.out.println(a);
 
-        if (toDecimal().toString().contains(".")) {
+        if (a.contains(".")) {
             return fromDecimal(a.substring(0, a.length() - 1), true);
         } else {
             return fromDecimal(a, true);
@@ -279,8 +280,10 @@ public class Fraction {
 
     static Fraction fromRepeatingDecimal(String x) {
         x = x.replaceAll("^0+", "");
-        x = x.replaceAll("0+$", "");
-        x = "0" + x;
+//        x = x.replaceAll("0+$", "");
+        if (x.startsWith(".") || x.startsWith(",")) {
+            x = "0" + x;
+        }
 
         Pair<String, String> pattern = StringUtil.findPattern(x);
 
@@ -313,5 +316,11 @@ public class Fraction {
         } else {
             return new Fraction(1, 1);
         }
+    }
+
+    public static void main(String[] args) {
+        var a = new Fraction(1000, 1);
+        var b = a.root(3);
+        System.out.println(b.approx);
     }
 }

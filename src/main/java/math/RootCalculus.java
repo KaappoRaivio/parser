@@ -6,7 +6,7 @@ import java.math.RoundingMode;
 
 public class RootCalculus {
 
-    private static final int SCALE = 10;
+    private static final int SCALE = Fraction.PRECISION;
     private static final RoundingMode ROUNDING_MODE = RoundingMode.HALF_UP;
 
     public static BigDecimal nthRoot (final int n, final BigDecimal base) {

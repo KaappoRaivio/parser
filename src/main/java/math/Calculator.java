@@ -43,6 +43,10 @@ public class Calculator<T extends Fraction> {
         return (T) t1.abs();
     }
 
+    public T root (T t1, int n) {
+        return (T) t1.root(n);
+    }
+
     public T valueOf (String string, boolean repeatingDecimal) {
         return (T) T.fromDecimal(string, repeatingDecimal);
     }

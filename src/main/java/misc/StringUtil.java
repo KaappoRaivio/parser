@@ -32,6 +32,7 @@ public class StringUtil {
     private static String moveComma (String number, final int amount, final int commaplace) {
         int newcommaplace = commaplace + amount;
 
+
         if (newcommaplace > number.length() - 1) {
             return moveComma(number + "0", amount, commaplace);
         }

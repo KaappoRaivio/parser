@@ -13,6 +13,7 @@ class FractionTest {
         assertEquals(new Fraction(3, 4), new Fraction(6, 8));
         assertEquals(new Fraction(1, 1), new Fraction(5, 5));
         assertEquals(new Fraction(10, 5),2);
+        assertNotEquals(new Fraction(2, 7),new Fraction(2, 7, true));
     }
 
     @Test
@@ -64,8 +65,8 @@ class FractionTest {
 
     @Test
     public void nthRoot () {
-        assertEquals(new Fraction(16, 9).root(2), new Fraction(4, 3, false));
         assertEquals(new Fraction(1000, 1).root(3), new Fraction(10, 1));
+        assertEquals(new Fraction(16, 9).root(2), new Fraction(4, 3, false));
         assertEquals(new Fraction(2, 1).root(12), Fraction.fromDecimal("1.05946309", true));
     }
 
