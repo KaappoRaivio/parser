@@ -6,11 +6,15 @@ import misc.StringUtil;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.MathContext;
+import java.math.RoundingMode;
 import java.util.Objects;
 import java.util.stream.Stream;
 
 public class Fraction {
     public static final int PRECISION = 10;
+
+    private String originalRepresentation;
+
     private BigInteger numerator;
     private BigInteger denominator;
 
@@ -60,6 +64,14 @@ public class Fraction {
         BigInteger gcd = gcd(this.numerator, this.denominator);
         this.numerator = this.numerator.divide(gcd);
         this.denominator = this.denominator.divide(gcd);
+    }
+
+    public String getOriginalRepresentation() {
+        if (originalRepresentation == null) {
+            return toDecimal().toString();
+        } else {
+            return originalRepresentation;
+        }
     }
 
     @Override
@@ -152,9 +164,13 @@ public class Fraction {
         return reduce(gcd);
     }
 
+    public Fraction toEndless () {
+
+        return Fraction.fromDecimal(getOriginalRepresentation(), true);
+    }
+
     public Fraction root (int n) {
         String a = RootCalculus.nthRoot(n, toDecimal()).toString();
-//        System.out.println(a);
 
         if (a.contains(".")) {
             return fromDecimal(a.substring(0, a.length() - 1), true);
@@ -176,15 +192,7 @@ public class Fraction {
         BigDecimal tempResult = new BigDecimal(numerator).divide(new BigDecimal(denominator), MathContext.DECIMAL128);
         String string = tempResult.toString();
 
-        if (string.contains(".")) {
-            try {
-                return new BigDecimal(string.substring(0, string.length() - 1));
-            } catch (NumberFormatException e) {
-                return new BigDecimal(string.substring(0, string.length() - 2));
-            }
-        } else {
-            return new BigDecimal(string);
-        }
+        return new BigDecimal(string);
     }
 
 
@@ -236,6 +244,8 @@ public class Fraction {
     public String toString() {
         if (approx) {
             return toDecimal().toString();
+        }  else if (isInteger()) {
+            return numerator.toString();
         } else {
             return "(" + numerator + " / " + denominator + ")";
         }
@@ -272,13 +282,55 @@ public class Fraction {
         }
     }
 
+    public boolean isInteger () {
+        return denominator.equals(BigInteger.ONE);
+    }
+
+    public boolean isNegative () {
+        return toDecimal().compareTo(BigDecimal.ZERO) < 0;
+    }
+
+    public Fraction factorial () {
+        if (!isInteger() || isNegative()) {
+            throw new RuntimeException("Factorial is only defined for positive integer fractions, not \"" + toString() + "\"!");
+        }
+
+        //noinspection EqualsBetweenInconvertibleTypes
+        if (equals(1) || equals(0)) {
+            return new Fraction(numerator, denominator);
+        } else {
+            return multiply(new Fraction(numerator.subtract(BigInteger.ONE), denominator).factorial());
+        }
+
+    }
+//
+//    private static Fraction factorial (Fraction n) {
+//        if (!n.isInteger() || n.isNegative()) {
+//            throw new RuntimeException("Factorial is only defined for positive integer fractions, not " + n.toString() + "!");
+//        }
+//
+//        //noinspection EqualsBetweenInconvertibleTypes
+//        if (n.equals(1) || n.equals(0)) {
+//            return new Fraction(n.numerator, n.denominator);
+//        } else {
+//            return n.multiply(new Fraction(n.numerator.subtract(BigInteger.ONE), n.denominator));
+//        }
+//    }
+
     private static Fraction fromEndingDecimal(String x, boolean approx) {
+        String original = x;
+
+
         int commaPlace = StringUtil.getCurrentCommaPlace(x);
         x = x.replaceAll("[.,]", "");
-        return new Fraction(x, StringUtil.moveComma("1.0", x.length() - commaPlace), approx);
+
+        Fraction fraction = new Fraction(x, StringUtil.moveComma("1.0", x.length() - commaPlace), approx);
+        fraction.originalRepresentation = original;
+        return fraction;
     }
 
     static Fraction fromRepeatingDecimal(String x) {
+        String original = x;
         x = x.replaceAll("^0+", "");
 //        x = x.replaceAll("0+$", "");
         if (x.startsWith(".") || x.startsWith(",")) {
@@ -304,7 +356,9 @@ public class Fraction {
             return fromEndingDecimal(x, true);
         }
 
-        return baseFraction.add(cycleFraction);
+        Fraction fraction = baseFraction.add(cycleFraction);
+        fraction.originalRepresentation = original;
+        return fraction;
     }
 
 
@@ -321,6 +375,5 @@ public class Fraction {
     public static void main(String[] args) {
         var a = new Fraction(1000, 1);
         var b = a.root(3);
-        System.out.println(b.approx);
     }
 }

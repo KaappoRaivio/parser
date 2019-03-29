@@ -9,24 +9,57 @@ import java.util.Arrays;
 import java.util.List;
 
 public class OperatorGroup<T extends Fraction> {
-    private List<Operator<T>> operators;
+    public static final OperatorGroup<Fraction> UNARY_OPERATOR_GROUP = new OperatorGroup<>(
+            Arrays.asList(new UnaryOperator<>(Token.ADD, (a) -> a, UnaryOperatorType.PREFIX), new UnaryOperator<>(Token.SUBTRACT, Fraction::negate, UnaryOperatorType.PREFIX), new UnaryOperator<>(Token.SQRT, (fraction) -> fraction.root(2), UnaryOperatorType.PREFIX)),
+            Arrays.asList(new UnaryOperator<>(Token.ELLIPSIS, Fraction::toEndless, UnaryOperatorType.SUFFIX), new UnaryOperator<>(Token.EXCLAMATION, Fraction::factorial, UnaryOperatorType.SUFFIX))
+    );
 
-    @SafeVarargs
-    public OperatorGroup(Operator<T>... operators) {
-        this.operators = Arrays.asList(operators);
+
+    private List<UnaryOperator<T>> prefixOperators;
+    private List<UnaryOperator<T>> suffixOperators;
+
+    public OperatorGroup(List<UnaryOperator<T>> prefixOperators, List<UnaryOperator<T>> suffixOperators) {
+        this.prefixOperators = prefixOperators;
+        this.suffixOperators = suffixOperators;
     }
 
-    public List<Operator<T>> getOperators() {
-        return operators;
-    }
-
-    public Operator<T> getOperator(FoundToken operator) {
-        for (Operator<T> a : operators) {
-            if (a.getTokenType().equals(operator.getTokenType())) {
-                return a;
+    public boolean isPrefixOperator (FoundToken token) {
+        for (UnaryOperator<T> operator : prefixOperators) {
+            if (token.is(operator.getTokenType())) {
+                return true;
             }
         }
 
-        throw new UnknownTokenException("Unknown token " + operator + "!");
+        return false;
+    }
+
+    public UnaryOperator<T> getSuffixOperator (FoundToken token) {
+        for (UnaryOperator<T> operator : suffixOperators) {
+            if (token.is(operator.getTokenType())) {
+                return operator;
+            }
+        }
+
+        throw new RuntimeException("Token " + token + " is not a suffix operator");
+    }
+
+    public UnaryOperator<T> getPrefixOperator (FoundToken token) {
+        for (UnaryOperator<T> operator : prefixOperators) {
+            if (token.is(operator.getTokenType())) {
+                return operator;
+            }
+        }
+
+        throw new RuntimeException("Token " + token + " is not a prefix operator");
+    }
+
+    public boolean isSuffixOperator (FoundToken token) {
+        for (UnaryOperator<T> operator : suffixOperators) {
+            if (token.is(operator.getTokenType())) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

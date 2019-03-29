@@ -3,7 +3,7 @@ package operator;
 import lexer.token.Token;
 import math.Fraction;
 
-public class UnaryOperator<T extends Fraction> implements Operator<Fraction> {
+public class UnaryOperator<T extends Fraction> {
     private java.util.function.UnaryOperator<T> function;
 
     public UnaryOperatorType getUnaryOperatorType() {
@@ -36,7 +36,6 @@ public class UnaryOperator<T extends Fraction> implements Operator<Fraction> {
         new UnaryOperator<Fraction>(Token.SUBTRACT, Fraction::negate, UnaryOperatorType.SUFFIX);
     }
 
-    @Override
     public Token getTokenType() {
         return token;
     }

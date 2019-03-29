@@ -3,7 +3,7 @@ package operator;
 import lexer.token.Token;
 import math.Fraction;
 
-public class BinaryOperator<T extends Fraction> implements Operator<Fraction> {
+public class BinaryOperator<T extends Fraction> {
     private java.util.function.BinaryOperator<T> function;
     private Token token;
 
@@ -28,7 +28,6 @@ public class BinaryOperator<T extends Fraction> implements Operator<Fraction> {
         new BinaryOperator<Fraction>(Token.ADD, Fraction::add);
     }
 
-    @Override
     public Token getTokenType() {
         return token;
     }

@@ -18,7 +18,9 @@ public enum Token {
     NUMBER ("([0123456789])+([.,]([0123456789])+)?", "Number", 2),
     ABS ("\\|", "Pipe", 1),
     ELLIPSIS ("\\.\\.\\.", "Ellipsis", 1),
-    SQRT ("\\√", "Square root", 1);
+    SQRT ("\\√", "Square root", 1),
+    EXCLAMATION ("\\!", "Factorial", 1),
+    POWER ("(\\*\\*|\\^)", "Power", 2);
 
     private final Pattern regex;
     private final String repr;
