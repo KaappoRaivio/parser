@@ -1,10 +1,10 @@
 package operator;
 
 import lexer.token.Token;
-import math.Fraction;
+import math.Fractionatable;
 
-public class UnaryOperator<T extends Fraction> {
-    private java.util.function.UnaryOperator<T> function;
+public class UnaryOperator {
+    private java.util.function.UnaryOperator<Fractionatable> function;
 
     public UnaryOperatorType getUnaryOperatorType() {
         return unaryOperatorType;
@@ -13,13 +13,13 @@ public class UnaryOperator<T extends Fraction> {
     private UnaryOperatorType unaryOperatorType;
     private Token token;
 
-    public UnaryOperator(Token token, java.util.function.UnaryOperator<T> function, UnaryOperatorType unaryOperatorType) {
+    public UnaryOperator(Token token, java.util.function.UnaryOperator<Fractionatable> function, UnaryOperatorType unaryOperatorType) {
         this.token = token;
         this.function = function;
         this.unaryOperatorType = unaryOperatorType;
     }
 
-    public T invoke (T a) {
+    public Fractionatable invoke (Fractionatable a) {
         return function.apply(a);
     }
 
@@ -33,7 +33,7 @@ public class UnaryOperator<T extends Fraction> {
     }
 
     public static void main(String[] args) {
-        new UnaryOperator<Fraction>(Token.SUBTRACT, Fraction::negate, UnaryOperatorType.SUFFIX);
+        new UnaryOperator(Token.SUBTRACT, fractionizeable -> fractionizeable.fractionValue().negate(), UnaryOperatorType.SUFFIX);
     }
 
     public Token getTokenType() {

@@ -14,7 +14,7 @@ public class Main {
 //        System.out.println(new Lexer("-0.2 + (12,45 - 5 / 2 * 4.02 --23) - 8"));
 //        System.out.println(new Parser("-0.2 + (12,45 - 5 / 2 * 4.02 --23) - 8").parse());
 
-        Parser parser1 = new Parser<>("3(2)", new Calculator<>(), OperatorGroup.UNARY_OPERATOR_GROUP);
+        Parser parser1 = new Parser("3(2)", new Calculator<>(), OperatorGroup.UNARY_OPERATOR_GROUP);
 
 //        Parser<Fraction> parser1 = new Parser<>(new Scanner(System.in).nextLine(), new Calculator<>());
 //        Parser parser = new Parser<>("", new Calculator<Fraction>());

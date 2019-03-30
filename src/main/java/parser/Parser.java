@@ -6,18 +6,19 @@ import lexer.token.NumberToken;
 import lexer.token.Token;
 import math.Calculator;
 import math.Fraction;
+import math.Fractionatable;
 import operator.OperatorGroup;
 import operator.UnaryOperator;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class Parser<T extends Fraction> {
+public class Parser {
     private Lexer lexer;
-    private Calculator<T> calculator;
-    private OperatorGroup<T> operatorGroup;
+    private Calculator<Fraction> calculator;
+    private OperatorGroup operatorGroup;
 
-    public Parser(String input, Calculator<T> calculator, OperatorGroup<T> operatorGroup) {
+    public Parser(String input, Calculator<Fraction> calculator, OperatorGroup operatorGroup) {
         lexer = new Lexer(input);
         this.calculator = calculator;
         this.operatorGroup = operatorGroup;
@@ -27,26 +28,26 @@ public class Parser<T extends Fraction> {
         }
     }
 
-    public T parse () {
-        T expressionValue = expression();
+    public Fractionatable parse () {
+        Fractionatable expressionValue = expression();
 
         FoundToken token = lexer.getNextToken();
         if (!token.is(Token.END)) {
             throw new RuntimeException("End expected, got " + token + " instead!");
         } else {
-            return expressionValue;
+            return expressionValue.fractionValue();
         }
     }
 
-    private T expression () {
+    private Fractionatable expression () {
         final List<Token> additiveOperators = Arrays.asList(Token.ADD, Token.SUBTRACT);
 
 
-        T leftOperand = factor();
+        Fractionatable leftOperand = factor();
         FoundToken operator = lexer.getNextToken();
 
         while (operator.isIn(additiveOperators)) {
-            T rightOperand = factor();
+            Fractionatable rightOperand = factor();
 
             switch (operator.getTokenType()) {
                 case ADD:
@@ -66,11 +67,11 @@ public class Parser<T extends Fraction> {
 
     }
 
-    private T factor () {
+    private Fractionatable factor () {
         final List<Token> multiplicativeOperators = Arrays.asList(Token.MULTIPLY, Token.DIVIDE, Token.LPAREN);
 
 
-        T leftOperand = prefixUnary();
+        Fractionatable leftOperand = prefixUnary();
         FoundToken operator = lexer.getNextToken();
 
         while (operator.isIn(multiplicativeOperators)) {
@@ -79,7 +80,7 @@ public class Parser<T extends Fraction> {
                 operator = new FoundToken(Token.MULTIPLY);
             }
             
-            T rightOperand = prefixUnary();
+            Fractionatable rightOperand = prefixUnary();
 
             switch (operator.getTokenType()) {
                 case MULTIPLY:
@@ -103,12 +104,12 @@ public class Parser<T extends Fraction> {
         return leftOperand;
     }
 
-    private T prefixUnary() {
+    private Fractionatable prefixUnary() {
 
         FoundToken token = lexer.getNextToken();
 
         if (operatorGroup.isPrefixOperator(token)) {
-            UnaryOperator<T> operator = operatorGroup.getPrefixOperator(token);
+            UnaryOperator operator = operatorGroup.getPrefixOperator(token);
             return operator.invoke(prefixUnary());
         } else {
             lexer.revert();
@@ -138,11 +139,9 @@ public class Parser<T extends Fraction> {
 
     }
 
-    private T suffixUnary () {
+    private Fractionatable suffixUnary () {
 
-
-
-        T value = number();
+        Fractionatable value = number();
         FoundToken possibleSuffixUnary = lexer.getNextToken();
         while (operatorGroup.isSuffixOperator(possibleSuffixUnary)) {
             value = operatorGroup.getSuffixOperator(possibleSuffixUnary).invoke(value);
@@ -153,9 +152,9 @@ public class Parser<T extends Fraction> {
         return value;
     }
 
-    private T number() {
+    private Fractionatable number() {
         FoundToken token = lexer.getNextToken();
-        T value;
+        Fractionatable value;
 
         if (token.is(Token.LPAREN)) {
             value = expression();

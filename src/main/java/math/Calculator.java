@@ -1,53 +1,51 @@
 package math;
 
-import javax.xml.stream.FactoryConfigurationError;
-
 public class Calculator<T extends Fraction> {
-    public T add (T t1, T t2) {
-        return (T) t1.add(t2);
+    public Fractionatable add (Fractionatable t1, Fractionatable t2) {
+        return t1.fractionValue().add(t2.fractionValue());
     }
 
-    public T subtract (T t1, T t2) {
-        return (T) t1.subtract(t2);
+    public Fractionatable subtract (Fractionatable t1, Fractionatable t2) {
+        return t1.fractionValue().subtract(t2.fractionValue());
     }
 
-    public T multiply (T t1, T t2) {
-        return (T) t1.multiply(t2);
+    public Fractionatable multiply (Fractionatable t1, Fractionatable t2) {
+        return t1.fractionValue().multiply(t2.fractionValue());
     }
 
-    public T divide (T t1, T t2) {
-        return (T) t1.divide(t2);
+    public Fractionatable divide (Fractionatable t1, Fractionatable t2) {
+        return t1.fractionValue().divide(t2.fractionValue());
     }
 
-    public T pow (T t1, int t2) {
-        return (T) t1.pow(t2);
+    public Fractionatable pow (Fractionatable t1, int t2) {
+        return t1.fractionValue().pow(t2);
     }
 
-    public T add (T t1, int t2) {
-        return (T) t1.add(t2);
+    public Fractionatable add (Fractionatable t1, int t2) {
+        return t1.fractionValue().add(t2);
     }
 
-    public T subtract (T t1, int t2) {
-        return (T) t1.subtract(t2);
+    public Fractionatable subtract (Fractionatable t1, int t2) {
+        return t1.fractionValue().subtract(t2);
     }
 
-    public T multiply (T t1, int t2) {
-        return (T) t1.multiply(t2);
+    public Fractionatable multiply (Fractionatable t1, int t2) {
+        return t1.fractionValue().multiply(t2);
     }
 
-    public T divide (T t1, int t2) {
-        return (T) t1.divide(t2);
+    public Fractionatable divide (Fractionatable t1, int t2) {
+        return t1.fractionValue().divide(t2);
     }
 
-    public T abs(T t1) {
-        return (T) t1.abs();
+    public Fractionatable abs(Fractionatable t1) {
+        return t1.fractionValue().abs();
     }
 
-    public T root (T t1, int n) {
-        return (T) t1.root(n);
+    public Fractionatable root (Fractionatable t1, int n) {
+        return t1.fractionValue().root(n);
     }
 
-    public T valueOf (String string, boolean repeatingDecimal) {
-        return (T) T.fromDecimal(string, repeatingDecimal);
+    public Fractionatable valueOf (String string, boolean repeatingDecimal) {
+        return T.fromDecimal(string, repeatingDecimal);
     }
 }

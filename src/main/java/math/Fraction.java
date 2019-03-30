@@ -6,11 +6,10 @@ import misc.StringUtil;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.MathContext;
-import java.math.RoundingMode;
 import java.util.Objects;
 import java.util.stream.Stream;
 
-public class Fraction {
+public class Fraction implements Fractionatable {
     public static final int PRECISION = 10;
 
     private String originalRepresentation;
@@ -372,8 +371,8 @@ public class Fraction {
         }
     }
 
-    public static void main(String[] args) {
-        var a = new Fraction(1000, 1);
-        var b = a.root(3);
+    @Override
+    public Fraction fractionValue() {
+        return this;
     }
 }
