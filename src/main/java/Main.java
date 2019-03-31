@@ -8,6 +8,7 @@ import operator.unaryoperator.UnaryOperatorGroup;
 import parser.Parser;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 public class Main {
     public static void main(String[] args) {
@@ -18,14 +19,17 @@ public class Main {
         final var operatorSub = new BinaryOperator(Token.SUBTRACT, ((fractionatable, fractionatable2) -> fractionatable.fractionValue().subtract(fractionatable2.fractionValue())), EvaluatingOrder.LEFT_TO_RIGHT);
         final var operatorMul = new BinaryOperator(Token.MULTIPLY, ((fractionatable, fractionatable2) -> fractionatable.fractionValue().multiply(fractionatable2.fractionValue())), EvaluatingOrder.LEFT_TO_RIGHT);
         final var operatorDiv = new BinaryOperator(Token.DIVIDE, ((fractionatable, fractionatable2) -> fractionatable.fractionValue().divide(fractionatable2.fractionValue())), EvaluatingOrder.LEFT_TO_RIGHT);
-
-        BinaryOperatorStack binaryOperatorStack = new BinaryOperatorStack(Arrays.asList(
-            new BinaryOperatorGroup(Arrays.asList(operatorAdd, operatorSub)),
-            new BinaryOperatorGroup(Arrays.asList(operatorMul, operatorDiv))
-        ));
+        final var operatorPow = new BinaryOperator(Token.POWER, ((fractionatable, fractionatable2) -> fractionatable.fractionValue().power(fractionatable2.fractionValue())), EvaluatingOrder.RIGHT_TO_LEFT);
 
 
-        Parser parser1 = new Parser("(3 + 2) * 3", new Calculator<>(), UnaryOperatorGroup.UNARY_OPERATOR_GROUP, binaryOperatorStack);
+        BinaryOperatorStack binaryOperatorStack = new BinaryOperatorStack(
+                new BinaryOperatorGroup(operatorAdd, operatorSub),
+                new BinaryOperatorGroup(operatorMul, operatorDiv),
+                new BinaryOperatorGroup(operatorPow)
+        );
+
+
+        Parser parser1 = new Parser("-2^2", new Calculator<>(), UnaryOperatorGroup.UNARY_OPERATOR_GROUP, binaryOperatorStack);
 
 //        Parser<Fraction> parser1 = new Parser<>(new Scanner(System.in).nextLine(), new Calculator<>());
 //        Parser parser = new Parser<>("", new Calculator<Fraction>());

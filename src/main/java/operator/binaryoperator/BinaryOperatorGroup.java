@@ -2,10 +2,16 @@ package operator.binaryoperator;
 
 import lexer.token.FoundToken;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class BinaryOperatorGroup {
     private List<BinaryOperator> operators;
+
+    public BinaryOperatorGroup (BinaryOperator... operators) {
+        this(Arrays.stream(operators).collect(Collectors.toList()));
+    }
 
     public BinaryOperatorGroup(List<BinaryOperator> operators) {
         this.operators = operators;

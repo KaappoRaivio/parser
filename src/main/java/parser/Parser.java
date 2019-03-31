@@ -204,14 +204,14 @@ public class Parser {
         Fractionatable value;
 
         if (token.is(Token.LPAREN)) {
-            value = expression();
+            value = genericEval(0);
             FoundToken expectedClosingParen = lexer.getNextToken();
             if (!expectedClosingParen.is(Token.RPAREN)) {
                 throw new RuntimeException("Unbalanced parentheses! " + expectedClosingParen);
             }
 
         } else if (token.is(Token.ABS)) {
-            value = calculator.abs(expression());
+            value = calculator.abs(genericEval(0));
             FoundToken expectedClosingPipe = lexer.getNextToken();
             if (!expectedClosingPipe.is(Token.ABS)) {
                 throw new RuntimeException("Unbalanced pipes!" + expectedClosingPipe);

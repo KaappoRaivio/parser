@@ -11,6 +11,7 @@ import java.util.stream.Stream;
 
 public class Fraction implements Fractionatable {
     public static final int PRECISION = 10;
+    public static final BigInteger BIG = BigInteger.valueOf(1_000_000_000);
 
     private String originalRepresentation;
 
@@ -154,8 +155,20 @@ public class Fraction implements Fractionatable {
         return new Fraction(numerator.multiply(BigInteger.valueOf(other)), denominator).compact();
     }
 
-    public Fraction pow (int other) {
-        return new Fraction(numerator.pow(other), denominator.pow(other));
+    private Fraction power (BigInteger exponent) {
+        if (exponent.compareTo(BigInteger.ZERO) < 0) {
+            return new Fraction(numerator.modPow(exponent, BIG), denominator.modPow(exponent, BIG)).inverse();
+        } else {
+            return new Fraction(numerator.modPow(exponent, BIG), denominator.modPow(exponent, BIG));
+        }
+    }
+
+    public Fraction power (Fraction exponent) {
+        if (!exponent.isInteger()) {
+            throw new RuntimeException("Exponent must be integer, not \"" + exponent + "\"!");
+        } else {
+            return power(exponent.numerator);
+        }
     }
 
     private Fraction compact () {

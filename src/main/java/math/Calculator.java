@@ -17,10 +17,6 @@ public class Calculator<T extends Fraction> {
         return t1.fractionValue().divide(t2.fractionValue());
     }
 
-    public Fractionatable pow (Fractionatable t1, int t2) {
-        return t1.fractionValue().pow(t2);
-    }
-
     public Fractionatable add (Fractionatable t1, int t2) {
         return t1.fractionValue().add(t2);
     }
