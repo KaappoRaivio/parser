@@ -7,21 +7,29 @@ import lexer.token.Token;
 import math.Calculator;
 import math.Fraction;
 import math.Fractionatable;
-import operator.OperatorGroup;
-import operator.UnaryOperator;
+import operator.binaryoperator.BinaryOperator;
+import operator.binaryoperator.BinaryOperatorGroup;
+import operator.binaryoperator.BinaryOperatorStack;
+import operator.unaryoperator.UnaryOperatorGroup;
+import operator.unaryoperator.UnaryOperator;
 
 import java.util.Arrays;
 import java.util.List;
 
+import static operator.binaryoperator.EvaluatingOrder.LEFT_TO_RIGHT;
+import static operator.binaryoperator.EvaluatingOrder.RIGHT_TO_LEFT;
+
 public class Parser {
     private Lexer lexer;
     private Calculator<Fraction> calculator;
-    private OperatorGroup operatorGroup;
+    private UnaryOperatorGroup unaryOperatorGroup;
+    private BinaryOperatorStack binaryOperatorStack;
 
-    public Parser(String input, Calculator<Fraction> calculator, OperatorGroup operatorGroup) {
+    public Parser(String input, Calculator<Fraction> calculator, UnaryOperatorGroup unaryOperatorGroup, BinaryOperatorStack binaryOperatorStack) {
         lexer = new Lexer(input);
         this.calculator = calculator;
-        this.operatorGroup = operatorGroup;
+        this.unaryOperatorGroup = unaryOperatorGroup;
+        this.binaryOperatorStack = binaryOperatorStack;
 
         if (lexer.isEmpty()) {
             throw new RuntimeException("Input cannot be nothing!");
@@ -29,13 +37,52 @@ public class Parser {
     }
 
     public Fractionatable parse () {
-        Fractionatable expressionValue = expression();
+//        Fractionatable expressionValue = expression();
+        Fractionatable expressionValue = genericEval(0);
 
         FoundToken token = lexer.getNextToken();
         if (!token.is(Token.END)) {
             throw new RuntimeException("End expected, got " + token + " instead!");
         } else {
             return expressionValue.fractionValue();
+        }
+    }
+
+    private Fractionatable genericEval (int binaryOperatorStackPointer) {
+        if (binaryOperatorStackPointer >= binaryOperatorStack.size()) {
+            return prefixUnary();
+        }
+
+        BinaryOperatorGroup currentBinaryOperators = binaryOperatorStack.getGroup(binaryOperatorStackPointer);
+
+        Fractionatable leftOperand = genericEval(binaryOperatorStackPointer + 1);
+        FoundToken operatorToken = lexer.getNextToken();
+
+        if (currentBinaryOperators.isOperator(operatorToken)) {
+            BinaryOperator operator = currentBinaryOperators.getOperator(operatorToken);
+
+            switch (operator.getEvaluatingOrder()) {
+                case LEFT_TO_RIGHT:
+                    while (currentBinaryOperators.isOperator(operatorToken)) {
+                        operator = currentBinaryOperators.getOperator(operatorToken);
+                        Fractionatable rightOperand = genericEval(binaryOperatorStackPointer + 1);
+
+                        leftOperand = operator.invoke(leftOperand, rightOperand);
+
+                        operatorToken = lexer.getNextToken();
+                    }
+
+                    lexer.revert();
+                    return leftOperand;
+                case RIGHT_TO_LEFT:
+                    return operator.invoke(leftOperand, genericEval(binaryOperatorStackPointer));
+                default:
+                    throw new RuntimeException("Unknown error " + operator.getEvaluatingOrder() + "!");
+            }
+        } else {
+//            throw new RuntimeException("Operator " + operatorToken + " is not known by the parser!");
+            lexer.revert();
+            return leftOperand;
         }
     }
 
@@ -108,8 +155,8 @@ public class Parser {
 
         FoundToken token = lexer.getNextToken();
 
-        if (operatorGroup.isPrefixOperator(token)) {
-            UnaryOperator operator = operatorGroup.getPrefixOperator(token);
+        if (unaryOperatorGroup.isPrefixOperator(token)) {
+            UnaryOperator operator = unaryOperatorGroup.getPrefixOperator(token);
             return operator.invoke(prefixUnary());
         } else {
             lexer.revert();
@@ -143,8 +190,8 @@ public class Parser {
 
         Fractionatable value = number();
         FoundToken possibleSuffixUnary = lexer.getNextToken();
-        while (operatorGroup.isSuffixOperator(possibleSuffixUnary)) {
-            value = operatorGroup.getSuffixOperator(possibleSuffixUnary).invoke(value);
+        while (unaryOperatorGroup.isSuffixOperator(possibleSuffixUnary)) {
+            value = unaryOperatorGroup.getSuffixOperator(possibleSuffixUnary).invoke(value);
             possibleSuffixUnary = lexer.getNextToken();
         }
 

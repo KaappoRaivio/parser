@@ -3,8 +3,10 @@ package operator;
 import lexer.token.Token;
 import math.Fraction;
 import math.Fractionatable;
+import operator.unaryoperator.UnaryOperator;
+import operator.unaryoperator.UnaryOperatorType;
 
-public class BoundingOperator<T extends Fraction> extends UnaryOperator{
+public class BoundingOperator extends UnaryOperator {
     private final Token rightToken;
 
     public Token getRightToken () {

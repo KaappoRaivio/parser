@@ -1,9 +1,6 @@
 package lexer.token;
 
 
-import math.Fraction;
-import operator.OperatorGroup;
-
 import java.util.List;
 import java.util.Objects;
 
