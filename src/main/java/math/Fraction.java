@@ -45,6 +45,7 @@ public class Fraction implements Fractionatable {
     }
 
     public Fraction (BigInteger numerator, BigInteger denominator, boolean compact, boolean approximation) {
+        System.out.println("numerator = [" + numerator + "], denominator = [" + denominator + "], compact = [" + compact + "], approximation = [" + approximation + "]");
         if (denominator.equals(BigInteger.ZERO)) {
             throw new ArithmeticException("Denominator cannot be zero!");
         }

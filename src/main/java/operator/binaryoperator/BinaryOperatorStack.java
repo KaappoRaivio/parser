@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class BinaryOperatorStack {
-    List<BinaryOperatorGroup> operatorGroups;
+    private List<BinaryOperatorGroup> operatorGroups;
 
     public BinaryOperatorStack(BinaryOperatorGroup... operators) {
         this(Arrays.stream(operators).collect(Collectors.toList()));

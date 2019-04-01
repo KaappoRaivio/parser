@@ -86,71 +86,6 @@ public class Parser {
         }
     }
 
-    private Fractionatable expression () {
-        final List<Token> additiveOperators = Arrays.asList(Token.ADD, Token.SUBTRACT);
-
-
-        Fractionatable leftOperand = factor();
-        FoundToken operator = lexer.getNextToken();
-
-        while (operator.isIn(additiveOperators)) {
-            Fractionatable rightOperand = factor();
-
-            switch (operator.getTokenType()) {
-                case ADD:
-                    leftOperand = calculator.add(leftOperand, rightOperand);
-                    break;
-                case SUBTRACT:
-                    leftOperand = calculator.subtract(leftOperand, rightOperand);
-                    break;
-                default:
-                    throw new RuntimeException("Unknown exception @ expression!");
-            }
-
-            operator = lexer.getNextToken();
-        }
-        lexer.revert();
-        return leftOperand;
-
-    }
-
-    private Fractionatable factor () {
-        final List<Token> multiplicativeOperators = Arrays.asList(Token.MULTIPLY, Token.DIVIDE, Token.LPAREN);
-
-
-        Fractionatable leftOperand = prefixUnary();
-        FoundToken operator = lexer.getNextToken();
-
-        while (operator.isIn(multiplicativeOperators)) {
-            if (operator.is(Token.LPAREN)) {
-                lexer.revert();
-                operator = new FoundToken(Token.MULTIPLY);
-            }
-            
-            Fractionatable rightOperand = prefixUnary();
-
-            switch (operator.getTokenType()) {
-                case MULTIPLY:
-                    leftOperand = calculator.multiply(leftOperand, rightOperand);
-                    break;
-                case DIVIDE:
-                    leftOperand = calculator.divide(leftOperand, rightOperand);
-                    break;
-                case LPAREN:
-                    leftOperand = calculator.multiply(leftOperand, rightOperand);
-                    break;
-                default:
-                    throw new RuntimeException("Unknown exception @ factor");
-
-            }
-            operator = lexer.getNextToken();
-        }
-
-
-        lexer.revert();
-        return leftOperand;
-    }
-
     private Fractionatable prefixUnary() {
 
         FoundToken token = lexer.getNextToken();
@@ -162,34 +97,12 @@ public class Parser {
             lexer.revert();
             return suffixUnary();
         }
-
-
-//        if (token.is(Token.SUBTRACT)) {
-//            sign = -1;
-//            token = lexer.getNextToken();
-//        } else if (token.is(Token.ADD)) {
-//            sign = 1;
-//            token = lexer.getNextToken();
-//        } else if (token.is(Token.SQRT)) {
-//            return calculator.root(prefixUnary(), 2);
-//        }
-//
-//        FoundToken possibleSqrt = lexer.getNextToken();
-//        if (possibleSqrt.is(Token.SQRT)) {
-//            return calculator.root(prefixUnary(), 2);
-//        } else {
-//            lexer.revert();
-//        }
-
-
-
-
     }
 
     private Fractionatable suffixUnary () {
-
         Fractionatable value = number();
         FoundToken possibleSuffixUnary = lexer.getNextToken();
+
         while (unaryOperatorGroup.isSuffixOperator(possibleSuffixUnary)) {
             value = unaryOperatorGroup.getSuffixOperator(possibleSuffixUnary).invoke(value);
             possibleSuffixUnary = lexer.getNextToken();
@@ -229,5 +142,4 @@ public class Parser {
     public Lexer getLexer() {
         return lexer;
     }
-
 }

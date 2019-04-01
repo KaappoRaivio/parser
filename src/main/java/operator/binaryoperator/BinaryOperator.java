@@ -2,8 +2,10 @@ package operator.binaryoperator;
 
 import lexer.token.Token;
 import math.Fractionatable;
+import operator.genericoperator.Operator;
+import operator.genericoperator.OperatorType;
 
-public class BinaryOperator {
+public class BinaryOperator implements Operator {
     private java.util.function.BinaryOperator<Fractionatable> function;
     private EvaluatingOrder evaluatingOrder;
     private Token token;
@@ -26,7 +28,21 @@ public class BinaryOperator {
         return function.apply(t1, t2);
     }
 
-    Token getTokenType() {
+    @Override
+    public OperatorType getOperatorType() {
+        return OperatorType.BINARY;
+    }
+
+    @Override
+    public String toString() {
+        return "BinaryOperator{" +
+                ", evaluatingOrder=" + evaluatingOrder +
+                ", token=" + token +
+                '}';
+    }
+
+    @Override
+    public Token getTokenType() {
         return token;
     }
 }

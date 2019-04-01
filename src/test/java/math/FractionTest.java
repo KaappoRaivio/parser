@@ -70,4 +70,9 @@ class FractionTest {
         assertEquals(new Fraction(2, 1).root(12), Fraction.fromDecimal("1.05946309", true));
     }
 
+    @Test
+    public void power () {
+        System.out.println(new Fraction(2, 1).root(2).power(new Fraction(2, 1)));
+    }
+
 }
