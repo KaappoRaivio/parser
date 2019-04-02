@@ -1,9 +1,11 @@
 package lexer.token;
 
-public class NumberToken extends FoundToken {
-    private Number value;
+import misc.StringUtil;
 
-    public Number getValue() {
+public class NumberToken extends FoundToken {
+    private String value;
+
+    public String getValue() {
         return value;
     }
 
@@ -14,7 +16,7 @@ public class NumberToken extends FoundToken {
         return super.toString() + "{" + value + "}";
     }
 
-    public NumberToken(Token tokenType, Number value) {
+    public NumberToken(Token tokenType, String value) {
         super(tokenType);
 
         this.value = value;

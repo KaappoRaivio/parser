@@ -48,26 +48,42 @@ class FractionTest {
 
     @Test
     public void shouldParseNumbers () {
-        assertEquals(Fraction.fromRepeatingDecimal("0.33"), new Fraction(1, 3));
-        assertEquals(Fraction.fromDecimal("0.5", false), new Fraction(1, 2));
-        assertEquals(Fraction.fromDecimal("0.5", false), new Fraction(1, 2));
-        assertEquals(Fraction.fromDecimal("5,42", false), new Fraction(542, 100));
-        assertEquals(Fraction.fromDecimal("5,4242", true), new Fraction(179, 33));
-        assertEquals(Fraction.fromDecimal("551.23123", true), new Fraction(183560, 333));
-        assertEquals(Fraction.fromDecimal("0.33", true), new Fraction(1, 3));
-        assertEquals(Fraction.fromDecimal("5.4242", true), new Fraction(179, 33));
-        assertEquals(Fraction.fromDecimal("033,3", true), new Fraction(100, 3));
-        assertEquals(Fraction.fromDecimal("0.285714285714", true), new Fraction(2, 7));
-        assertEquals(Fraction.fromDecimal("1.23123", true), new Fraction(410, 333));
-        assertEquals(Fraction.fromDecimal("123123.123", true), new Fraction(41_000_000, 333));
-        assertEquals(Fraction.fromDecimal("0.000000000123123", true), new Fraction("410", "3330000000000"));
+
+//        assertEquals(Fraction.fromRepeatingDecimal("0.33"), new Fraction(1, 3));
+//        assertEquals(Fraction.fromDecimal("0.5", false), new Fraction(1, 2));
+//        assertEquals(Fraction.fromDecimal("0.5", false), new Fraction(1, 2));
+//        assertEquals(Fraction.fromDecimal("5,42", false), new Fraction(542, 100));
+//        assertEquals(Fraction.fromDecimal("5,4242", true), new Fraction(179, 33));
+//        assertEquals(Fraction.fromDecimal("551.23123", true), new Fraction(183_560, 333));
+//        assertEquals(Fraction.fromDecimal("0.33", true), new Fraction(1, 3));
+//        assertEquals(Fraction.fromDecimal("5.4242", true), new Fraction(179, 33));
+//        assertEquals(Fraction.fromDecimal("033,3", true), new Fraction(100, 3));
+//        assertEquals(Fraction.fromDecimal("0.285714285714", true), new Fraction(2, 7));
+//        assertEquals(Fraction.fromDecimal("1.23123", true), new Fraction(410, 333));
+//        assertEquals(Fraction.fromDecimal("123123.123", true), new Fraction(41_000_000, 333));
+//        assertEquals(Fraction.fromDecimal("0.000000000123123", true), new Fraction("410", "3330000000000"));
+
+        assertEquals(Fraction.valueOf("0.5"), new Fraction(1,2));
+        assertEquals(Fraction.valueOf("5.42"), new Fraction(542,100));
+        assertEquals(Fraction.valueOf("5.4242..."), new Fraction(179,33));
+        assertEquals(Fraction.valueOf("551.23123..."), new Fraction(183560, 333));
+        assertEquals(Fraction.valueOf("0.33..."), new Fraction(1, 3));
+        assertEquals(Fraction.valueOf("5.4242..."), new Fraction(179, 33));
+        assertEquals(Fraction.valueOf("0.285714285714..."), new Fraction(2, 7));
+        assertEquals(Fraction.valueOf("0.000000000123123"), new Fraction("410", "3330000000000"));
+        assertEquals(Fraction.valueOf("123123.123"), new Fraction(41_000_000, 333));
+        assertEquals(Fraction.valueOf("1.23123"), new Fraction(410, 333));
+        assertEquals(Fraction.valueOf("1,77..."), new Fraction(16, 9));
+
+
+
     }
 
     @Test
     public void nthRoot () {
         assertEquals(new Fraction(1000, 1).root(3), new Fraction(10, 1));
         assertEquals(new Fraction(16, 9).root(2), new Fraction(4, 3, false));
-        assertEquals(new Fraction(2, 1).root(12), Fraction.fromDecimal("1.05946309", true));
+        assertEquals(new Fraction(2, 1).root(12), Fraction.valueOf("1.05946309"));
     }
 
     @Test

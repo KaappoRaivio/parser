@@ -41,7 +41,7 @@ public class Calculator<T extends Fraction> {
         return t1.fractionValue().root(n);
     }
 
-    public Fractionatable valueOf (String string, boolean repeatingDecimal) {
-        return T.fromDecimal(string, repeatingDecimal);
+    public Fractionatable valueOf (String string) {
+        return T.valueOf(string);
     }
 }

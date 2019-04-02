@@ -7,11 +7,12 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.MathContext;
 import java.util.Objects;
+import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 public class Fraction implements Fractionatable {
-    public static final int PRECISION = 10;
-    public static final BigInteger BIG = BigInteger.valueOf(1_000_000_000);
+    public static final int PRECISION = 8;
+    public static final BigInteger BIG = new BigInteger("100000000000000000000000000000");
 
     private String originalRepresentation;
 
@@ -45,7 +46,6 @@ public class Fraction implements Fractionatable {
     }
 
     public Fraction (BigInteger numerator, BigInteger denominator, boolean compact, boolean approximation) {
-        System.out.println("numerator = [" + numerator + "], denominator = [" + denominator + "], compact = [" + compact + "], approximation = [" + approximation + "]");
         if (denominator.equals(BigInteger.ZERO)) {
             throw new ArithmeticException("Denominator cannot be zero!");
         }
@@ -158,18 +158,14 @@ public class Fraction implements Fractionatable {
 
     private Fraction power (BigInteger exponent) {
         if (exponent.compareTo(BigInteger.ZERO) < 0) {
-            return new Fraction(numerator.modPow(exponent, BIG), denominator.modPow(exponent, BIG)).inverse();
+            return new Fraction(numerator.modPow(exponent, BIG), denominator.modPow(exponent, BIG));
         } else {
             return new Fraction(numerator.modPow(exponent, BIG), denominator.modPow(exponent, BIG));
         }
     }
 
     public Fraction power (Fraction exponent) {
-        if (!exponent.isInteger()) {
-            throw new RuntimeException("Exponent must be integer, not \"" + exponent + "\"!");
-        } else {
-            return power(exponent.numerator);
-        }
+        return power(exponent.numerator).root(exponent.denominator.intValue());
     }
 
     private Fraction compact () {
@@ -264,9 +260,15 @@ public class Fraction implements Fractionatable {
         }
     }
 
+    private static Pattern pattern = Pattern.compile("(.*?)\\.\\.\\.$");
+
+    public static Fraction valueOf (String representation) {
+        boolean endless = pattern.matcher(representation).matches();
+        return fromDecimal(representation, endless);
+    }
 
 
-    public static Fraction fromDecimal (String representation, boolean endless) {
+    private static Fraction fromDecimal (String representation, boolean endless) {
         if (endless) {
             return fromEndlessDecimal(representation);
         } else {
@@ -342,7 +344,7 @@ public class Fraction implements Fractionatable {
         return fraction;
     }
 
-    static Fraction fromRepeatingDecimal(String x) {
+    private static Fraction fromRepeatingDecimal(String x) {
         String original = x;
         x = x.replaceAll("^0+", "");
 //        x = x.replaceAll("0+$", "");
@@ -389,4 +391,13 @@ public class Fraction implements Fractionatable {
     public Fraction fractionValue() {
         return this;
     }
+
+    public BigInteger getNumerator() {
+        return numerator;
+    }
+
+    public BigInteger getDenominator() {
+        return denominator;
+    }
+
 }

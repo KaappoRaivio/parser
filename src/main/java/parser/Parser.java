@@ -130,7 +130,7 @@ public class Parser {
                 throw new RuntimeException("Unbalanced pipes!" + expectedClosingPipe);
             }
         } else if (token.getClass() == NumberToken.class) {
-            value = calculator.valueOf(((NumberToken) token).getValue().toString(), false); // "repeating decimal" case is handled in suffixUnary().
+            value = calculator.valueOf(((NumberToken) token).getValue().toString()); // "repeating decimal" case is handled in suffixUnary().
         } else {
             System.out.println(lexer);
             throw new RuntimeException("Invalid token " + token);

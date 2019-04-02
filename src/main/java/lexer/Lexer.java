@@ -7,6 +7,7 @@ import lexer.token.Token;
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.regex.Matcher;
+import java.util.stream.Collectors;
 
 public class Lexer {
     private String input;
@@ -47,7 +48,7 @@ public class Lexer {
 
             String extracted = matcher.group();
 
-            foundToken = new NumberToken(token, Float.parseFloat(extracted.replaceAll(",", ".")));
+            foundToken = new NumberToken(token, extracted.replaceAll(",", "."));
         } else {
             foundToken = new FoundToken(token);
         }

@@ -7,14 +7,14 @@ import java.util.Arrays;
 import java.util.List;
 
 public class UnaryOperatorGroup {
-    public static final UnaryOperatorGroup UNARY_OPERATOR_GROUP = new UnaryOperatorGroup(
-            Arrays.asList(new UnaryOperator(Token.ADD, a -> a, UnaryOperatorType.PREFIX),
-                    new UnaryOperator(Token.SUBTRACT, fractionatable -> fractionatable.fractionValue().negate(), UnaryOperatorType.PREFIX),
-                    new UnaryOperator(Token.SQRT, fractionatable -> fractionatable.fractionValue().root(2), UnaryOperatorType.PREFIX)),
-
-            Arrays.asList(new UnaryOperator(Token.ELLIPSIS, fractionatable -> fractionatable.fractionValue().toEndless(), UnaryOperatorType.SUFFIX),
-                    new UnaryOperator(Token.EXCLAMATION, fractionatable -> fractionatable.fractionValue().factorial(), UnaryOperatorType.SUFFIX))
-    );
+//    public static final UnaryOperatorGroup UNARY_OPERATOR_GROUP = new UnaryOperatorGroup(
+//            Arrays.asList(new UnaryOperator(Token.ADD, a -> a, UnaryOperatorType.PREFIX),
+//                    new UnaryOperator(Token.SUBTRACT, fractionatable -> fractionatable.fractionValue().negate(), UnaryOperatorType.PREFIX),
+//                    new UnaryOperator(Token.SQRT, fractionatable -> fractionatable.fractionValue().root(2), UnaryOperatorType.PREFIX)),
+//
+//            Arrays.asList(new UnaryOperator(Token.ELLIPSIS, fractionatable -> fractionatable.fractionValue().toEndless(), UnaryOperatorType.SUFFIX),
+//                    new UnaryOperator(Token.EXCLAMATION, fractionatable -> fractionatable.fractionValue().factorial(), UnaryOperatorType.SUFFIX))
+//    );
 
 
     private List<UnaryOperator> prefixOperators;
