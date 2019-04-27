@@ -1,5 +1,7 @@
 package puupaska;
 
+import math.fraction.Fractionatable;
+
 public class Symbol implements Payload {
     private int value;
 
@@ -26,5 +28,13 @@ public class Symbol implements Payload {
         return "Symbol{" +
                 "value=" + value +
                 '}';
+    }
+
+    public Symbol abs() {
+        return new Symbol(Math.abs(value));
+    }
+
+    public static Symbol valueOf (String string) {
+        return new Symbol(Integer.parseInt(string));
     }
 }

@@ -9,13 +9,13 @@ import operator.unaryoperator.UnaryOperator;
 import operator.unaryoperator.UnaryOperatorType;
 
 public class Expression {
-    final static Operator operatorAdd = new BinaryOperator(Token.ADD, (fractionatable, fractionatable2) -> fractionatable.fractionValue().add(fractionatable2.fractionValue()), EvaluatingOrder.LEFT_TO_RIGHT);
-    final static Operator operatorSub = new BinaryOperator(Token.SUBTRACT, (fractionatable, fractionatable2) -> fractionatable.fractionValue().subtract(fractionatable2.fractionValue()), EvaluatingOrder.LEFT_TO_RIGHT);
-    final static Operator operatorMul = new BinaryOperator(Token.MULTIPLY, (fractionatable, fractionatable2) -> fractionatable.fractionValue().multiply(fractionatable2.fractionValue()), EvaluatingOrder.LEFT_TO_RIGHT);
-    final static Operator operatorDiv = new BinaryOperator(Token.DIVIDE, (fractionatable, fractionatable2) -> fractionatable.fractionValue().divide(fractionatable2.fractionValue()), EvaluatingOrder.LEFT_TO_RIGHT);
-    final static Operator operatorPow = new BinaryOperator(Token.POWER, (fractionatable, fractionatable2) -> fractionatable.fractionValue().power(fractionatable2.fractionValue()), EvaluatingOrder.RIGHT_TO_LEFT);
-    final static Operator operatorSqr = new UnaryOperator(Token.SQRT, fractionatable -> fractionatable.fractionValue().root(2), UnaryOperatorType.PREFIX);
-    final static Operator operatorNeg = new UnaryOperator(Token.SUBTRACT, fractionatable -> fractionatable.fractionValue().negate(), UnaryOperatorType.PREFIX);
+    public final static Operator operatorAdd = new BinaryOperator(Token.ADD, (fractionatable, fractionatable2) -> fractionatable.fractionValue().add(fractionatable2.fractionValue()), EvaluatingOrder.LEFT_TO_RIGHT);
+    public final static Operator operatorSub = new BinaryOperator(Token.SUBTRACT, (fractionatable, fractionatable2) -> fractionatable.fractionValue().subtract(fractionatable2.fractionValue()), EvaluatingOrder.LEFT_TO_RIGHT);
+    public final static Operator operatorMul = new BinaryOperator(Token.MULTIPLY, (fractionatable, fractionatable2) -> fractionatable.fractionValue().multiply(fractionatable2.fractionValue()), EvaluatingOrder.LEFT_TO_RIGHT);
+    public final static Operator operatorDiv = new BinaryOperator(Token.DIVIDE, (fractionatable, fractionatable2) -> fractionatable.fractionValue().divide(fractionatable2.fractionValue()), EvaluatingOrder.LEFT_TO_RIGHT);
+    public final static Operator operatorPow = new BinaryOperator(Token.POWER, (fractionatable, fractionatable2) -> fractionatable.fractionValue().power(fractionatable2.fractionValue()), EvaluatingOrder.RIGHT_TO_LEFT);
+    public final static Operator operatorSqr = new UnaryOperator(Token.SQRT, fractionatable -> fractionatable.fractionValue().root(2), UnaryOperatorType.PREFIX);
+    public final static Operator operatorNeg = new UnaryOperator(Token.SUBTRACT, fractionatable -> fractionatable.fractionValue().negate(), UnaryOperatorType.PREFIX);
 
     private Tree<Payload> tree;
 
@@ -23,18 +23,28 @@ public class Expression {
         tree = new Tree<>(new Node<>(new Symbol(0)));
     }
 
+    public Expression (Symbol initialValue) {
+        this(new Tree<>(new Node<>(initialValue)));
+    }
+
     public Expression (Tree<Payload> expressionTree) {
         this.tree = expressionTree;
     }
 
-//    public Expression plus (Symbol other) {
-//        Node<Payload> newParent = new Node<>(operatorAdd);
-//        newParent.addChild(tree.getParentNode(), new Node<>(other));
-//        tree = new Tree<>(newParent);
-//
-//        return this;
-//    }
+    @SuppressWarnings("UnusedReturnValue")
+    public Expression makeBinaryOperation (Operator operator, Expression otherOperand) {
+        if (operator.getOperatorType() != OperatorType.BINARY) {
+            throw new RuntimeException(operator.toString() + " is not a binary operator!");
+        }
 
+        var newParent = new Node<Payload>(operator);
+        newParent.addChild(tree.getParentNode(), otherOperand.tree.getParentNode());
+        tree = new Tree<>(newParent);
+
+        return this;
+    }
+
+    @SuppressWarnings("UnusedReturnValue")
     public Expression makeBinaryOperation (Operator operator, Symbol otherOperand) {
         if (operator.getOperatorType() != OperatorType.BINARY) {
             throw new RuntimeException(operator.toString() + " is not a binary operator!");
@@ -47,6 +57,7 @@ public class Expression {
         return this;
     }
 
+    @SuppressWarnings("UnusedReturnValue")
     public Expression makeUnaryOperation (Operator operator) {
         if (operator.getOperatorType() != OperatorType.UNARY) {
             throw new RuntimeException(operator.toString() + " is not an unary operator!");
@@ -93,11 +104,11 @@ public class Expression {
         expression.makeUnaryOperation(operatorNeg);
         expression.makeBinaryOperation(operatorDiv, new Symbol(4));
         expression.makeUnaryOperation(operatorSqr);
-        System.out.println(expression);
+//        System.out.println(expression);
 
-//        for (var a : expression.tree) {
-//            System.out.println(a + "::");
-//        }
+        for (var a : expression.tree) {
+            System.out.println(a + "::");
+        }
 
     }
 }
