@@ -4,7 +4,6 @@ import operator.binaryoperator.BinaryOperator;
 import operator.binaryoperator.EvaluatingOrder;
 import operator.genericoperator.GenericOperatorGroup;
 import operator.genericoperator.GenericOperatorStack;
-import operator.genericoperator.Operator;
 import operator.genericoperator.OperatorType;
 import operator.unaryoperator.UnaryOperator;
 import operator.unaryoperator.UnaryOperatorType;
@@ -46,7 +45,7 @@ public class Main {
         while (true) {
             try {
                 String instr = new Scanner(System.in).nextLine();
-                GenericParser parser1 = new GenericParser(instr, new Calculator<>(), operatorStack);
+                GenericParser parser1 = new GenericParser(instr, new Calculator<>(), operatorStack, implicitOperator);
                 System.out.println(parser1.parse());
             } catch (Exception e) {
                 e.printStackTrace();

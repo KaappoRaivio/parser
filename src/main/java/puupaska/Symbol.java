@@ -3,13 +3,13 @@ package puupaska;
 import math.fraction.Fractionatable;
 
 public class Symbol implements Payload {
-    private int value;
+    private String value;
 
-    public int getValue() {
+    public String getValue() {
         return value;
     }
 
-    public Symbol(int value) {
+    public Symbol(String value) {
         this.value = value;
     }
 
@@ -30,11 +30,7 @@ public class Symbol implements Payload {
                 '}';
     }
 
-    public Symbol abs() {
-        return new Symbol(Math.abs(value));
-    }
-
     public static Symbol valueOf (String string) {
-        return new Symbol(Integer.parseInt(string));
+        return new Symbol(string);
     }
 }

@@ -19,7 +19,8 @@ public enum Token {
     ABS ("\\|", "Pipe", 1),
     SQRT ("(\\√|sqrt)", "Square root", 1),
     EXCLAMATION ("\\!", "Factorial", 1),
-    POWER ("(\\*\\*|\\^)", "Power", 2);
+    POWER ("(\\*\\*|\\^)", "Power", 2),
+    SYMBOL ("([a-z])", "Variable", 0);
 
 
     private final Pattern regex;

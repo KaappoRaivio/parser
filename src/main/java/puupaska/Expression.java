@@ -20,7 +20,7 @@ public class Expression {
     private Tree<Payload> tree;
 
     public Expression () {
-        tree = new Tree<>(new Node<>(new Symbol(0)));
+        tree = new Tree<>(new Node<>(new Symbol("0")));
     }
 
     public Expression (Symbol initialValue) {
@@ -100,9 +100,9 @@ public class Expression {
 //        System.out.println("---");
 
         Expression expression = new Expression();
-        expression.makeBinaryOperation(operatorAdd, new Symbol(10));
+        expression.makeBinaryOperation(operatorAdd, new Symbol("10"));
         expression.makeUnaryOperation(operatorNeg);
-        expression.makeBinaryOperation(operatorDiv, new Symbol(4));
+        expression.makeBinaryOperation(operatorDiv, new Symbol("4"));
         expression.makeUnaryOperation(operatorSqr);
 //        System.out.println(expression);
 

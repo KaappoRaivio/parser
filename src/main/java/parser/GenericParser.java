@@ -3,10 +3,9 @@ package parser;
 import lexer.Lexer;
 import lexer.token.FoundToken;
 import lexer.token.NumberToken;
+import lexer.token.SymbolToken;
 import lexer.token.Token;
 import math.fraction.Calculator;
-import math.fraction.Fraction;
-import math.fraction.Fractionatable;
 import operator.binaryoperator.BinaryOperator;
 import operator.genericoperator.GenericOperatorGroup;
 import operator.genericoperator.GenericOperatorStack;
@@ -20,11 +19,13 @@ public class GenericParser {
     private Lexer lexer;
     private Calculator<Symbol> calculator;
     private GenericOperatorStack genericOperatorStack;
+    private BinaryOperator implicitOperator;
 
-    public GenericParser (String input, Calculator<Symbol> calculator, GenericOperatorStack genericOperatorStack) {
+    public GenericParser(String input, Calculator<Symbol> calculator, GenericOperatorStack genericOperatorStack, BinaryOperator implicitOperator) {
         lexer = new Lexer(input);
         this.calculator = calculator;
         this.genericOperatorStack = genericOperatorStack;
+        this.implicitOperator = implicitOperator;
 
 
         if (lexer.isEmpty()) {
@@ -135,9 +136,12 @@ public class GenericParser {
             if (!expectedClosingPipe.is(Token.ABS)) {
                 throw new RuntimeException("Unbalanced pipes!" + expectedClosingPipe);
             }
-        } else if (token.getClass() == NumberToken.class) {
+        } else if (token instanceof NumberToken) {
             value = new Expression(calculator.valueOf(((NumberToken) token).getValue())); // "repeating decimal" case is handled in suffixUnary().
-        } else {
+        } else if (token instanceof SymbolToken) {
+            value = new Expression(calculator.valueOf(((SymbolToken) token).getValue()));
+        }
+        else {
             System.out.println(lexer);
             throw new RuntimeException("Invalid token " + token);
         }
