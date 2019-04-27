@@ -21,6 +21,7 @@ public enum Token {
     EXCLAMATION ("\\!", "Factorial", 1),
     POWER ("(\\*\\*|\\^)", "Power", 2);
 
+
     private final Pattern regex;
     private final String repr;
     private final int precedence;

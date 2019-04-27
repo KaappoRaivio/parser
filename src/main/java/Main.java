@@ -1,14 +1,12 @@
 import lexer.token.Token;
-import math.Calculator;
+import math.fraction.Calculator;
 import operator.binaryoperator.BinaryOperator;
-import operator.binaryoperator.BinaryOperatorGroup;
-import operator.binaryoperator.BinaryOperatorStack;
 import operator.binaryoperator.EvaluatingOrder;
 import operator.genericoperator.GenericOperatorGroup;
 import operator.genericoperator.GenericOperatorStack;
+import operator.genericoperator.Operator;
 import operator.genericoperator.OperatorType;
 import operator.unaryoperator.UnaryOperator;
-import operator.unaryoperator.UnaryOperatorGroup;
 import operator.unaryoperator.UnaryOperatorType;
 import parser.GenericParser;
 

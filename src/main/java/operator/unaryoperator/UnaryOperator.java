@@ -1,11 +1,12 @@
 package operator.unaryoperator;
 
 import lexer.token.Token;
-import math.Fractionatable;
+import math.fraction.Fractionatable;
 import operator.genericoperator.Operator;
 import operator.genericoperator.OperatorType;
+import puupaska.Payload;
 
-public class UnaryOperator implements Operator {
+public class UnaryOperator implements Operator, Payload {
     private java.util.function.UnaryOperator<Fractionatable> function;
     private UnaryOperatorType unaryOperatorType;
     private Token token;
@@ -33,10 +34,11 @@ public class UnaryOperator implements Operator {
 
     @Override
     public String toString() {
-        return "UnaryOperator{" +
-                ", unaryOperatorType=" + unaryOperatorType +
-                ", token=" + token +
-                '}';
+//        return "UnaryOperator{" +
+//                "unaryOperatorType=" + unaryOperatorType +
+//                ", token=" + token +
+//                '}';
+        return token.toString();
     }
 
     @Override
@@ -44,4 +46,13 @@ public class UnaryOperator implements Operator {
         return token;
     }
 
+    @Override
+    public boolean isOperator() {
+        return true;
+    }
+
+    @Override
+    public boolean isSymbol() {
+        return false;
+    }
 }

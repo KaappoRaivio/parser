@@ -1,4 +1,4 @@
-package math;
+package math.fraction;
 
 import misc.Pair;
 import misc.StringUtil;

@@ -1,7 +1,7 @@
 package operator;
 
 import lexer.token.Token;
-import math.Fractionatable;
+import math.fraction.Fractionatable;
 import operator.genericoperator.Operator;
 import operator.genericoperator.OperatorType;
 
@@ -30,5 +30,15 @@ public class BoundingOperator implements Operator {
     @Override
     public Token getTokenType() {
         return leftToken;
+    }
+
+    @Override
+    public boolean isOperator() {
+        return true;
+    }
+
+    @Override
+    public boolean isSymbol() {
+        return false;
     }
 }

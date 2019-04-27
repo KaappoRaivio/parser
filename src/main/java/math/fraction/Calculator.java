@@ -1,4 +1,4 @@
-package math;
+package math.fraction;
 
 public class Calculator<T extends Fraction> {
     public Fractionatable add (Fractionatable t1, Fractionatable t2) {

@@ -4,9 +4,9 @@ import lexer.Lexer;
 import lexer.token.FoundToken;
 import lexer.token.NumberToken;
 import lexer.token.Token;
-import math.Calculator;
-import math.Fraction;
-import math.Fractionatable;
+import math.fraction.Calculator;
+import math.fraction.Fraction;
+import math.fraction.Fractionatable;
 import operator.binaryoperator.BinaryOperator;
 import operator.genericoperator.GenericOperatorGroup;
 import operator.genericoperator.GenericOperatorStack;
@@ -19,7 +19,7 @@ public class GenericParser {
     private Calculator<Fraction> calculator;
     private GenericOperatorStack genericOperatorStack;
 
-    public GenericParser(String input, Calculator<Fraction> calculator, GenericOperatorStack genericOperatorStack) {
+    public GenericParser (String input, Calculator<Fraction> calculator, GenericOperatorStack genericOperatorStack) {
         lexer = new Lexer(input);
         this.calculator = calculator;
         this.genericOperatorStack = genericOperatorStack;
@@ -130,7 +130,7 @@ public class GenericParser {
                 throw new RuntimeException("Unbalanced pipes!" + expectedClosingPipe);
             }
         } else if (token.getClass() == NumberToken.class) {
-            value = calculator.valueOf(((NumberToken) token).getValue().toString()); // "repeating decimal" case is handled in suffixUnary().
+            value = calculator.valueOf(((NumberToken) token).getValue()); // "repeating decimal" case is handled in suffixUnary().
         } else {
             System.out.println(lexer);
             throw new RuntimeException("Invalid token " + token);

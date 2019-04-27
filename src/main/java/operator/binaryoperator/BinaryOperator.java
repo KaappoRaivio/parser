@@ -1,11 +1,12 @@
 package operator.binaryoperator;
 
 import lexer.token.Token;
-import math.Fractionatable;
+import math.fraction.Fractionatable;
 import operator.genericoperator.Operator;
 import operator.genericoperator.OperatorType;
+import puupaska.Payload;
 
-public class BinaryOperator implements Operator {
+public class BinaryOperator implements Operator, Payload {
     private java.util.function.BinaryOperator<Fractionatable> function;
     private EvaluatingOrder evaluatingOrder;
     private Token token;
@@ -35,14 +36,25 @@ public class BinaryOperator implements Operator {
 
     @Override
     public String toString() {
-        return "BinaryOperator{" +
-                ", evaluatingOrder=" + evaluatingOrder +
-                ", token=" + token +
-                '}';
+//        return "BinaryOperator{" +
+//                ", evaluatingOrder=" + evaluatingOrder +
+//                ", token=" + token +
+//                '}';
+        return token.toString();
     }
 
     @Override
     public Token getTokenType() {
         return token;
+    }
+
+    @Override
+    public boolean isOperator() {
+        return true;
+    }
+
+    @Override
+    public boolean isSymbol() {
+        return false;
     }
 }

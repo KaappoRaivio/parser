@@ -4,20 +4,14 @@ import lexer.Lexer;
 import lexer.token.FoundToken;
 import lexer.token.NumberToken;
 import lexer.token.Token;
-import math.Calculator;
-import math.Fraction;
-import math.Fractionatable;
+import math.fraction.Calculator;
+import math.fraction.Fraction;
+import math.fraction.Fractionatable;
 import operator.binaryoperator.BinaryOperator;
 import operator.binaryoperator.BinaryOperatorGroup;
 import operator.binaryoperator.BinaryOperatorStack;
 import operator.unaryoperator.UnaryOperatorGroup;
 import operator.unaryoperator.UnaryOperator;
-
-import java.util.Arrays;
-import java.util.List;
-
-import static operator.binaryoperator.EvaluatingOrder.LEFT_TO_RIGHT;
-import static operator.binaryoperator.EvaluatingOrder.RIGHT_TO_LEFT;
 
 public class Parser {
     private Lexer lexer;
