@@ -1,50 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c5d0c37b-dd10-46d2-8faf-1ac2c9187819" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/math/symbol/Polynomial.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/math/symbol/Term.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/puupaska/Expression.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/puupaska/FlagNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/puupaska/Node.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/puupaska/Payload.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/puupaska/Saver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/puupaska/Symbol.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/puupaska/Tree.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/puupaska/TreeIterator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/lexer/token/Token.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/lexer/token/Token.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/math/BigIntegerUtils.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/math/Calculator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/math/Fraction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/math/FractionConverter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/math/Fractionatable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/math/RootCalculus.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/operator/BoundingOperator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/operator/BoundingOperator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/operator/binaryoperator/BinaryOperator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/operator/binaryoperator/BinaryOperator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/operator/genericoperator/Operator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/operator/genericoperator/Operator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/operator/unaryoperator/UnaryOperator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/operator/unaryoperator/UnaryOperator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/parser/GenericParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/parser/GenericParser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/parser/Parser$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/parser/Parser$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/parser/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/parser/Parser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lexer/token/Token.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lexer/token/Token.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/math/BigIntegerUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/math/fraction/BigIntegerUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/math/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/math/fraction/Calculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/math/Fraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/math/fraction/Fraction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/math/FractionConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/math/fraction/FractionConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/math/Fractionatable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/math/fraction/Fractionatable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/math/RootCalculus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/math/fraction/RootCalculus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/operator/BoundingOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/operator/BoundingOperator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/operator/binaryoperator/BinaryOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/operator/binaryoperator/BinaryOperator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/operator/genericoperator/Operator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/operator/genericoperator/Operator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/operator/unaryoperator/UnaryOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/operator/unaryoperator/UnaryOperator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/parser/GenericParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/parser/GenericParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/parser/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/parser/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/math/FractionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/math/FractionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/parser/ParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/parser/ParserTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="c5d0c37b-dd10-46d2-8faf-1ac2c9187819" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -55,7 +12,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DarkyenusTimeTracker">
-    <option name="totalTimeSeconds" value="130573" />
+    <option name="totalTimeSeconds" value="130653" />
     <option name="gitIntegration" value="true" />
     <option name="naggedAbout" value="1" />
   </component>
@@ -417,7 +374,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556272196717" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556272868925" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
