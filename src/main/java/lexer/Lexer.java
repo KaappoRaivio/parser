@@ -2,6 +2,7 @@ package lexer;
 
 import lexer.token.FoundToken;
 import lexer.token.NumberToken;
+import lexer.token.SymbolToken;
 import lexer.token.Token;
 
 import java.util.Deque;
@@ -49,7 +50,17 @@ public class Lexer {
             String extracted = matcher.group();
 
             foundToken = new NumberToken(token, extracted.replaceAll(",", "."));
-        } else {
+        } else if (token == Token.SYMBOL) {
+            Matcher matcher = token.getRegex().matcher(input);
+
+            //noinspection ResultOfMethodCallIgnored
+            matcher.lookingAt();
+
+            String extracted = matcher.group();
+
+            foundToken = new SymbolToken(token, extracted.replaceAll(",", "."));
+        }
+        else {
             foundToken = new FoundToken(token);
         }
 

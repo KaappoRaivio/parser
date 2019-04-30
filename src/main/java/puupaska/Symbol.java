@@ -1,13 +1,15 @@
 package puupaska;
 
-public class Symbol implements Payload {
-    private int value;
+import math.fraction.Fractionatable;
 
-    public int getValue() {
+public class Symbol implements Payload {
+    private String value;
+
+    public String getValue() {
         return value;
     }
 
-    public Symbol(int value) {
+    public Symbol(String value) {
         this.value = value;
     }
 
@@ -26,5 +28,9 @@ public class Symbol implements Payload {
         return "Symbol{" +
                 "value=" + value +
                 '}';
+    }
+
+    public static Symbol valueOf (String string) {
+        return new Symbol(string);
     }
 }
