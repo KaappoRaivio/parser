@@ -31,9 +31,11 @@ public class Node<T> implements Serializable {
     }
 
     @SafeVarargs
-    public final void addChild(Node<T>... child) {
+    public final Node<T> addChild(Node<T>... child) {
         Arrays.stream(child).forEach(node -> node.setParent(this));
         children.addAll(Arrays.asList   (child));
+
+        return this;
     }
 
     public T getValue () {

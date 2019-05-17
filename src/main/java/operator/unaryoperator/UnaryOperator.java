@@ -1,25 +1,25 @@
 package operator.unaryoperator;
 
 import lexer.token.Token;
-import math.fraction.Fractionatable;
+import math.fraction.Fractionable;
 import operator.genericoperator.Operator;
 import operator.genericoperator.OperatorType;
 import puupaska.Payload;
 
 public class UnaryOperator implements Operator, Payload {
-    private java.util.function.UnaryOperator<Fractionatable> function;
+    private java.util.function.UnaryOperator<Fractionable> function;
     private UnaryOperatorType unaryOperatorType;
     private Token token;
 
 
 
-    public UnaryOperator(Token token, java.util.function.UnaryOperator<Fractionatable> function, UnaryOperatorType unaryOperatorType) {
+    public UnaryOperator(Token token, java.util.function.UnaryOperator<Fractionable> function, UnaryOperatorType unaryOperatorType) {
         this.token = token;
         this.function = function;
         this.unaryOperatorType = unaryOperatorType;
     }
 
-    public Fractionatable invoke (Fractionatable a) {
+    public Fractionable invoke (Fractionable a) {
         return function.apply(a);
     }
 
@@ -47,12 +47,17 @@ public class UnaryOperator implements Operator, Payload {
     }
 
     @Override
+    public int getArity () {
+        return 1;
+    }
+
+    @Override
     public boolean isOperator() {
         return true;
     }
 
     @Override
-    public boolean isSymbol() {
+    public boolean isFraction () {
         return false;
     }
 }

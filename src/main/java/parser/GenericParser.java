@@ -6,22 +6,28 @@ import lexer.token.NumberToken;
 import lexer.token.SymbolToken;
 import lexer.token.Token;
 import math.fraction.Calculator;
+import math.fraction.Fraction;
+import math.fraction.Fractionable;
+import operator.BoundingOperator;
 import operator.binaryoperator.BinaryOperator;
 import operator.genericoperator.GenericOperatorGroup;
 import operator.genericoperator.GenericOperatorStack;
 import operator.genericoperator.Operator;
 import operator.genericoperator.OperatorType;
 import operator.unaryoperator.UnaryOperator;
+import operator.unaryoperator.UnaryOperatorType;
 import puupaska.Expression;
-import puupaska.Symbol;
+import puupaska.Node;
+import puupaska.Payload;
+import puupaska.Tree;
 
 public class GenericParser {
     private Lexer lexer;
-    private Calculator<Symbol> calculator;
+    private Calculator<Fraction> calculator;
     private GenericOperatorStack genericOperatorStack;
     private BinaryOperator implicitOperator;
 
-    public GenericParser(String input, Calculator<Symbol> calculator, GenericOperatorStack genericOperatorStack, BinaryOperator implicitOperator) {
+    public GenericParser(String input, Calculator<Fraction> calculator, GenericOperatorStack genericOperatorStack, BinaryOperator implicitOperator) {
         lexer = new Lexer(input);
         this.calculator = calculator;
         this.genericOperatorStack = genericOperatorStack;
@@ -34,8 +40,8 @@ public class GenericParser {
     }
 
     public Expression parse () {
-//        Fractionatable expressionValue = expression();
-//        Fractionatable expressionValue = binaryEval(0);
+//        Fractionable expressionValue = expression();
+//        Fractionable expressionValue = binaryEval(0);
         Expression expressionValue = binaryEval(0);
 
         FoundToken token = lexer.getNextToken();
@@ -119,7 +125,7 @@ public class GenericParser {
 
     }
 
-    private Expression number() {
+    private Expression number () {
         FoundToken token = lexer.getNextToken();
         Expression value;
 
@@ -146,7 +152,54 @@ public class GenericParser {
             throw new RuntimeException("Invalid token " + token);
         }
 
-        return value;
+        FoundToken possibleSuffixUnary = lexer.getNextToken();
+        if (currentOperators.isOperator(possibleSuffixUnary)) {
+            var operator = currentOperators.getOperator(possibleSuffixUnary);
+            if (operator.getOperatorType() == OperatorType.UNARY) {
+                var unary = (UnaryOperator) operator;
+                if (unary.getUnaryOperatorType() == UnaryOperatorType.SUFFIX) {
+                    return
+                }
+            }
+        }
+
+        return suffixUnary(value);
+    }
+
+    public Expression suffixUnary (Fractionable value) {
+        FoundToken nextToken = lexer.getNextToken();
+
+        if (genericOperatorStack.getSuffixOperators().isOperator(nextToken)) {
+            Node<Payload> parentNode = new Node<>(genericOperatorStack.getSuffixOperators().getOperator(nextToken));
+            parentNode.addChild(new Node<>(value));
+
+            return new Expression(new Tree<>(parentNode));
+        } else {
+            lexer.revert();
+            return new Expression(new Tree<>(new Node<>(value)));
+        }
+    }
+
+    public Expression boundaryUnary () {
+        FoundToken nextToken = lexer.getNextToken();
+
+        if (genericOperatorStack.getBoundaryOperators().isOperator(nextToken)) {
+            BoundingOperator operator = (BoundingOperator) genericOperatorStack.getBoundaryOperators().getOperator(nextToken);
+            var operand = binaryEval(0);
+            FoundToken expectedClosing = lexer.getNextToken();
+
+            if (operator.getRightToken() != expectedClosing.getTokenType()) {
+                throw new RuntimeException("Unbalanced parens " + lexer + "!");
+            }
+
+            Node<Payload> parentNode = new Node<>(operator);
+            parentNode.addChild(operand.getTree().getParentNode());
+
+            return new Expression(new Tree<>(parentNode));
+        } else {
+            lexer.revert();
+            return number();
+        }
     }
 
     public Lexer getLexer() {

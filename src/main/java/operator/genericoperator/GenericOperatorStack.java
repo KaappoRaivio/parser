@@ -1,10 +1,14 @@
 package operator.genericoperator;
 
 import lexer.token.FoundToken;
+import operator.BoundingOperator;
+import operator.unaryoperator.UnaryOperator;
+import puupaska.Expression;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
+
 import java.util.stream.Collectors;
 
 public class GenericOperatorStack {
@@ -17,6 +21,21 @@ public class GenericOperatorStack {
     @Override
     public String toString() {
         return operatorGroups.toString();
+    }
+
+    public GenericOperatorGroup getSuffixOperators () {
+        return new GenericOperatorGroup(
+                OperatorType.UNARY,
+                Expression.operatorEll,
+                Expression.operatorFac
+        );
+    }
+
+    public GenericOperatorGroup getBoundaryOperators () {
+        return new GenericOperatorGroup(OperatorType.UNARY,
+                Expression.operatorAbs,
+                Expression.operatorParen
+        );
     }
 
     public GenericOperatorStack(List<GenericOperatorGroup> operatorGroups) {

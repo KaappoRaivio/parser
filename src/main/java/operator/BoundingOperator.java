@@ -1,7 +1,7 @@
 package operator;
 
 import lexer.token.Token;
-import math.fraction.Fractionatable;
+import math.fraction.Fractionable;
 import operator.genericoperator.Operator;
 import operator.genericoperator.OperatorType;
 
@@ -17,7 +17,7 @@ public class BoundingOperator implements Operator {
         return leftToken;
     }
 
-    public BoundingOperator(Token leftToken, Token rightToken, java.util.function.UnaryOperator<Fractionatable> function) {
+    public BoundingOperator(Token leftToken, Token rightToken, java.util.function.UnaryOperator<Fractionable> function) {
         this.leftToken = leftToken;
         this.rightToken = rightToken;
     }
@@ -33,12 +33,17 @@ public class BoundingOperator implements Operator {
     }
 
     @Override
+    public int getArity () {
+        return 1;
+    }
+
+    @Override
     public boolean isOperator() {
         return true;
     }
 
     @Override
-    public boolean isSymbol() {
+    public boolean isFraction () {
         return false;
     }
 }

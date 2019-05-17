@@ -5,5 +5,6 @@ import puupaska.Payload;
 
 public interface Operator extends Payload {
     OperatorType getOperatorType ();
-    Token getTokenType() ;
+    Token getTokenType();
+    int getArity();
 }

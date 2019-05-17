@@ -3,7 +3,7 @@ package math.fraction;
 import java.math.BigInteger;
 
 public class BigIntegerUtils {
-    public static Fractionatable power (Fractionatable base, BigInteger exponent) {
+    public static Fractionable power (Fractionable base, BigInteger exponent) {
         Fraction result = new Fraction(1, 1);
 
         while (exponent.compareTo(BigInteger.ZERO) > 0) {
@@ -13,7 +13,7 @@ public class BigIntegerUtils {
         return result;
     }
 
-//    public static Fractionatable power (Fractionatable base, Fractionatable exponent) {
+//    public static Fractionable power (Fractionable base, Fractionable exponent) {
 //        return power(base, exponent.fractionValue().getNumerator()).fractionValue().root()
 //    }
 }

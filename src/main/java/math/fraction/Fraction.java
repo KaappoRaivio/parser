@@ -10,7 +10,7 @@ import java.util.Objects;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
-public class Fraction implements Fractionatable {
+public class Fraction implements Fractionable {
     public static final int PRECISION = 8;
     public static final BigInteger BIG = new BigInteger("100000000000000000000000000000");
 
@@ -400,4 +400,13 @@ public class Fraction implements Fractionatable {
         return denominator;
     }
 
+    @Override
+    public boolean isOperator () {
+        return false;
+    }
+
+    @Override
+    public boolean isFraction () {
+        return true;
+    }
 }

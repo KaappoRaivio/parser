@@ -1,7 +1,5 @@
 package lexer.token;
 
-import misc.StringUtil;
-
 public class NumberToken extends FoundToken {
     private String value;
 

@@ -1,17 +1,17 @@
 package operator.binaryoperator;
 
 import lexer.token.Token;
-import math.fraction.Fractionatable;
+import math.fraction.Fractionable;
 import operator.genericoperator.Operator;
 import operator.genericoperator.OperatorType;
 import puupaska.Payload;
 
 public class BinaryOperator implements Operator, Payload {
-    private java.util.function.BinaryOperator<Fractionatable> function;
+    private java.util.function.BinaryOperator<Fractionable> function;
     private EvaluatingOrder evaluatingOrder;
     private Token token;
 
-    public BinaryOperator(Token token, java.util.function.BinaryOperator<Fractionatable> function, EvaluatingOrder evaluatingOrder) {
+    public BinaryOperator(Token token, java.util.function.BinaryOperator<Fractionable> function, EvaluatingOrder evaluatingOrder) {
         this.function = function;
         this.evaluatingOrder = evaluatingOrder;
         this.token = token;
@@ -25,7 +25,7 @@ public class BinaryOperator implements Operator, Payload {
         return token;
     }
 
-    public Fractionatable invoke (Fractionatable t1, Fractionatable t2) {
+    public Fractionable invoke (Fractionable t1, Fractionable t2) {
         return function.apply(t1, t2);
     }
 
@@ -49,12 +49,17 @@ public class BinaryOperator implements Operator, Payload {
     }
 
     @Override
+    public int getArity () {
+        return 2;
+    }
+
+    @Override
     public boolean isOperator() {
         return true;
     }
 
     @Override
-    public boolean isSymbol() {
+    public boolean isFraction () {
         return false;
     }
 }

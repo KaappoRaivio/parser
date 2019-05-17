@@ -23,7 +23,7 @@ public class Tree<T> implements Iterable<Node<T>>{
         return parentNode == null;
     }
 
-    Node<T> getParentNode () {
+    public Node<T> getParentNode () {
         return parentNode;
     }
 

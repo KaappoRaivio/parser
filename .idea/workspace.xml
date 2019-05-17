@@ -1,0 +1,1238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c5d0c37b-dd10-46d2-8faf-1ac2c9187819" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/math/fraction/Fractionable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/lexer/Lexer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/lexer/Lexer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/lexer/token/NumberToken.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/lexer/token/NumberToken.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/math/fraction/Calculator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/math/fraction/Calculator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/math/fraction/Fraction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/math/fraction/Fraction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/math/fraction/Fractionatable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/math/fraction/Fractionatable.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/operator/BoundingOperator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/operator/BoundingOperator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/operator/binaryoperator/BinaryOperator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/operator/binaryoperator/BinaryOperator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/operator/genericoperator/Operator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/operator/genericoperator/Operator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/operator/unaryoperator/UnaryOperator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/operator/unaryoperator/UnaryOperator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/operator/unaryoperator/UnaryOperatorType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/operator/unaryoperator/UnaryOperatorType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/parser/GenericParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/parser/GenericParser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/puupaska/Expression.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/puupaska/Expression.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/puupaska/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/puupaska/Node.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/puupaska/Payload.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/puupaska/Payload.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/puupaska/Symbol.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/puupaska/Tree.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/puupaska/Tree.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lexer/Lexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lexer/Lexer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lexer/token/NumberToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lexer/token/NumberToken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lexer/token/Token.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lexer/token/Token.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/math/fraction/BigIntegerUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/math/fraction/BigIntegerUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/math/fraction/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/math/fraction/Calculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/math/fraction/Fraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/math/fraction/Fraction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/math/fraction/Fractionatable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/operator/BoundingOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/operator/BoundingOperator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/operator/binaryoperator/BinaryOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/operator/binaryoperator/BinaryOperator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/operator/genericoperator/GenericOperatorStack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/operator/genericoperator/GenericOperatorStack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/operator/genericoperator/Operator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/operator/genericoperator/Operator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/operator/unaryoperator/UnaryOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/operator/unaryoperator/UnaryOperator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/operator/unaryoperator/UnaryOperatorGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/operator/unaryoperator/UnaryOperatorGroup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/operator/unaryoperator/UnaryOperatorType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/operator/unaryoperator/UnaryOperatorType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/parser/GenericParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/parser/GenericParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/puupaska/Expression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/puupaska/Expression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/puupaska/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/puupaska/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/puupaska/Payload.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/puupaska/Payload.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/puupaska/Symbol.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/puupaska/Tree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/puupaska/Tree.java" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/.gradle/" />
+    <ignored path="$PROJECT_DIR$/build/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DarkyenusTimeTracker">
+    <option name="totalTimeSeconds" value="140706" />
+    <option name="gitIntegration" value="true" />
+    <option name="naggedAbout" value="1" />
+  </component>
+  <component name="ExportTestResults" outputFolder="$PROJECT_DIR$" userTempatePath="" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Kaappo Raivio" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/puupaska/Expression.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="27" column="108" selection-start-line="27" selection-start-column="108" selection-end-line="27" selection-end-column="108" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1820#1821#0" expanded="true" />
+                <element signature="e#1847#1848#0" expanded="true" />
+                <element signature="e#1842#1843#0" expanded="true" />
+                <element signature="e#1904#1905#0" expanded="true" />
+                <element signature="e#1951#1952#0" expanded="true" />
+                <element signature="e#2009#2010#0" expanded="true" />
+                <element signature="e#2065#2066#0" expanded="true" />
+                <element signature="e#2107#2108#0" expanded="true" />
+                <element signature="e#3970#3971#0" expanded="true" />
+                <element signature="e#4001#4002#0" expanded="true" />
+                <element signature="e#5587#5588#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="222">
+              <caret line="36" column="39" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/operator/genericoperator/GenericOperatorGroup.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="541">
+              <caret line="35" column="57" selection-start-line="35" selection-start-column="57" selection-end-line="35" selection-end-column="57" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#271#272#0" expanded="true" />
+                <element signature="e#333#334#0" expanded="true" />
+                <element signature="e#376#377#0" expanded="true" />
+                <element signature="e#408#409#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/operator/genericoperator/GenericOperatorStack.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="29" column="16" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/operator/genericoperator/OperatorType.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="32">
+              <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/operator/BoundingOperator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="448">
+              <caret line="36" column="17" lean-forward="true" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#863#864#0" expanded="true" />
+                <element signature="e#887#888#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/parser/GenericParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="333">
+              <caret line="143" column="8" lean-forward="true" selection-start-line="131" selection-start-column="8" selection-end-line="143" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#8153#8154#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/lexer/Lexer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/lexer/token/Token.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="384">
+              <caret line="24" column="38" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit4 Test Class" />
+        <option value="JUnit5 Test Class" />
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>todecimal</find>
+      <find>fromDecimal</find>
+      <find>original</find>
+      <find>fraction.ori</find>
+      <find>System.</find>
+      <find>originalRepre</find>
+      <find>&quot;null</find>
+      <find>&quot;string&quot;</find>
+      <find>toString</find>
+      <find>suffixUnary</find>
+      <find>factori</find>
+      <find>T</find>
+      <find>root</find>
+      <find>UnaryOperator</find>
+      <find>pow</find>
+      <find>BinaryOperatorGroup</find>
+      <find>BinaryOperator</find>
+      <find>Binary</find>
+      <find>numerator =</find>
+      <find>power</find>
+      <find>toStrin</find>
+      <find>System.ex</find>
+      <find>System.exit(0)</find>
+      <find>Payload</find>
+      <find>Expression</find>
+      <find>var</find>
+      <find>fractionatable</find>
+      <find>Fractionatable</find>
+      <find>BoundingOperator</find>
+      <find>handleSuffix</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>Token</replace>
+      <replace>assertTrue</replace>
+      <replace>fromDecimal</replace>
+      <replace>Fractionizeable</replace>
+      <replace>BinaryOperator</replace>
+      <replace>GenericOperatorGroup</replace>
+      <replace>Generic</replace>
+      <replace>Fraction</replace>
+      <replace>public static final var</replace>
+      <replace>fractionable</replace>
+      <replace>Fractionable</replace>
+      <replace>Operator</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/math/Fractionatable.java" />
+        <option value="$PROJECT_DIR$/src/main/java/operator/OperatorGroup.java" />
+        <option value="$PROJECT_DIR$/src/main/java/operator/UnaryOperator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/operator/UnaryOperatorGroup.java" />
+        <option value="$PROJECT_DIR$/src/main/java/operator/BinaryOperator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/operator/BinaryOperatorGroup.java" />
+        <option value="$PROJECT_DIR$/src/main/java/operator/binaryoperator/BinaryOperatorGroup.java" />
+        <option value="$PROJECT_DIR$/src/main/java/operator/genericoperator/OperatorTypr.java" />
+        <option value="$PROJECT_DIR$/src/main/java/operator/binaryoperator/BinaryOperatorStack.java" />
+        <option value="$PROJECT_DIR$/src/main/java/operator/genericoperator/GenericOperatorGroup.java" />
+        <option value="$PROJECT_DIR$/src/test/java/parser/ParserTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/math/FractionTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/math/Calculator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/operator/unaryoperator/UnaryOperatorGroup.java" />
+        <option value="$PROJECT_DIR$/src/main/java/parser/Parser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/operator/genericoperator/OperatorType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/math/Fraction.java" />
+        <option value="$PROJECT_DIR$/src/main/java/math/BigIntegerUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/math/RootCalculus.java" />
+        <option value="$PROJECT_DIR$/src/main/java/math/symbol/Monomial.java" />
+        <option value="$PROJECT_DIR$/src/main/java/math/symbol/Coefficient.java" />
+        <option value="$PROJECT_DIR$/src/main/java/math/symbol/Symbol.java" />
+        <option value="$PROJECT_DIR$/src/main/java/math/symbol/Term.java" />
+        <option value="$PROJECT_DIR$/src/main/java/math/symbol/Polynomial.java" />
+        <option value="$PROJECT_DIR$/src/main/java/puupaska/Operator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/puupaska/Saver.java" />
+        <option value="$PROJECT_DIR$/src/main/java/puupaska/FlagNode.java" />
+        <option value="$PROJECT_DIR$/src/main/java/puupaska/TreeIterator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/lexer/SymbolToken.java" />
+        <option value="$PROJECT_DIR$/src/main/java/lexer/token/SymbolToken.java" />
+        <option value="$PROJECT_DIR$/src/main/java/puupaska/Symbol.java" />
+        <option value="$PROJECT_DIR$/src/main/java/lexer/token/NumberToken.java" />
+        <option value="$PROJECT_DIR$/src/main/java/puupaska/Payload.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Mainasd.java" />
+        <option value="$PROJECT_DIR$/src/main/java/operator/unaryoperator/UnaryOperatorType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/puupaska/Tree.java" />
+        <option value="$PROJECT_DIR$/src/main/java/puupaska/Node.java" />
+        <option value="$PROJECT_DIR$/src/main/java/math/fraction/Calculator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/math/fraction/Fraction.java" />
+        <option value="$PROJECT_DIR$/src/main/java/operator/genericoperator/Operator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/operator/binaryoperator/BinaryOperator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/operator/unaryoperator/UnaryOperator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/operator/BoundingOperator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/lexer/Lexer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/lexer/token/Token.java" />
+        <option value="$PROJECT_DIR$/src/main/java/math/fraction/Fractionatable.java" />
+        <option value="$PROJECT_DIR$/src/main/java/math/fraction/Fractionable.java" />
+        <option value="$PROJECT_DIR$/src/main/java/puupaska/Expression.java" />
+        <option value="$PROJECT_DIR$/src/main/java/operator/genericoperator/GenericOperatorStack.java" />
+        <option value="$PROJECT_DIR$/src/main/java/parser/GenericParser.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="27" />
+    <option name="width" value="1920" />
+    <option name="height" value="1004" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="Kaappo Raivio" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="Kaappo_Raivio" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+            </path>
+            <path>
+              <item name="Kaappo Raivio" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="Kaappo_Raivio" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+            </path>
+            <path>
+              <item name="Kaappo Raivio" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="Kaappo_Raivio" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="Kaappo Raivio" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="Kaappo_Raivio" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="lexer" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="Kaappo Raivio" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="Kaappo_Raivio" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="math" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="Kaappo Raivio" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="Kaappo_Raivio" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="math" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="fraction" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="Kaappo Raivio" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="Kaappo_Raivio" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="operator" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="Kaappo Raivio" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="Kaappo_Raivio" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="operator" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="binaryoperator" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="Kaappo Raivio" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="Kaappo_Raivio" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="operator" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="genericoperator" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="Kaappo Raivio" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="Kaappo_Raivio" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="operator" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="unaryoperator" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="Kaappo Raivio" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="Kaappo_Raivio" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="parser" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="Kaappo Raivio" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="Kaappo_Raivio" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="puupaska" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558090217498" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="last.edited.regexp" value="-1.2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="misc" />
+      <recent name="parser" />
+      <recent name="math" />
+      <recent name="lexer" />
+      <recent name="" />
+    </key>
+    <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="misc.StringUtil" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="puupaska" />
+      <recent name="parser" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.Main without tests">
+    <configuration default="true" type="tests" factoryName="Nosetests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <option name="_new_regexPattern" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Twisted Trial">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="py.test">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Expression" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="puupaska.Expression" />
+      <module name="Kaappo_Raivio.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="puupaska.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main without tests" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Kaappo_Raivio.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Node" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="puupaska.Node" />
+      <module name="Kaappo_Raivio.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="puupaska.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Polynomial" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="math.symbol.Polynomial" />
+      <module name="Kaappo_Raivio.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="math.symbol.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tree" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="puupaska.Tree" />
+      <module name="Kaappo_Raivio.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="puupaska.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TreeIterator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="puupaska.TreeIterator" />
+      <module name="Kaappo_Raivio.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="puupaska.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LexerTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="Kaappo_Raivio.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="lexer.token.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="lexer" />
+      <option name="MAIN_CLASS_NAME" value="lexer.LexerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TokenTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="Kaappo_Raivio.test" />
+      <option name="PACKAGE_NAME" value="lexer" />
+      <option name="MAIN_CLASS_NAME" value="lexer.TokenTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main without tests" />
+      <item itemvalue="Application.Polynomial" />
+      <item itemvalue="Application.Node" />
+      <item itemvalue="Application.TreeIterator" />
+      <item itemvalue="Application.Tree" />
+      <item itemvalue="Application.Expression" />
+      <item itemvalue="JUnit.TokenTest" />
+      <item itemvalue="JUnit.LexerTest" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Expression" />
+        <item itemvalue="Application.Node" />
+        <item itemvalue="Application.Tree" />
+        <item itemvalue="Application.TreeIterator" />
+        <item itemvalue="Application.Polynomial" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c5d0c37b-dd10-46d2-8faf-1ac2c9187819" name="Default Changelist" comment="" />
+      <created>1551699128957</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1551699128957</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="FractionTest_shouldEqualToItself - 2019.03.26 at 08h 37m 40s.xml">
+      <configuration name="FractionTest.shouldEqualToItself" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FractionTest - 2019.03.26 at 08h 37m 47s.xml">
+      <configuration name="FractionTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ParserTest - 2019.03.28 at 10h 51m 24s.xml">
+      <configuration name="ParserTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FractionTest - 2019.03.28 at 10h 51m 44s.xml">
+      <configuration name="FractionTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FractionTest - 2019.03.28 at 11h 21m 12s.xml">
+      <configuration name="FractionTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FractionTest_power - 2019.04.01 at 14h 46m 12s.xml">
+      <configuration name="FractionTest.power" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FractionTest_power - 2019.04.02 at 09h 10m 59s.xml">
+      <configuration name="FractionTest.power" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FractionTest_power - 2019.04.02 at 09h 11m 36s.xml">
+      <configuration name="FractionTest.power" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FractionTest_power - 2019.04.02 at 09h 11m 49s.xml">
+      <configuration name="FractionTest.power" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FractionTest_power - 2019.04.02 at 09h 12m 01s.xml">
+      <configuration name="FractionTest.power" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="27" width="1920" height="1004" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15955175" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32718894" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.4251152" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3986175" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3293348" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3293348" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Build" order="10" weight="0.3293348" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32603687" />
+      <window_info anchor="bottom" id="Tail" order="12" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Maven Projects" order="7" />
+      <window_info anchor="right" id="Maven" order="8" />
+      <window_info anchor="right" id="Gradle" order="9" weight="0.32982844" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22080797" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3293348" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32850778" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3991276" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3293348" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3293348" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Build" order="10" weight="0.3293348" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32850778" />
+      <window_info anchor="bottom" id="Tail" order="12" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Maven Projects" order="7" />
+      <window_info anchor="right" id="Maven" order="8" />
+      <window_info anchor="right" id="Gradle" order="9" weight="0.32982844" />
+    </layout-to-restore>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="watch">
+      <expression>
+        <expression-string>a.toDecimal().toString()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/operator/binaryoperator/EvaluatingOrder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/operator/binaryoperator/BinaryOperatorGroup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="12" column="33" selection-end-line="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/operator/binaryoperator/BinaryOperatorStack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/parser/ParserTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="26" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/math/FractionTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3121#3122#0" expanded="true" />
+            <element signature="e#3209#3210#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/math/Calculator.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/operator/unaryoperator/UnaryOperatorGroup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="9" column="48" lean-forward="true" selection-start-line="9" selection-start-column="48" selection-end-line="16" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/math/Fraction.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/math/BigIntegerUtils.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/math/RootCalculus.java" />
+    <entry file="jar:///usr/lib/jvm/jdk-11.0.2/lib/src.zip!/java.base/java/math/BigInteger.java" />
+    <entry file="jar:///usr/lib/jvm/jdk-11.0.2/lib/src.zip!/java.base/java/util/Arrays.java" />
+    <entry file="jar:///usr/lib/jvm/jdk-11.0.2/lib/src.zip!/java.base/java/util/Comparator.java" />
+    <entry file="jar:///usr/lib/jvm/jdk-11.0.2/lib/src.zip!/java.base/java/util/Optional.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/math/symbol/Coefficient.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/math/symbol/Symbol.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/math/symbol/Monomial.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/math/symbol/Term.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="33" column="22" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
+          <folding>
+            <element signature="e#554#555#0" expanded="true" />
+            <element signature="e#625#626#0" expanded="true" />
+            <element signature="e#988#989#0" expanded="true" />
+            <element signature="e#1028#1029#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/math/symbol/Polynomial.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="592">
+          <caret line="43" column="20" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/jdk-11.0.2/lib/src.zip!/java.base/java/lang/Shutdown.java" />
+    <entry file="jar:///usr/lib/jvm/jdk-11.0.2/lib/src.zip!/java.base/java/lang/Runtime.java" />
+    <entry file="jar:///usr/lib/jvm/jdk-11.0.2/lib/src.zip!/java.base/java/lang/System.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/puupaska/Operator.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/puupaska/Saver.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/puupaska/FlagNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/puupaska/TreeIterator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/parser/Parser.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/lexer/token/FoundToken.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lexer/token/SymbolToken.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lexer/token/NumberToken.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/puupaska/Symbol.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+          <folding>
+            <element signature="e#589#590#0" expanded="true" />
+            <element signature="e#630#631#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/puupaska/Tree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="25" column="11" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/puupaska/Payload.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/math/fraction/Calculator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="19" column="39" lean-forward="true" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/puupaska/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="37" column="19" lean-forward="true" selection-start-line="37" selection-start-column="19" selection-end-line="37" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#322#323#0" expanded="true" />
+            <element signature="e#349#350#0" expanded="true" />
+            <element signature="e#390#391#0" expanded="true" />
+            <element signature="e#422#423#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/operator/unaryoperator/UnaryOperatorType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/math/fraction/Fraction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="13" column="47" selection-start-line="13" selection-start-column="47" selection-end-line="13" selection-end-column="47" />
+          <folding>
+            <element signature="e#4352#4353#0" expanded="true" />
+            <element signature="e#4428#4429#0" expanded="true" />
+            <element signature="e#12280#12281#0" expanded="true" />
+            <element signature="e#12307#12308#0" expanded="true" />
+            <element signature="e#12539#12540#0" expanded="true" />
+            <element signature="e#12567#12568#0" expanded="true" />
+            <element signature="e#12617#12618#0" expanded="true" />
+            <element signature="e#12645#12646#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/operator/binaryoperator/BinaryOperator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="52" column="16" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="16" />
+          <folding>
+            <element signature="e#1394#1395#0" expanded="true" />
+            <element signature="e#1418#1419#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/operator/unaryoperator/UnaryOperator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="50" column="16" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1325#1326#0" expanded="true" />
+            <element signature="e#1349#1350#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lexer/Lexer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="36" column="39" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/operator/genericoperator/OperatorType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lexer/token/Token.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="24" column="38" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/jdk-11.0.2/lib/src.zip!/java.base/java/util/function/UnaryOperator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/math/fraction/Fractionable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="30" lean-forward="true" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/operator/genericoperator/GenericOperatorStack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="29" column="16" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/operator/genericoperator/Operator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/operator/genericoperator/GenericOperatorGroup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="541">
+          <caret line="35" column="57" selection-start-line="35" selection-start-column="57" selection-end-line="35" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#271#272#0" expanded="true" />
+            <element signature="e#333#334#0" expanded="true" />
+            <element signature="e#376#377#0" expanded="true" />
+            <element signature="e#408#409#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/operator/BoundingOperator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="36" column="17" lean-forward="true" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#863#864#0" expanded="true" />
+            <element signature="e#887#888#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/puupaska/Expression.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="27" column="108" selection-start-line="27" selection-start-column="108" selection-end-line="27" selection-end-column="108" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1820#1821#0" expanded="true" />
+            <element signature="e#1847#1848#0" expanded="true" />
+            <element signature="e#1842#1843#0" expanded="true" />
+            <element signature="e#1904#1905#0" expanded="true" />
+            <element signature="e#1951#1952#0" expanded="true" />
+            <element signature="e#2009#2010#0" expanded="true" />
+            <element signature="e#2065#2066#0" expanded="true" />
+            <element signature="e#2107#2108#0" expanded="true" />
+            <element signature="e#3970#3971#0" expanded="true" />
+            <element signature="e#4001#4002#0" expanded="true" />
+            <element signature="e#5587#5588#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/parser/GenericParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="143" column="8" lean-forward="true" selection-start-line="131" selection-start-column="8" selection-end-line="143" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#8153#8154#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Python 2.7 interpreter library</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>11</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>main|Kaappo_Raivio</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.12082851" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>10</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Gradle: org.apiguardian:apiguardian-api:1.0.0</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
