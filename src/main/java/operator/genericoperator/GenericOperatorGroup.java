@@ -41,6 +41,6 @@ public class GenericOperatorGroup {
                 .stream()
                 .filter(operator -> token.is(operator.getTokenType()))
                 .findAny()
-                .orElseThrow(() -> new RuntimeException("Token " + token + " is not defined as a suffix operator!"));
+                .orElseThrow(() -> new RuntimeException("Token " + token + " is not defined as an operator!"));
     }
 }

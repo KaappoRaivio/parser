@@ -1,4 +1,4 @@
-package puupaska;
+package expression;
 
 import lexer.token.Token;
 import math.fraction.Fraction;
@@ -11,6 +11,7 @@ import operator.genericoperator.OperatorType;
 import operator.unaryoperator.UnaryOperator;
 import operator.unaryoperator.UnaryOperatorType;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
@@ -20,10 +21,12 @@ public class Expression {
     public final static Operator operatorMul = new BinaryOperator(Token.MULTIPLY, (fractionable, fractionable2) -> fractionable.fractionValue().multiply(fractionable2.fractionValue()), EvaluatingOrder.LEFT_TO_RIGHT);
     public final static Operator operatorDiv = new BinaryOperator(Token.DIVIDE, (fractionable, fractionable2) -> fractionable.fractionValue().divide(fractionable2.fractionValue()), EvaluatingOrder.LEFT_TO_RIGHT);
     public final static Operator operatorPow = new BinaryOperator(Token.POWER, (fractionable, fractionable2) -> fractionable.fractionValue().power(fractionable2.fractionValue()), EvaluatingOrder.RIGHT_TO_LEFT);
-    public final static Operator operatorSqr = new UnaryOperator(Token.SQRT, fractionable -> fractionable.fractionValue().root(2), UnaryOperatorType.PREFIX);
+    public final static Operator operatorSqr = new UnaryOperator(Token.SQRT, fractionable -> fractionable.fractionValue().root(BigInteger.TWO), UnaryOperatorType.PREFIX);
+    public final static Operator operatorRot = new BinaryOperator(Token.ROOT, (fractionable, fractionable2) -> fractionable2.fractionValue().root(fractionable.fractionValue().safeIntValue()), EvaluatingOrder.LEFT_TO_RIGHT);
     public final static Operator operatorNeg = new UnaryOperator(Token.SUBTRACT, fractionable -> fractionable.fractionValue().negate(), UnaryOperatorType.PREFIX);
+    public final static Operator operatorPos = new UnaryOperator(Token.ADD, fractionable -> fractionable, UnaryOperatorType.PREFIX);
     public static final Operator operatorEll = new UnaryOperator(Token.ELLIPSIS, (fractionable) -> fractionable.fractionValue().toEndless(), UnaryOperatorType.BOUNDARY);
-    public static final Operator operatorFac = new UnaryOperator(Token.ELLIPSIS, fractionable -> fractionable, UnaryOperatorType.BOUNDARY); //NOT IMPLEMENTED
+    public static final Operator operatorFac = new UnaryOperator(Token.EXCLAMATION, fractionable -> fractionable.fractionValue().factorial(), UnaryOperatorType.SUFFIX); //NOT IMPLEMENTED
 
     public static final Operator operatorAbs = new BoundingOperator(Token.ABS, Token.ABS, (fractionable) -> fractionable.fractionValue().abs());
     public static final Operator operatorParen = new BoundingOperator(Token.LPAREN, Token.RPAREN, fractionable -> fractionable);
@@ -61,7 +64,7 @@ public class Expression {
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public Expression makeBinaryOperation (Operator operator, Fractionable otherOperand) {
+    public Expression makeBinaryOperation (BinaryOperator operator, Fractionable otherOperand) {
         if (operator.getOperatorType() != OperatorType.BINARY) {
             throw new RuntimeException(operator.toString() + " is not a binary operator!");
         }
@@ -74,7 +77,7 @@ public class Expression {
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public Expression makeUnaryOperation (Operator operator) {
+    public Expression makeUnaryOperation (UnaryOperator operator) {
         if (operator.getOperatorType() != OperatorType.UNARY) {
             throw new RuntimeException(operator.toString() + " is not an unary operator!");
         }
@@ -94,7 +97,7 @@ public class Expression {
         if (currentNode.getValue().isFraction()) {
             return (Fraction) currentNode.getValue();
         } else {
-            var operator = (Operator) currentNode.getValue();
+            Operator operator = (Operator) currentNode.getValue();
 
             var children = currentNode.getChildren();
             var evaluated = children.stream().map(this::reduce).collect(Collectors.toCollection(ArrayList::new));
@@ -103,11 +106,13 @@ public class Expression {
                 throw new RuntimeException("Wrong number of operands " + evaluated + " for operator " + operator + "!");
             }
 
-            switch (operator.getArity()) {
-                case 1:
-                    return ((UnaryOperator) operator).invoke(evaluated.get(0));
-                case 2:
-                    return ((BinaryOperator) operator).invoke(evaluated.get(0), evaluated.get(1));
+            switch (operator.getOperatorType()) {
+                case UNARY:
+                    return operator.invoke(evaluated);
+                case BINARY:
+                    return operator.invoke(evaluated);
+                case BOUNDARY:
+                    return operator.invoke(evaluated);
                 default:
                     throw new RuntimeException("Unknown arity of " + operator.getArity() + " for operator " + operator);
             }

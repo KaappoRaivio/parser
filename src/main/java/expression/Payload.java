@@ -1,4 +1,4 @@
-package puupaska;
+package expression;
 
 public interface Payload {
     boolean isOperator ();

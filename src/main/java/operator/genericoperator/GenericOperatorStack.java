@@ -1,21 +1,19 @@
 package operator.genericoperator;
 
 import lexer.token.FoundToken;
-import operator.BoundingOperator;
-import operator.unaryoperator.UnaryOperator;
-import puupaska.Expression;
+
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Predicate;
 
-import java.util.stream.Collectors;
 
 public class GenericOperatorStack {
     private List<GenericOperatorGroup> operatorGroups;
+    private GenericOperatorGroup suffixOperators;
+    private GenericOperatorGroup boundaryOperators;
 
-    public GenericOperatorStack(GenericOperatorGroup... operators) {
-        this(Arrays.stream(operators).collect(Collectors.toList()));
+    public GenericOperatorStack(GenericOperatorGroup suffixOperators, GenericOperatorGroup boundaryOperators, GenericOperatorGroup... operators) {
+        this(suffixOperators, boundaryOperators, Arrays.asList(operators));
     }
 
     @Override
@@ -24,21 +22,17 @@ public class GenericOperatorStack {
     }
 
     public GenericOperatorGroup getSuffixOperators () {
-        return new GenericOperatorGroup(
-                OperatorType.UNARY,
-                Expression.operatorEll,
-                Expression.operatorFac
-        );
+        return suffixOperators;
     }
 
     public GenericOperatorGroup getBoundaryOperators () {
-        return new GenericOperatorGroup(OperatorType.UNARY,
-                Expression.operatorAbs,
-                Expression.operatorParen
-        );
+
+        return boundaryOperators;
     }
 
-    public GenericOperatorStack(List<GenericOperatorGroup> operatorGroups) {
+    public GenericOperatorStack(GenericOperatorGroup suffixOperators, GenericOperatorGroup boundaryOperators, List<GenericOperatorGroup> operatorGroups) {
+        this.suffixOperators = suffixOperators;
+        this.boundaryOperators = boundaryOperators;
         this.operatorGroups = operatorGroups;
     }
 

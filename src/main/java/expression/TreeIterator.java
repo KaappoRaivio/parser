@@ -1,4 +1,4 @@
-package puupaska;
+package expression;
 
 import java.util.ArrayList;
 import java.util.Iterator;

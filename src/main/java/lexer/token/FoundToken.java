@@ -29,7 +29,7 @@ public class FoundToken {
     public boolean is (Object o) {
         if (o == null) return false;
         else if (o.getClass() == Token.class) return tokenType == o;
-        else return false;
+        else return equals(o);
     }
 
     @Override

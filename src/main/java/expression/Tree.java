@@ -1,10 +1,8 @@
-package puupaska;
+package expression;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Spliterator;
-import java.util.function.Consumer;
 
 public class Tree<T> implements Iterable<Node<T>>{
     private Node<T> parentNode;

@@ -1,10 +1,13 @@
 package operator.binaryoperator;
 
 import lexer.token.Token;
+import math.fraction.Fraction;
 import math.fraction.Fractionable;
 import operator.genericoperator.Operator;
 import operator.genericoperator.OperatorType;
-import puupaska.Payload;
+import expression.Payload;
+
+import java.util.List;
 
 public class BinaryOperator implements Operator, Payload {
     private java.util.function.BinaryOperator<Fractionable> function;
@@ -25,8 +28,11 @@ public class BinaryOperator implements Operator, Payload {
         return token;
     }
 
-    public Fractionable invoke (Fractionable t1, Fractionable t2) {
-        return function.apply(t1, t2);
+    public Fractionable invoke (List<Fractionable> operands) {
+        if (operands.size() != getArity()) {
+            throw new RuntimeException("Binary operator " + toString() + " cannot be applied to " + operands + "!");
+        }
+        return function.apply(operands.get(0), operands.get(1));
     }
 
     @Override

@@ -1,7 +1,9 @@
 package math.fraction;
 
-import puupaska.Payload;
+import expression.Payload;
 
 public interface Fractionable extends Payload {
     Fraction fractionValue ();
+
+
 }

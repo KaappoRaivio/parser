@@ -7,7 +7,6 @@ import lexer.token.SymbolToken;
 import lexer.token.Token;
 import math.fraction.Calculator;
 import math.fraction.Fraction;
-import math.fraction.Fractionable;
 import operator.BoundingOperator;
 import operator.binaryoperator.BinaryOperator;
 import operator.genericoperator.GenericOperatorGroup;
@@ -15,11 +14,10 @@ import operator.genericoperator.GenericOperatorStack;
 import operator.genericoperator.Operator;
 import operator.genericoperator.OperatorType;
 import operator.unaryoperator.UnaryOperator;
-import operator.unaryoperator.UnaryOperatorType;
-import puupaska.Expression;
-import puupaska.Node;
-import puupaska.Payload;
-import puupaska.Tree;
+import expression.Expression;
+import expression.Node;
+import expression.Payload;
+import expression.Tree;
 
 public class GenericParser {
     private Lexer lexer;
@@ -54,7 +52,7 @@ public class GenericParser {
 
     private Expression binaryEval(int operatorStackPointer) {
         if (operatorStackPointer >= genericOperatorStack.size()) {
-            return number();
+            return boundaryUnary();
         }
 
         GenericOperatorGroup currentOperators = genericOperatorStack.getGroup(operatorStackPointer);
@@ -103,7 +101,7 @@ public class GenericParser {
 
     private Expression prefixUnary (int operatorStackPointer) {
         if (operatorStackPointer >= genericOperatorStack.size()) {
-            return number();
+            return boundaryUnary();
         }
         var currentOperators = genericOperatorStack.getGroup(operatorStackPointer);
         if (currentOperators.getGroupType() == OperatorType.BINARY) {
@@ -129,20 +127,20 @@ public class GenericParser {
         FoundToken token = lexer.getNextToken();
         Expression value;
 
-        if (token.is(Token.LPAREN)) {
-            value = binaryEval(0);
-            FoundToken expectedClosingParen = lexer.getNextToken();
-            if (!expectedClosingParen.is(Token.RPAREN)) {
-                throw new RuntimeException("Unbalanced parentheses! " + expectedClosingParen);
-            }
-
-        } else if (token.is(Token.ABS)) {
-            value = calculator.abs(binaryEval(0));
-            FoundToken expectedClosingPipe = lexer.getNextToken();
-            if (!expectedClosingPipe.is(Token.ABS)) {
-                throw new RuntimeException("Unbalanced pipes!" + expectedClosingPipe);
-            }
-        } else if (token instanceof NumberToken) {
+//        if (token.is(Token.LPAREN)) {
+//            value = binaryEval(0);
+//            FoundToken expectedClosingParen = lexer.getNextToken();
+//            if (!expectedClosingParen.is(Token.RPAREN)) {
+//                throw new RuntimeException("Unbalanced parentheses! " + expectedClosingParen);
+//            }
+//
+//        } else if (token.is(Token.ABS)) {
+//            value = calculator.abs(binaryEval(0));
+//            FoundToken expectedClosingPipe = lexer.getNextToken();
+//            if (!expectedClosingPipe.is(Token.ABS)) {
+//                throw new RuntimeException("Unbalanced pipes!" + expectedClosingPipe);
+//            }
+        if (token instanceof NumberToken) {
             value = new Expression(calculator.valueOf(((NumberToken) token).getValue())); // "repeating decimal" case is handled in suffixUnary().
         } else if (token instanceof SymbolToken) {
             value = new Expression(calculator.valueOf(((SymbolToken) token).getValue()));
@@ -152,35 +150,25 @@ public class GenericParser {
             throw new RuntimeException("Invalid token " + token);
         }
 
-        FoundToken possibleSuffixUnary = lexer.getNextToken();
-        if (currentOperators.isOperator(possibleSuffixUnary)) {
-            var operator = currentOperators.getOperator(possibleSuffixUnary);
-            if (operator.getOperatorType() == OperatorType.UNARY) {
-                var unary = (UnaryOperator) operator;
-                if (unary.getUnaryOperatorType() == UnaryOperatorType.SUFFIX) {
-                    return
-                }
-            }
-        }
-
         return suffixUnary(value);
     }
 
-    public Expression suffixUnary (Fractionable value) {
+    private Expression suffixUnary (Expression expression) {
         FoundToken nextToken = lexer.getNextToken();
 
-        if (genericOperatorStack.getSuffixOperators().isOperator(nextToken)) {
-            Node<Payload> parentNode = new Node<>(genericOperatorStack.getSuffixOperators().getOperator(nextToken));
-            parentNode.addChild(new Node<>(value));
+//        System.out.println(genericOperatorStack.getSuffixOperators() + ", " + nextToken);
 
-            return new Expression(new Tree<>(parentNode));
+        if (genericOperatorStack.getSuffixOperators().isOperator(nextToken)) {
+            var operator = genericOperatorStack.getSuffixOperators().getOperator(nextToken);
+
+            return suffixUnary(expression.makeUnaryOperation(((UnaryOperator) operator)));
         } else {
             lexer.revert();
-            return new Expression(new Tree<>(new Node<>(value)));
+            return expression;
         }
     }
 
-    public Expression boundaryUnary () {
+    private Expression boundaryUnary () {
         FoundToken nextToken = lexer.getNextToken();
 
         if (genericOperatorStack.getBoundaryOperators().isOperator(nextToken)) {
@@ -189,13 +177,13 @@ public class GenericParser {
             FoundToken expectedClosing = lexer.getNextToken();
 
             if (operator.getRightToken() != expectedClosing.getTokenType()) {
-                throw new RuntimeException("Unbalanced parens " + lexer + "!");
+                throw new RuntimeException("Unbalanced bounding operator tokens, expecting " + operator.getRightToken() + " but found " + expectedClosing.getTokenType() + "! " + lexer);
             }
 
             Node<Payload> parentNode = new Node<>(operator);
             parentNode.addChild(operand.getTree().getParentNode());
 
-            return new Expression(new Tree<>(parentNode));
+            return suffixUnary(new Expression(new Tree<>(parentNode)));
         } else {
             lexer.revert();
             return number();

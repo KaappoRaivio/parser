@@ -4,7 +4,9 @@ import lexer.token.Token;
 import math.fraction.Fractionable;
 import operator.genericoperator.Operator;
 import operator.genericoperator.OperatorType;
-import puupaska.Payload;
+import expression.Payload;
+
+import java.util.List;
 
 public class UnaryOperator implements Operator, Payload {
     private java.util.function.UnaryOperator<Fractionable> function;
@@ -19,8 +21,12 @@ public class UnaryOperator implements Operator, Payload {
         this.unaryOperatorType = unaryOperatorType;
     }
 
-    public Fractionable invoke (Fractionable a) {
-        return function.apply(a);
+    public Fractionable invoke (List<Fractionable> operands) {
+        if (operands.size() != getArity()) {
+            throw new RuntimeException("Unary operator " + toString() + " cannot be applied to " + operands + "!");
+        } else {
+            return function.apply(operands.get(0));
+        }
     }
 
     public UnaryOperatorType getUnaryOperatorType() {

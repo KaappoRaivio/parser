@@ -2,12 +2,12 @@ package math.fraction;
 
 ;
 
-import puupaska.Expression;
-import puupaska.Node;
-import puupaska.Payload;
-import puupaska.Tree;
+import expression.Expression;
+import expression.Node;
+import expression.Payload;
+import expression.Tree;
 
-import static puupaska.Expression.operatorAbs;
+import static expression.Expression.operatorAbs;
 
 
 public class Calculator<T extends Fraction> {
