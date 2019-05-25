@@ -14,8 +14,8 @@ public class NumberToken extends FoundToken {
         return super.toString() + "{" + value + "}";
     }
 
-    public NumberToken(Token tokenType, String value) {
-        super(tokenType);
+    public NumberToken(String value) {
+        super(Token.NUMBER);
 
         this.value = value;
     }

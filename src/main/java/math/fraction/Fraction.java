@@ -12,11 +12,12 @@ import java.util.stream.Stream;
 
 public class Fraction implements Fractionable {
     static final int PRECISION = 16;
+
     private static final BigInteger BIG = new BigInteger("100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000");
-    private static final Pattern pattern = Pattern.compile("(.*?)\\.\\.\\.$");
+
+
 
     protected String originalRepresentation;
-
     private BigInteger numerator;
     private BigInteger denominator;
 
@@ -28,6 +29,7 @@ public class Fraction implements Fractionable {
         if (denominator.equals(BigInteger.ZERO)) {
             throw new ArithmeticException("Denominator cannot be zero!");
         }
+
 
         this.numerator = numerator;
         this.denominator = denominator;
@@ -49,10 +51,6 @@ public class Fraction implements Fractionable {
         } else {
             throw new RuntimeException("safeIntValue() isn't safe for " + this);
         }
-    }
-
-    private static BigInteger gcd (BigInteger num, BigInteger den) {
-        return num.gcd(den);
     }
 
     public Fraction (String numerator, String denominator) {
@@ -190,10 +188,12 @@ public class Fraction implements Fractionable {
     }
 
     private Fraction power (BigInteger exponent) {
-        if (exponent.compareTo(BigInteger.ZERO) < 0) {
-            return new Fraction(numerator.modPow(exponent, BIG), denominator.modPow(exponent, BIG));
+        int integerExponent = exponent.intValueExact();
+
+        if (integerExponent < 0) {
+            return new Fraction(numerator.pow(-integerExponent), denominator.pow(-integerExponent)).inverse();
         } else {
-            return new Fraction(numerator.modPow(exponent, BIG), denominator.modPow(exponent, BIG));
+            return new Fraction(numerator.pow(integerExponent), denominator.pow(integerExponent));
         }
     }
 
@@ -204,7 +204,7 @@ public class Fraction implements Fractionable {
         return new BigDecimal(string);
     }
 
-    private static Fraction fromDecimal (String representation, boolean endless) {
+    public static Fraction fromDecimal (String representation, boolean endless) {
         if (endless) {
             return fromEndlessDecimal(representation);
         } else {
@@ -303,6 +303,14 @@ public class Fraction implements Fractionable {
         }
     }
 
+    public BigInteger getNumerator() {
+        return numerator;
+    }
+
+    public BigInteger getDenominator() {
+        return denominator;
+    }
+
     public Fraction inverse () {
         return new Fraction(denominator, numerator);
     }
@@ -335,19 +343,6 @@ public class Fraction implements Fractionable {
     public boolean isNegative () {
         return toDecimal().compareTo(BigDecimal.ZERO) < 0;
     }
-//
-//    private static Fraction factorial (Fraction n) {
-//        if (!n.isInteger() || n.isNegative()) {
-//            throw new RuntimeException("Factorial is only defined for positive integer fractions, not " + n.toString() + "!");
-//        }
-//
-//        //noinspection EqualsBetweenInconvertibleTypes
-//        if (n.equals(1) || n.equals(0)) {
-//            return new Fraction(n.numerator, n.denominator);
-//        } else {
-//            return n.multiply(new Fraction(n.numerator.subtract(BigInteger.ONE), n.denominator));
-//        }
-//    }
 
     public Fraction factorial () {
         if (!isInteger() || isNegative()) {
@@ -367,13 +362,7 @@ public class Fraction implements Fractionable {
         return this;
     }
 
-    public BigInteger getNumerator() {
-        return numerator;
-    }
 
-    public BigInteger getDenominator() {
-        return denominator;
-    }
 
     @Override
     public boolean isOperator () {
@@ -389,9 +378,9 @@ public class Fraction implements Fractionable {
         return Stream.of(num, den).reduce(new BigInteger("1"), (x, y) -> x.multiply(y.divide(gcd(x, y))));
     }
 
-    public static Fraction valueOf (String representation) {
-        representation = representation.replaceAll("[.,]", ".");
-        boolean endless = pattern.matcher(representation).matches();
-        return fromDecimal(representation, endless);
+    private static BigInteger gcd (BigInteger num, BigInteger den) {
+        return num.gcd(den);
     }
+
+
 }

@@ -35,7 +35,7 @@ public class ApproxFraction extends Fraction {
 
     @Override
     public Fraction inverse () {
-        return new ApproxFraction(getDenominator(), getNumerator());
+        return new ApproxFraction(super.inverse());
     }
 
     @Override
@@ -58,11 +58,11 @@ public class ApproxFraction extends Fraction {
 
     @Override
     public Fraction multiply (Fraction other) {
-        System.out.println("ApproxFraction.multiply");
         return new ApproxFraction(getNumerator().multiply(other.getNumerator()), getDenominator().multiply(other.getDenominator())).compact();
     }
 
-    public static void main (String[] args) {
-        System.out.println(Fraction.valueOf("12345,3..."));
+    @Override
+    public Fraction negate () {
+        return new ApproxFraction(super.negate());
     }
 }

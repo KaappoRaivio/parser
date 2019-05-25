@@ -15,13 +15,14 @@ public enum Token {
     LPAREN ("\\(", "Left parenthesis", 1),
     RPAREN ("\\)", "Right parenthesis", 1),
     END ("$", "End", 1),
-    NUMBER ("([0123456789])+([.,]([0123456789])+)?", "Number", 2),
+    NUMBER ("([0123456789])+([.,]([0123456789])+)?", "Number", 4),
     ABS ("\\|", "Pipe", 1),
     SQRT ("(\\√|sqrt)", "Square root", 1),
     ROOT ("root", "nth root", 1),
     EXCLAMATION ("\\!", "Factorial", 1),
     POWER ("(\\*\\*|\\^)", "Power", 2),
-    SYMBOL ("([a-z])", "Variable", 0),
+    INVPOW("(\\*\\*|\\^)( )?-", "Inverse Power", 3),
+    SYMBOL ("([a-z]|%)+", "Symbol", 0),
     ELLIPSIS ("(\\.\\.\\.)?", "Ellipsis", 0);
 //    FACTORIAL ("\\!", "Factorial", 0);
 

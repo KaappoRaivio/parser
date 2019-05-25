@@ -1,9 +1,12 @@
-import math.fraction.Calculator;
+import expression.SymbolTable;
+import math.fraction.Fraction;
+import operator.binaryoperator.BinaryOperator;
 import operator.genericoperator.GenericOperatorGroup;
 import operator.genericoperator.GenericOperatorStack;
 import operator.genericoperator.OperatorType;
-import parser.GenericParser;
+import parser.ExpressionParser;
 import expression.Expression;
+import parser.MyValueProvider;
 
 import java.util.Scanner;
 
@@ -43,28 +46,29 @@ public class Main {
 
                 new GenericOperatorGroup(OperatorType.BINARY, Expression.operatorAdd, Expression.operatorSub),
                 new GenericOperatorGroup(OperatorType.BINARY, Expression.operatorMul, Expression.operatorDiv),
-                new GenericOperatorGroup(OperatorType.UNARY, Expression.operatorNeg, Expression.operatorPos),
-                new GenericOperatorGroup(OperatorType.UNARY, Expression.operatorNeg),
-                new GenericOperatorGroup(OperatorType.BINARY, Expression.operatorPow),
+                new GenericOperatorGroup(OperatorType.UNARY,  Expression.operatorNeg, Expression.operatorPos),
+                new GenericOperatorGroup(OperatorType.BINARY, Expression.operatorPow, Expression.operatorIPo),
                 new GenericOperatorGroup(OperatorType.BINARY, Expression.operatorRot),
-                new GenericOperatorGroup(OperatorType.UNARY, Expression.operatorSqr)
+                new GenericOperatorGroup(OperatorType.UNARY,  Expression.operatorSqr)
         );
         //√
-//        Parser parser1 = new Parser("-2^2", new Calculator<>(), UnaryOperatorGroup.UNARY_OPERATOR_GROUP, binaryOperatorStack);
+//        Parser parser1 = new Parser("-2^2", new ValueProvider<>(), UnaryOperatorGroup.UNARY_OPERATOR_GROUP, binaryOperatorStack);
 
         while (true) {
             try {
                 String instr = new Scanner(System.in).nextLine();
                 var start = System.currentTimeMillis();
 
-                GenericParser parser1 = new GenericParser(instr, new Calculator<>(), operatorStack, null);
+                ExpressionParser parser1 = new ExpressionParser<Fraction>(instr, new MyValueProvider<>(), operatorStack, (BinaryOperator) Expression.operatorMul, SymbolTable.defaultTable);
+                System.out.println(parser1.getLexer());
                 var tree = parser1.parse();
                 var reduced = tree.reduce();
 
                 var end = System.currentTimeMillis();
 
                 System.out.println(tree.toString());
-                System.out.println(reduced);
+                System.out.println("Result: " + reduced);
+                System.out.println("in decimal " + reduced.fractionValue().toDecimal());
                 System.out.println("took " + (end - start) + " ms");
 
             } catch (Exception e) {

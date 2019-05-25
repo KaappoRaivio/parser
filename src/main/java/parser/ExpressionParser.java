@@ -1,12 +1,12 @@
 package parser;
 
+import expression.*;
 import lexer.Lexer;
 import lexer.token.FoundToken;
 import lexer.token.NumberToken;
 import lexer.token.SymbolToken;
 import lexer.token.Token;
-import math.fraction.Calculator;
-import math.fraction.Fraction;
+import math.fraction.Fractionable;
 import operator.BoundingOperator;
 import operator.binaryoperator.BinaryOperator;
 import operator.genericoperator.GenericOperatorGroup;
@@ -14,22 +14,18 @@ import operator.genericoperator.GenericOperatorStack;
 import operator.genericoperator.Operator;
 import operator.genericoperator.OperatorType;
 import operator.unaryoperator.UnaryOperator;
-import expression.Expression;
-import expression.Node;
-import expression.Payload;
-import expression.Tree;
 
-public class GenericParser {
+public class ExpressionParser<T extends Fractionable> {
     private Lexer lexer;
-    private Calculator<Fraction> calculator;
+    private ValueProvider<T> valueProvider;
     private GenericOperatorStack genericOperatorStack;
-    private BinaryOperator implicitOperator;
+    private SymbolTable symbolTable;
 
-    public GenericParser(String input, Calculator<Fraction> calculator, GenericOperatorStack genericOperatorStack, BinaryOperator implicitOperator) {
-        lexer = new Lexer(input);
-        this.calculator = calculator;
+    public ExpressionParser (String input, ValueProvider<T> valueProvider, GenericOperatorStack genericOperatorStack, BinaryOperator implicitOperator, SymbolTable symbolTable) {
+        this.symbolTable = symbolTable;
+        lexer = new Lexer(input, implicitOperator);
+        this.valueProvider = valueProvider;
         this.genericOperatorStack = genericOperatorStack;
-        this.implicitOperator = implicitOperator;
 
 
         if (lexer.isEmpty()) {
@@ -135,15 +131,15 @@ public class GenericParser {
 //            }
 //
 //        } else if (token.is(Token.ABS)) {
-//            value = calculator.abs(binaryEval(0));
+//            value = valueProvider.abs(binaryEval(0));
 //            FoundToken expectedClosingPipe = lexer.getNextToken();
 //            if (!expectedClosingPipe.is(Token.ABS)) {
 //                throw new RuntimeException("Unbalanced pipes!" + expectedClosingPipe);
 //            }
         if (token instanceof NumberToken) {
-            value = new Expression(calculator.valueOf(((NumberToken) token).getValue())); // "repeating decimal" case is handled in suffixUnary().
+            value = new Expression(valueProvider.valueOf(((NumberToken) token).getValue())); // "repeating decimal" case is handled in suffixUnary().
         } else if (token instanceof SymbolToken) {
-            value = new Expression(calculator.valueOf(((SymbolToken) token).getValue()));
+            value = new Expression(symbolTable.getValue((SymbolToken) token));
         }
         else {
             System.out.println(lexer);

@@ -10,6 +10,7 @@ import operator.genericoperator.Operator;
 import operator.genericoperator.OperatorType;
 import operator.unaryoperator.UnaryOperator;
 import operator.unaryoperator.UnaryOperatorType;
+import parser.MyValueProvider;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -26,7 +27,8 @@ public class Expression {
     public final static Operator operatorNeg = new UnaryOperator(Token.SUBTRACT, fractionable -> fractionable.fractionValue().negate(), UnaryOperatorType.PREFIX);
     public final static Operator operatorPos = new UnaryOperator(Token.ADD, fractionable -> fractionable, UnaryOperatorType.PREFIX);
     public static final Operator operatorEll = new UnaryOperator(Token.ELLIPSIS, (fractionable) -> fractionable.fractionValue().toEndless(), UnaryOperatorType.BOUNDARY);
-    public static final Operator operatorFac = new UnaryOperator(Token.EXCLAMATION, fractionable -> fractionable.fractionValue().factorial(), UnaryOperatorType.SUFFIX); //NOT IMPLEMENTED
+    public static final Operator operatorFac = new UnaryOperator(Token.EXCLAMATION, fractionable -> fractionable.fractionValue().factorial(), UnaryOperatorType.SUFFIX);
+    public static final Operator operatorIPo = new BinaryOperator(Token.INVPOW, (fractionable, fractionable2) -> fractionable.fractionValue().power(fractionable2.fractionValue().negate()), EvaluatingOrder.RIGHT_TO_LEFT);
 
     public static final Operator operatorAbs = new BoundingOperator(Token.ABS, Token.ABS, (fractionable) -> fractionable.fractionValue().abs());
     public static final Operator operatorParen = new BoundingOperator(Token.LPAREN, Token.RPAREN, fractionable -> fractionable);
@@ -39,7 +41,7 @@ public class Expression {
     private Tree<Payload> tree;
 
     public Expression () {
-        tree = new Tree<>(new Node<>(Fraction.valueOf("0")));
+        tree = new Tree<>(new Node<>(new MyValueProvider().valueOf("0")));
     }
 
     public Expression (Fractionable initialValue) {

@@ -1,17 +1,22 @@
 package lexer;
 
+import expression.Expression;
 import lexer.token.FoundToken;
 import lexer.token.NumberToken;
+import lexer.token.SymbolToken;
 import lexer.token.Token;
+import misc.Pair;
+import operator.binaryoperator.BinaryOperator;
+import operator.unaryoperator.UnaryOperator;
 
 import java.util.Deque;
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.regex.Matcher;
 
 public class Lexer {
-    private String input;
-
-
+    private final BinaryOperator implicitOperator;
     private Deque<FoundToken> tokens = new LinkedList<>();
     private Deque<FoundToken> alreadyRequestedTokens = new LinkedList<>();
 
@@ -20,12 +25,12 @@ public class Lexer {
         return tokens.toString() + " at " + alreadyRequestedTokens.size();
     }
 
-    public Lexer (String input) {
-        this.input = input;
-        processInput(new LinkedList<>());
+    public Lexer (String input, final BinaryOperator implicitOperator) {
+        this.implicitOperator = implicitOperator;
+        processInput(input, new LinkedList<>(), new FoundToken(Token.END));
     }
 
-    private void processInput(Deque<FoundToken> alreadyProcessed) {
+    private void processInput(String input, Deque<FoundToken> alreadyProcessed, FoundToken latestToken) {
         if (input.length() == 0) {
             alreadyProcessed.add(new FoundToken(Token.END));
             tokens = alreadyProcessed;
@@ -39,15 +44,14 @@ public class Lexer {
         FoundToken foundToken;
 
         if (token == Token.NUMBER) {
-
-
             Matcher matcher = token.getRegex().matcher(input);
+
             //noinspection ResultOfMethodCallIgnored
             matcher.lookingAt();
 
             String extracted = matcher.group();
 
-            foundToken = new NumberToken(token, extracted.replaceAll(",", "."));
+            foundToken = new NumberToken(extracted.replaceAll(",", "."));
         } else if (token == Token.SYMBOL) {
             Matcher matcher = token.getRegex().matcher(input);
 
@@ -56,20 +60,59 @@ public class Lexer {
 
             String extracted = matcher.group();
 
-            foundToken = new NumberToken(token, extracted.replaceAll(",", "."));
+            foundToken = new SymbolToken(extracted.replaceAll(",", "."));
         }
         else {
             foundToken = new FoundToken(token);
         }
 
-        input = token.getRemoverRegex().matcher(input).replaceFirst("");
+        String inputBefore = input;
+        input = token
+                .getRemoverRegex()
+                .matcher(input)
+                .replaceFirst("");
+        if (input.equals(inputBefore)) {
+            throw new RuntimeException("Doesnt recognize " + input + "!");
+        }
+
+
+        if (needsImplicitOperator(latestToken, foundToken)) {
+            alreadyProcessed.add(new FoundToken(implicitOperator.getTokenType()));
+        }
+
         alreadyProcessed.add(foundToken);
-        processInput(alreadyProcessed);
+        processInput(input, alreadyProcessed, foundToken);
+    }
+
+    private boolean needsImplicitOperator (FoundToken left, FoundToken right) {
+//        latestToken.getTokenType() == Token.RPAREN || foundToken.getTokenType() == Token.LPAREN
+        return Map.ofEntries(
+                Map.entry(new Pair<>(Token.SYMBOL, Token.SYMBOL), true),
+                Map.entry(new Pair<>(Token.NUMBER, Token.SYMBOL), true),
+                Map.entry(new Pair<>(Token.SYMBOL, Token.NUMBER), true),
+
+                Map.entry(new Pair<>(Token.RPAREN, Token.LPAREN), true),
+
+                Map.entry(new Pair<>(Token.RPAREN, Token.NUMBER), true),
+                Map.entry(new Pair<>(Token.RPAREN, Token.SYMBOL), true),
+
+                Map.entry(new Pair<>(Token.NUMBER, Token.LPAREN), true),
+                Map.entry(new Pair<>(Token.SYMBOL, Token.LPAREN), true),
+
+                Map.entry(new Pair<>(Token.NUMBER, Token.SQRT), true),
+                Map.entry(new Pair<>(Token.SYMBOL, Token.SQRT), true)
+        )
+                .getOrDefault(new Pair<>(left.getTokenType(), right.getTokenType()), false);
+
     }
 
     public FoundToken getNextToken () {
         alreadyRequestedTokens.addFirst(tokens.peekFirst());
         return tokens.pop();
+    }
+
+    private FoundToken peekNextToken () {
+        return tokens.peek();
     }
 
     public void revert () {
@@ -78,5 +121,9 @@ public class Lexer {
 
     public boolean isEmpty() {
         return tokens.size() == 1; // 1 for the END token
+    }
+
+    public static void main (String[] args) {
+        System.out.println(new Lexer("3x(2 + 2)(2-4)", (BinaryOperator) Expression.operatorMul));
     }
 }
