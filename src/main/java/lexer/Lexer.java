@@ -9,6 +9,7 @@ import misc.Pair;
 import operator.binaryoperator.BinaryOperator;
 import operator.unaryoperator.UnaryOperator;
 
+import java.math.BigDecimal;
 import java.util.Deque;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -20,6 +21,8 @@ public class Lexer {
     private Deque<FoundToken> tokens = new LinkedList<>();
     private Deque<FoundToken> alreadyRequestedTokens = new LinkedList<>();
 
+    private int precision = -1;
+
     @Override
     public String toString() {
         return tokens.toString() + " at " + alreadyRequestedTokens.size();
@@ -28,6 +31,10 @@ public class Lexer {
     public Lexer (String input, final BinaryOperator implicitOperator) {
         this.implicitOperator = implicitOperator;
         processInput(input, new LinkedList<>(), new FoundToken(Token.END));
+    }
+
+    public int getPrecision () {
+        return precision;
     }
 
     private void processInput(String input, Deque<FoundToken> alreadyProcessed, FoundToken latestToken) {
@@ -52,6 +59,7 @@ public class Lexer {
             String extracted = matcher.group();
 
             foundToken = new NumberToken(extracted.replaceAll(",", "."));
+            precision = Math.max(precision, getSignificantDigits(new BigDecimal(((NumberToken) foundToken).getValue())));
         } else if (token == Token.SYMBOL) {
             Matcher matcher = token.getRegex().matcher(input);
 
@@ -84,7 +92,13 @@ public class Lexer {
         processInput(input, alreadyProcessed, foundToken);
     }
 
-    private boolean needsImplicitOperator (FoundToken left, FoundToken right) {
+    private static int getSignificantDigits (BigDecimal input) {
+        return input.scale() <= 0
+                ? input.precision() + input.stripTrailingZeros().scale()
+                : input.precision();
+    }
+
+    private static boolean needsImplicitOperator (FoundToken left, FoundToken right) {
 //        latestToken.getTokenType() == Token.RPAREN || foundToken.getTokenType() == Token.LPAREN
         return Map.ofEntries(
                 Map.entry(new Pair<>(Token.SYMBOL, Token.SYMBOL), true),

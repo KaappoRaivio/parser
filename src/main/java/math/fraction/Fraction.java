@@ -1,5 +1,6 @@
 package math.fraction;
 
+import math.error.MathError;
 import misc.Pair;
 import misc.StringUtil;
 
@@ -11,7 +12,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 public class Fraction implements Fractionable {
-    static final int PRECISION = 16;
+    static final int PRECISION = 34;
 
     private static final BigInteger BIG = new BigInteger("100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000");
 
@@ -154,10 +155,27 @@ public class Fraction implements Fractionable {
     }
 
     public Fraction power (Fraction exponent) {
-        return power(exponent.numerator).root(exponent.denominator);
+        if (exponent instanceof ApproxFraction) {
+            return ((ApproxFraction) exponent).inversePower(this);
+        } else if (this.equals(0)) {
+            if (exponent.equals(0)) {
+                throw new MathError("0 to the power of 0 is not defined!", "Undefined");
+            } else {
+                return this;
+            }
+        } else if (this.equals(1)) {
+            return this;
+        } else {
+            return power(exponent.numerator).root(exponent.denominator);
+        }
+
     }
 
     public Fraction root (BigInteger n) {
+        if (isNegative() && n.remainder(BigInteger.TWO).equals(BigInteger.ZERO)) {
+            throw new MathError("Even roots are only defined for positive numbers!", "i");
+        }
+
         String a = RootCalculus.nthRoot(n, toDecimal()).toString();
 
         if (a.contains(".")) {
@@ -173,7 +191,7 @@ public class Fraction implements Fractionable {
 
     public Fraction multiply (Fraction other) {
         if (other instanceof ApproxFraction) {
-            return other.add(this);
+            return other.multiply(this);
         }
         return new Fraction(numerator.multiply(other.numerator), denominator.multiply(other.denominator)).compact();
     }
@@ -362,8 +380,6 @@ public class Fraction implements Fractionable {
         return this;
     }
 
-
-
     @Override
     public boolean isOperator () {
         return false;
@@ -381,6 +397,5 @@ public class Fraction implements Fractionable {
     private static BigInteger gcd (BigInteger num, BigInteger den) {
         return num.gcd(den);
     }
-
 
 }

@@ -20,9 +20,15 @@ public class ExpressionParser<T extends Fractionable> {
     private ValueProvider<T> valueProvider;
     private GenericOperatorStack genericOperatorStack;
     private SymbolTable symbolTable;
+    private boolean mustClose;
 
     public ExpressionParser (String input, ValueProvider<T> valueProvider, GenericOperatorStack genericOperatorStack, BinaryOperator implicitOperator, SymbolTable symbolTable) {
+        this(input, valueProvider, genericOperatorStack, implicitOperator, symbolTable, true);
+    }
+
+    public ExpressionParser (String input, ValueProvider<T> valueProvider, GenericOperatorStack genericOperatorStack, BinaryOperator implicitOperator, SymbolTable symbolTable, boolean mustClose) {
         this.symbolTable = symbolTable;
+        this.mustClose = mustClose;
         lexer = new Lexer(input, implicitOperator);
         this.valueProvider = valueProvider;
         this.genericOperatorStack = genericOperatorStack;
@@ -34,19 +40,17 @@ public class ExpressionParser<T extends Fractionable> {
     }
 
     public Expression parse () {
-//        Fractionable expressionValue = expression();
-//        Fractionable expressionValue = binaryEval(0);
-        Expression expressionValue = binaryEval(0);
+        Expression expression = binaryEval(0);
 
         FoundToken token = lexer.getNextToken();
         if (!token.is(Token.END)) {
             throw new RuntimeException("End expected, got " + token + " instead!");
         } else {
-            return expressionValue;
+            return expression;
         }
     }
 
-    private Expression binaryEval(int operatorStackPointer) {
+    private Expression binaryEval (int operatorStackPointer) {
         if (operatorStackPointer >= genericOperatorStack.size()) {
             return boundaryUnary();
         }
@@ -61,9 +65,11 @@ public class ExpressionParser<T extends Fractionable> {
 
         if (currentOperators.isOperator(operatorToken)) {
             Operator operator = currentOperators.getOperator(operatorToken);
+
             if (operator.getOperatorType() != OperatorType.BINARY) {
-                throw new RuntimeException("Unknown error! " + operator);
+                throw new RuntimeException("Operator " + operator + " is inside a GenericOperatorGroup of type BINARY but appears to have type " + operator.getOperatorType() + "!");
             }
+
             BinaryOperator binaryOperator = (BinaryOperator) operator;
 
             switch (binaryOperator.getEvaluatingOrder()) {
@@ -114,7 +120,6 @@ public class ExpressionParser<T extends Fractionable> {
         } else {
             lexer.revert();
             return binaryEval(operatorStackPointer + 1);
-//            return number();
         }
 
     }
@@ -123,21 +128,8 @@ public class ExpressionParser<T extends Fractionable> {
         FoundToken token = lexer.getNextToken();
         Expression value;
 
-//        if (token.is(Token.LPAREN)) {
-//            value = binaryEval(0);
-//            FoundToken expectedClosingParen = lexer.getNextToken();
-//            if (!expectedClosingParen.is(Token.RPAREN)) {
-//                throw new RuntimeException("Unbalanced parentheses! " + expectedClosingParen);
-//            }
-//
-//        } else if (token.is(Token.ABS)) {
-//            value = valueProvider.abs(binaryEval(0));
-//            FoundToken expectedClosingPipe = lexer.getNextToken();
-//            if (!expectedClosingPipe.is(Token.ABS)) {
-//                throw new RuntimeException("Unbalanced pipes!" + expectedClosingPipe);
-//            }
         if (token instanceof NumberToken) {
-            value = new Expression(valueProvider.valueOf(((NumberToken) token).getValue())); // "repeating decimal" case is handled in suffixUnary().
+            value = new Expression(valueProvider.valueOf(((NumberToken) token).getValue()));
         } else if (token instanceof SymbolToken) {
             value = new Expression(symbolTable.getValue((SymbolToken) token));
         }
@@ -170,11 +162,17 @@ public class ExpressionParser<T extends Fractionable> {
         if (genericOperatorStack.getBoundaryOperators().isOperator(nextToken)) {
             BoundingOperator operator = (BoundingOperator) genericOperatorStack.getBoundaryOperators().getOperator(nextToken);
             var operand = binaryEval(0);
+
             FoundToken expectedClosing = lexer.getNextToken();
 
             if (operator.getRightToken() != expectedClosing.getTokenType()) {
-                throw new RuntimeException("Unbalanced bounding operator tokens, expecting " + operator.getRightToken() + " but found " + expectedClosing.getTokenType() + "! " + lexer);
+                if (mustClose) {
+                    throw new RuntimeException("Unbalanced bounding operator tokens, expecting " + operator.getRightToken() + " but found " + expectedClosing.getTokenType() + "! " + lexer);
+                } else {
+                    lexer.revert();
+                }
             }
+
 
             Node<Payload> parentNode = new Node<>(operator);
             parentNode.addChild(operand.getTree().getParentNode());

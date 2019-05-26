@@ -11,6 +11,7 @@ import java.util.List;
 
 public class BoundingOperator extends UnaryOperator {
     private final Token rightToken;
+    private final String representation;
     private final Token leftToken;
 
     public Token getRightToken () {
@@ -21,10 +22,16 @@ public class BoundingOperator extends UnaryOperator {
         return leftToken;
     }
 
-    public BoundingOperator(Token leftToken, Token rightToken, java.util.function.UnaryOperator<Fractionable> function) {
+    public BoundingOperator(Token leftToken, Token rightToken, java.util.function.UnaryOperator<Fractionable> function, String representation) {
         super(rightToken, function, UnaryOperatorType.BOUNDARY);
         this.leftToken = leftToken;
         this.rightToken = rightToken;
+        this.representation = representation;
+    }
+
+    @Override
+    public String toString () {
+        return representation;
     }
 
     @Override

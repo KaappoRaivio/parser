@@ -1,4 +1,5 @@
 import expression.SymbolTable;
+import math.error.MathError;
 import math.fraction.Fraction;
 import operator.binaryoperator.BinaryOperator;
 import operator.genericoperator.GenericOperatorGroup;
@@ -59,7 +60,7 @@ public class Main {
                 String instr = new Scanner(System.in).nextLine();
                 var start = System.currentTimeMillis();
 
-                ExpressionParser parser1 = new ExpressionParser<Fraction>(instr, new MyValueProvider<>(), operatorStack, (BinaryOperator) Expression.operatorMul, SymbolTable.defaultTable);
+                ExpressionParser parser1 = new ExpressionParser<Fraction>(instr, new MyValueProvider<>(), operatorStack, (BinaryOperator) Expression.operatorMul, SymbolTable.defaultTable, false);
                 System.out.println(parser1.getLexer());
                 var tree = parser1.parse();
                 var reduced = tree.reduce();
@@ -71,7 +72,9 @@ public class Main {
                 System.out.println("in decimal " + reduced.fractionValue().toDecimal());
                 System.out.println("took " + (end - start) + " ms");
 
-            } catch (Exception e) {
+            } catch (MathError e) {
+                System.out.println(e.getResult());
+            } catch (Throwable e) {
                 e.printStackTrace();
             }
         }

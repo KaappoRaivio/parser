@@ -1,6 +1,7 @@
 package expression;
 
 import lexer.token.Token;
+import math.fraction.ApproxFraction;
 import math.fraction.Fraction;
 import math.fraction.Fractionable;
 import operator.BoundingOperator;
@@ -30,8 +31,8 @@ public class Expression {
     public static final Operator operatorFac = new UnaryOperator(Token.EXCLAMATION, fractionable -> fractionable.fractionValue().factorial(), UnaryOperatorType.SUFFIX);
     public static final Operator operatorIPo = new BinaryOperator(Token.INVPOW, (fractionable, fractionable2) -> fractionable.fractionValue().power(fractionable2.fractionValue().negate()), EvaluatingOrder.RIGHT_TO_LEFT);
 
-    public static final Operator operatorAbs = new BoundingOperator(Token.ABS, Token.ABS, (fractionable) -> fractionable.fractionValue().abs());
-    public static final Operator operatorParen = new BoundingOperator(Token.LPAREN, Token.RPAREN, fractionable -> fractionable);
+    public static final Operator operatorAbs = new BoundingOperator(Token.ABS, Token.ABS, (fractionable) -> fractionable.fractionValue().abs(), "Absolute value");
+    public static final Operator operatorParen = new BoundingOperator(Token.LPAREN, Token.RPAREN, fractionable -> fractionable, "Parenthesis");
 
 
     public Tree<Payload> getTree () {
@@ -97,7 +98,7 @@ public class Expression {
 
     private Fractionable reduce (Node<Payload> currentNode) {
         if (currentNode.getValue().isFraction()) {
-            return (Fraction) currentNode.getValue();
+            return  (Fraction) currentNode.getValue();
         } else {
             Operator operator = (Operator) currentNode.getValue();
 

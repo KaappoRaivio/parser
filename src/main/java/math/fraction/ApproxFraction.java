@@ -1,24 +1,33 @@
 package math.fraction;
 
+import expression.SymbolTable;
+import lexer.token.SymbolToken;
+import misc.BigFunctions;
 import misc.StringUtil;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.math.MathContext;
 
 public class ApproxFraction extends Fraction {
+    private BigDecimal actualValue;
+
     public ApproxFraction (BigInteger numerator, BigInteger denominator) {
         super(numerator, denominator);
+        actualValue = super.toDecimal();
+    }
+
+    public ApproxFraction (BigDecimal value) {
+        super(1, 1);
+        actualValue = value;
     }
 
     public ApproxFraction (String numerator, String denominator) {
-        super(numerator, denominator);
-    }
-
-    public ApproxFraction (int numerator, int denominator) {
-        super(numerator, denominator);
+        this(new BigInteger(numerator), new BigInteger(denominator));
     }
 
     private ApproxFraction (Fraction fraction) {
-        this(fraction.getNumerator(), fraction.getDenominator());
+        this(fraction.toDecimal());
     }
 
     protected static Fraction fromEndingDecimal (String s) {
@@ -35,34 +44,65 @@ public class ApproxFraction extends Fraction {
 
     @Override
     public Fraction inverse () {
-        return new ApproxFraction(super.inverse());
+        return new ApproxFraction(BigDecimal.ONE.divide(actualValue, MathContext.DECIMAL128));
     }
 
     @Override
     public String toString () {
-        return super.toDecimal().toString();
+        return actualValue.toString();
     }
 
     @Override
     public Fraction add (Fraction other) {
-        Fraction a = this.expand(other.getDenominator());
-        Fraction b = other.expand(this.getDenominator());
+        return new ApproxFraction(actualValue.add(other.toDecimal()));
+    }
 
-        return new ApproxFraction(a.getNumerator().add(b.getNumerator()), a.getDenominator());
+    @Override
+    public Fraction factorial () {
+        throw new RuntimeException("Fractions are not defined for approximates such as " + toString() +"!");
+    }
+
+    @Override
+    public BigInteger getNumerator () {
+        throw new RuntimeException("The numerator is not exact!");
+    }
+
+    @Override
+    public BigInteger getDenominator () {
+        throw new RuntimeException("The denominator is not exact!");
     }
 
     @Override
     protected ApproxFraction compact () {
-        return new ApproxFraction(super.compact());
+        return this;
     }
 
     @Override
     public Fraction multiply (Fraction other) {
-        return new ApproxFraction(getNumerator().multiply(other.getNumerator()), getDenominator().multiply(other.getDenominator())).compact();
+        return new ApproxFraction(actualValue.multiply(other.toDecimal()));
     }
 
     @Override
     public Fraction negate () {
-        return new ApproxFraction(super.negate());
+        return new ApproxFraction(actualValue.negate());
+    }
+
+    @Override
+    public Fraction power (Fraction exponent) {
+        return new ApproxFraction(BigFunctions.exp(BigFunctions.ln(actualValue, Fraction.PRECISION).multiply(exponent.toDecimal(), MathContext.DECIMAL128), Fraction.PRECISION));
+    }
+
+    @Override
+    public BigDecimal toDecimal () {
+        return actualValue;
+    }
+
+    @Override
+    public boolean isNegative () {
+        return actualValue.signum() == -1;
+    }
+
+    protected Fraction inversePower (Fraction mantissa) {
+        return new ApproxFraction(BigFunctions.exp(BigFunctions.ln(mantissa.toDecimal(), Fraction.PRECISION).multiply(actualValue, MathContext.DECIMAL128), Fraction.PRECISION));
     }
 }
