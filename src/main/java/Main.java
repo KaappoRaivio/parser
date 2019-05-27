@@ -52,7 +52,12 @@ public class Main {
                 new GenericOperatorGroup(OperatorType.UNARY,  Expression.operatorNeg, Expression.operatorPos),
                 new GenericOperatorGroup(OperatorType.BINARY, Expression.operatorPow, Expression.operatorIPo),
                 new GenericOperatorGroup(OperatorType.BINARY, Expression.operatorRot, Expression.operatorIRo),
-                new GenericOperatorGroup(OperatorType.UNARY,  Expression.operatorSqr, Expression.operatorISq)
+
+                new GenericOperatorGroup(OperatorType.UNARY,  Expression.operatorSqr, Expression.operatorISq,
+                                                              Expression.operatorSin, Expression.operatorCos,
+                                                              Expression.operatorTan, Expression.operatorL10,
+                                                              Expression.operatorLo2)
+
         );
         //√
 //        Parser parser1 = new Parser("-2^2", new ValueProvider<>(), UnaryOperatorGroup.UNARY_OPERATOR_GROUP, binaryOperatorStack);

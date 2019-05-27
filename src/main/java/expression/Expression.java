@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class Expression {
-    public static final MathContext CONTEXT = MathContext.DECIMAL128;
+    public static final MathContext CONTEXT = MathContext.DECIMAL64;
 
     public final static Operator operatorAdd = new BinaryOperator(Token.ADD,        (fractionable, fractionable2) -> fractionable.fractionValue().add(fractionable2.fractionValue()), EvaluatingOrder.LEFT_TO_RIGHT);
     public final static Operator operatorSub = new BinaryOperator(Token.SUBTRACT,   (fractionable, fractionable2) -> fractionable.fractionValue().subtract(fractionable2.fractionValue()), EvaluatingOrder.LEFT_TO_RIGHT);
@@ -40,12 +40,12 @@ public class Expression {
     public final static Operator operatorFac = new UnaryOperator(Token.EXCLAMATION,                (fractionable) -> fractionable.fractionValue().factorial(), UnaryOperatorType.SUFFIX);
     public final static Operator operatorISq = new UnaryOperator(Token.NEG_SQRT,                   (fractionable) -> fractionable.fractionValue().negate().root(BigInteger.TWO), UnaryOperatorType.PREFIX);
 
-    public final static Operator operatorSin = new UnaryOperator(Token.SIN,                        (fractionable) -> new ApproxFraction(BigDecimalMath.sin(fractionable.fractionValue().toDecimal(), CONTEXT)), UnaryOperatorType.PREFIX);
-    public final static Operator operatorCos = new UnaryOperator(Token.COS,                        (fractionable) -> new ApproxFraction(BigDecimalMath.cos(fractionable.fractionValue().toDecimal(), CONTEXT)), UnaryOperatorType.PREFIX);
-    public final static Operator operatorTan = new UnaryOperator(Token.TAN,                        (fractionable) -> new ApproxFraction(BigDecimalMath.tan(fractionable.fractionValue().toDecimal(), CONTEXT)), UnaryOperatorType.PREFIX);
-    public final static Operator operatorL10 = new UnaryOperator(Token.LOG10,                      (fractionable) -> new ApproxFraction(BigDecimalMath.log10(fractionable.fractionValue().toDecimal(), CONTEXT)), UnaryOperatorType.PREFIX);
-    public final static Operator operatorLo2 = new UnaryOperator(Token.LOG2,                       (fractionable) -> new ApproxFraction(BigDecimalMath.log2(fractionable.fractionValue().toDecimal(), CONTEXT)), UnaryOperatorType.PREFIX);
-    public final static Operator operatorLon = new UnaryOperator(Token.LN,                         (fractionable) -> new ApproxFraction(BigFunctions.ln(fractionable.fractionValue().toDecimal(), CONTEXT.getPrecision())), UnaryOperatorType.PREFIX);
+    public final static Operator operatorSin = new UnaryOperator(Token.SIN,                        (fractionable) -> fractionable.fractionValue().sin(), UnaryOperatorType.PREFIX);
+    public final static Operator operatorCos = new UnaryOperator(Token.COS,                        (fractionable) -> fractionable.fractionValue().cos(), UnaryOperatorType.PREFIX);
+    public final static Operator operatorTan = new UnaryOperator(Token.TAN,                        (fractionable) -> fractionable.fractionValue().tan(), UnaryOperatorType.PREFIX);
+    public final static Operator operatorL10 = new UnaryOperator(Token.LOG10,                      (fractionable) -> fractionable.fractionValue().log10(), UnaryOperatorType.PREFIX);
+    public final static Operator operatorLo2 = new UnaryOperator(Token.LOG2,                       (fractionable) -> fractionable.fractionValue().log2(), UnaryOperatorType.PREFIX);
+    public final static Operator operatorLon = new UnaryOperator(Token.LN,                         (fractionable) -> fractionable.fractionValue().ln(), UnaryOperatorType.PREFIX);
 
     public final static Operator operatorAbs = new BoundingOperator(Token.ABS, Token.ABS,          (fractionable) -> fractionable.fractionValue().abs(), "Absolute value");
     public final static Operator operatorParen = new BoundingOperator(Token.LPAREN, Token.RPAREN,  (fractionable) -> fractionable, "Parenthesis");
@@ -125,16 +125,7 @@ public class Expression {
                 throw new RuntimeException("Wrong number of operands " + evaluated + " for operator " + operator + "!");
             }
 
-            switch (operator.getOperatorType()) {
-                case UNARY:
-                    return operator.invoke(evaluated);
-                case BINARY:
-                    return operator.invoke(evaluated);
-                case BOUNDARY:
-                    return operator.invoke(evaluated);
-                default:
-                    throw new RuntimeException("Unknown arity of " + operator.getArity() + " for operator " + operator);
-            }
+            return operator.invoke(evaluated);
         }
     }
 

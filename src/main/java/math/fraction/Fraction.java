@@ -1,7 +1,11 @@
 package math.fraction;
 
+import ch.obermuhlner.math.big.BigDecimalMath;
 import expression.Expression;
+import expression.SymbolTable;
+import lexer.token.SymbolToken;
 import math.error.MathError;
+import misc.BigFunctions;
 import misc.Pair;
 import misc.StringUtil;
 
@@ -13,6 +17,8 @@ import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 public class Fraction implements Fractionable {
+    public static boolean USE_DEGREES = false;
+
     static final int PRECISION = 34;
 
     private static final BigInteger BIG = new BigInteger("100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000");
@@ -216,11 +222,52 @@ public class Fraction implements Fractionable {
         }
     }
 
-    public BigDecimal toDecimal () {
-        BigDecimal tempResult = new BigDecimal(numerator).divide(new BigDecimal(denominator), Expression.CONTEXT);
-        String string = tempResult.toString();
+    public Fraction sin () {
+        if (USE_DEGREES) {
+            return new ApproxFraction(BigDecimalMath.sin(toRadians().toDecimal(), Expression.CONTEXT)).toDegrees();
+        } else {
+            return new ApproxFraction(BigDecimalMath.sin(toDecimal(), Expression.CONTEXT));
+        }
+    }
 
-        return new BigDecimal(string);
+    public Fraction cos () {
+        if (USE_DEGREES) {
+            return new ApproxFraction(BigDecimalMath.cos(toRadians().toDecimal(), Expression.CONTEXT)).toDegrees();
+        } else {
+            return new ApproxFraction(BigDecimalMath.cos(toDecimal(), Expression.CONTEXT));
+        }
+    }
+
+    public Fraction tan () {
+        if (USE_DEGREES) {
+            return new ApproxFraction(BigDecimalMath.tan(toRadians().toDecimal(), Expression.CONTEXT)).toDegrees();
+        } else {
+            return new ApproxFraction(BigDecimalMath.tan(toDecimal(), Expression.CONTEXT));
+        }
+    }
+
+    public Fraction log10 () {
+        return new ApproxFraction(BigDecimalMath.log10(toDecimal(), Expression.CONTEXT));
+    }
+
+    public Fraction log2 () {
+        return new ApproxFraction(BigDecimalMath.log2(toDecimal(), Expression.CONTEXT));
+    }
+
+    public Fraction ln () {
+        return new ApproxFraction(BigFunctions.ln(toDecimal(), Expression.CONTEXT.getPrecision()));
+    }
+
+    Fraction toDegrees () {
+        return divide(SymbolTable.defaultTable.getValue(new SymbolToken("p")).fractionValue().multiply(2)).multiply(360);
+    }
+
+    private Fraction toRadians () {
+        return divide(360).fractionValue().multiply(SymbolTable.defaultTable.getValue(new SymbolToken("p")).fractionValue().multiply(2));
+    }
+
+    public BigDecimal toDecimal () {
+        return new BigDecimal(numerator).divide(new BigDecimal(denominator), Expression.CONTEXT);
     }
 
     public static Fraction fromDecimal (String representation, boolean endless) {
@@ -260,7 +307,7 @@ public class Fraction implements Fractionable {
 
         int commaPlace = StringUtil.getCurrentCommaPlace(x);
         x = x.replaceAll("[.,]", "");
-
+        System.out.println(x + ", " + x.length());
         Fraction fraction = new Fraction(x, StringUtil.moveComma("1.0", x.length() - commaPlace));
         fraction.originalRepresentation = original;
         return fraction;
@@ -353,6 +400,8 @@ public class Fraction implements Fractionable {
     public static Fraction valueOf (float integer, boolean endless) {
         return valueOf(String.valueOf(integer), endless);
     }
+
+
 
 
     public boolean isInteger () {
