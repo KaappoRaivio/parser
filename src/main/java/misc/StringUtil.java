@@ -29,12 +29,12 @@ public class StringUtil {
         }
         return new Pair<>(s, "");
     }
-    private static String moveComma (String number, final int amount, final int commaplace) {
-        int newcommaplace = commaplace + amount;
+    private static String moveComma (String number, final int amount, final int commaPlace) {
+        int newcommaplace = commaPlace + amount;
 
 
         if (newcommaplace > number.length() - 1) {
-            return moveComma(number + "0", amount, commaplace);
+            return moveComma(number + "0", amount, commaPlace);
         }
         if (newcommaplace < 1) {
             return moveComma("0" + number, amount);
@@ -47,10 +47,6 @@ public class StringUtil {
         } else {
             return temp.substring(0, newcommaplace) + "." + temp.substring(newcommaplace);
         }
-
-//        if (toReturn.indexOf(',') == toReturn.length() - 1) {
-//            return toReturn
-//        }
     }
 
     public static String moveComma(String number, int amount) {

@@ -22,7 +22,7 @@ public enum Token {
     EXCLAMATION ("\\!", "Factorial", 1),
     POWER ("(\\*\\*|\\^)", "Power", 2),
     INVPOW("(\\*\\*|\\^)( )?-", "Inverse Power", 3),
-    SYMBOL ("([a-z]|%)+", "Symbol", 0),
+    SYMBOL ("([a-z]|%)?", "Symbol", -1),
     ELLIPSIS ("(\\.\\.\\.)?", "Ellipsis", 0);
 //    FACTORIAL ("\\!", "Factorial", 0);
 
@@ -42,26 +42,11 @@ public enum Token {
     }
 
     public static Token getToken (String pattern) {
-        Token token1 = null;
-
-        boolean matched = false;
-
-        for (Token token : sortedValues()) {
-            if (token.matches(pattern)) {
-                token1 = token;
-                matched = true;
-                break;
-
-            }
-        }
-        if (!matched) {
-            throw new UnknownTokenException("Unknown token " + pattern + "!");
-        }
-
-
-
-
-        return token1;
+        return sortedValues()
+                .stream()
+                .filter(token -> token.matches(pattern))
+                .findAny()
+                .orElseThrow(() -> new UnknownTokenException("Unknown token " + pattern + "!"));
     }
 
     public Pattern getRemoverRegex () {

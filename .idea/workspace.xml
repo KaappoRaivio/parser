@@ -2,30 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c5d0c37b-dd10-46d2-8faf-1ac2c9187819" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/math/error/MathError.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/misc/BigFunctions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/expression/Expression$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/expression/Expression$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/expression/Expression.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/expression/Expression.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/expression/Saver.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/expression/SymbolTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/expression/SymbolTable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/lexer/Lexer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/lexer/Lexer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/math/fraction/ApproxFraction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/math/fraction/ApproxFraction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/math/fraction/Fraction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/math/fraction/Fraction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/math/fraction/RootCalculus.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/math/fraction/RootCalculus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/parser/ExpressionParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/parser/ExpressionParser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/expression/Expression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/expression/Expression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/expression/Saver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/misc/Saver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/expression/SymbolTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/expression/SymbolTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lexer/Lexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lexer/Lexer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/math/fraction/ApproxFraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/math/fraction/ApproxFraction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/math/fraction/Fraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/math/fraction/Fraction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/math/fraction/RootCalculus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/math/fraction/RootCalculus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/operator/BoundingOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/operator/BoundingOperator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/parser/ExpressionParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/parser/ExpressionParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lexer/token/Token.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lexer/token/Token.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/misc/StringUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/misc/StringUtil.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -37,7 +16,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DarkyenusTimeTracker">
-    <option name="totalTimeSeconds" value="170076" />
+    <option name="totalTimeSeconds" value="170821" />
     <option name="gitIntegration" value="true" />
     <option name="naggedAbout" value="1" />
   </component>
@@ -69,8 +48,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/expression/SymbolTable.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="27" column="33" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
+            <state relative-caret-position="137">
+              <caret line="17" column="41" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -81,42 +60,88 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/math/fraction/Fraction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
+            <state relative-caret-position="2464">
               <caret line="175" column="90" selection-start-line="175" selection-start-column="90" selection-end-line="175" selection-end-column="90" />
               <folding>
+                <element signature="e#5520#5521#0" expanded="true" />
                 <element signature="e#5575#5576#0" expanded="true" />
+                <element signature="e#6101#6102#0" expanded="true" />
                 <element signature="e#6154#6155#0" expanded="true" />
+                <element signature="e#9813#9814#0" expanded="true" />
                 <element signature="e#9891#9892#0" expanded="true" />
+                <element signature="e#10146#10147#0" expanded="true" />
                 <element signature="e#10178#10179#0" expanded="true" />
+                <element signature="e#10220#10221#0" expanded="true" />
                 <element signature="e#10254#10255#0" expanded="true" />
+                <element signature="e#10288#10289#0" expanded="true" />
                 <element signature="e#10347#10348#0" expanded="true" />
+                <element signature="e#10377#10378#0" expanded="true" />
                 <element signature="e#10448#10449#0" expanded="true" />
+                <element signature="e#10517#10518#0" expanded="true" />
                 <element signature="e#10581#10582#0" expanded="true" />
+                <element signature="e#10652#10653#0" expanded="true" />
                 <element signature="e#10703#10704#0" expanded="true" />
+                <element signature="e#11010#11011#0" expanded="true" />
                 <element signature="e#11067#11068#0" expanded="true" />
+                <element signature="e#11103#11104#0" expanded="true" />
                 <element signature="e#11168#11169#0" expanded="true" />
+                <element signature="e#11701#11702#0" expanded="true" />
                 <element signature="e#11728#11729#0" expanded="true" />
+                <element signature="e#11778#11779#0" expanded="true" />
                 <element signature="e#11806#11807#0" expanded="true" />
+                <element signature="e#11856#11857#0" expanded="true" />
                 <element signature="e#11883#11884#0" expanded="true" />
+                <element signature="e#12136#12137#0" expanded="true" />
                 <element signature="e#12171#12172#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/expression/Expression.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="33" column="159" selection-start-line="33" selection-start-column="159" selection-end-line="33" selection-end-column="159" />
+            <state relative-caret-position="256">
+              <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3293#3294#0" expanded="true" />
-                <element signature="e#3374#3375#0" expanded="true" />
-                <element signature="e#3464#3465#0" expanded="true" />
-                <element signature="e#3533#3534#0" expanded="true" />
-                <element signature="e#3578#3579#0" expanded="true" />
-                <element signature="e#3620#3621#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/lexer/token/Token.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="24" column="38" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1212#1213#0" expanded="true" />
+                <element signature="e#1269#1270#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/misc/StringUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="48" column="9" selection-start-line="48" selection-start-column="9" selection-end-line="48" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/lexer/Lexer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-229">
+              <caret line="40" column="34" lean-forward="true" selection-start-line="40" selection-start-column="34" selection-end-line="40" selection-end-column="34" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1045#1046#0" expanded="true" />
+                <element signature="e#1077#1078#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -125,10 +150,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/parser/ExpressionParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
+            <state relative-caret-position="2528">
               <caret line="171" column="35" selection-start-line="171" selection-start-column="35" selection-end-line="171" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#7418#7419#0" expanded="true" />
                 <element signature="e#7446#7447#0" expanded="true" />
               </folding>
             </state>
@@ -138,7 +164,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
+            <state relative-caret-position="816">
               <caret line="62" column="193" selection-start-line="62" selection-start-column="193" selection-end-line="62" selection-end-column="193" />
             </state>
           </provider>
@@ -147,7 +173,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/math/fraction/RootCalculus.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
+            <state relative-caret-position="256">
               <caret line="18" column="98" selection-start-line="18" selection-start-column="98" selection-end-line="18" selection-end-column="98" />
             </state>
           </provider>
@@ -156,16 +182,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/operator/BoundingOperator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
+            <state relative-caret-position="336">
               <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#973#974#0" expanded="true" />
-                <element signature="e#1012#1013#0" expanded="true" />
-                <element signature="e#1407#1408#0" expanded="true" />
-                <element signature="e#1434#1435#0" expanded="true" />
-                <element signature="e#1484#1485#0" expanded="true" />
-                <element signature="e#1512#1513#0" expanded="true" />
+                <element signature="e#1010#1011#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -186,7 +208,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>handleSuffix</find>
       <find>prefix</find>
       <find>in</find>
       <find>invoke</find>
@@ -216,6 +237,7 @@
       <find>toString</find>
       <find>number</find>
       <find>bounda</find>
+      <find>getToken</find>
     </findStrings>
     <replaceStrings>
       <replace>Token</replace>
@@ -238,7 +260,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/parser/Parser.java" />
         <option value="$PROJECT_DIR$/src/main/java/operator/genericoperator/OperatorType.java" />
         <option value="$PROJECT_DIR$/src/main/java/math/Fraction.java" />
         <option value="$PROJECT_DIR$/src/main/java/math/BigIntegerUtils.java" />
@@ -271,7 +292,6 @@
         <option value="$PROJECT_DIR$/src/main/java/parser/GenericParser.java" />
         <option value="$PROJECT_DIR$/src/main/java/lexer/token/NumberToken.java" />
         <option value="$PROJECT_DIR$/src/main/java/lexer/token/SymbolToken.java" />
-        <option value="$PROJECT_DIR$/src/main/java/lexer/token/Token.java" />
         <option value="$PROJECT_DIR$/src/main/java/math/fraction/Calculator.java" />
         <option value="$PROJECT_DIR$/src/main/java/parser/Calculator.java" />
         <option value="$PROJECT_DIR$/src/main/java/parser/MyValueOffer.java" />
@@ -280,7 +300,6 @@
         <option value="$PROJECT_DIR$/src/main/java/misc/Saver.java" />
         <option value="$PROJECT_DIR$/src/main/java/misc/BigFunctions.java" />
         <option value="$PROJECT_DIR$/src/main/java/lexer/Lexer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/expression/SymbolTable.java" />
         <option value="$PROJECT_DIR$/src/main/java/math/error/MathError.java" />
         <option value="$PROJECT_DIR$/src/main/java/math/fraction/ApproxFraction.java" />
         <option value="$PROJECT_DIR$/src/main/java/math/fraction/Fraction.java" />
@@ -289,6 +308,9 @@
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/parser/ExpressionParser.java" />
         <option value="$PROJECT_DIR$/src/main/java/expression/Expression.java" />
+        <option value="$PROJECT_DIR$/src/main/java/expression/SymbolTable.java" />
+        <option value="$PROJECT_DIR$/src/main/java/lexer/token/Token.java" />
+        <option value="$PROJECT_DIR$/src/main/java/misc/StringUtil.java" />
       </list>
     </option>
   </component>
@@ -302,6 +324,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -339,43 +363,13 @@
               <item name="Kaappo_Raivio" type="2674bda8:ScopeViewTreeModel$GroupNode" />
               <item name="main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
               <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="math" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="Kaappo Raivio" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="Kaappo_Raivio" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="math" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="error" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="Kaappo Raivio" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="Kaappo_Raivio" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="misc" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="Kaappo Raivio" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="Kaappo_Raivio" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="operator" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="Kaappo Raivio" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="Kaappo_Raivio" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="parser" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="lexer" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="token" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -652,10 +646,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1031" extended-state="6" />
+    <frame x="0" y="27" width="1920" height="1004" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16915688" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17075774" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -664,7 +658,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32718894" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.46368715" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.46313363" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3986175" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -806,13 +800,6 @@
             <element signature="e#1710#1711#0" expanded="true" />
             <element signature="e#1738#1739#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/misc/StringUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="56" selection-start-line="56" selection-end-line="56" />
         </state>
       </provider>
     </entry>
@@ -966,16 +953,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lexer/token/Token.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="23" column="41" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/parser/ValueProvider.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -1053,17 +1030,6 @@
             <element signature="e#3555#3556#0" expanded="true" />
             <element signature="e#4026#4027#0" expanded="true" />
             <element signature="e#4084#4085#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lexer/Lexer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#711#712#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1163,23 +1129,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/math/fraction/Fraction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
+        <state relative-caret-position="2464">
           <caret line="175" column="90" selection-start-line="175" selection-start-column="90" selection-end-line="175" selection-end-column="90" />
           <folding>
+            <element signature="e#5520#5521#0" expanded="true" />
             <element signature="e#5575#5576#0" expanded="true" />
+            <element signature="e#6101#6102#0" expanded="true" />
             <element signature="e#6154#6155#0" expanded="true" />
+            <element signature="e#9813#9814#0" expanded="true" />
             <element signature="e#9891#9892#0" expanded="true" />
+            <element signature="e#10146#10147#0" expanded="true" />
             <element signature="e#10178#10179#0" expanded="true" />
+            <element signature="e#10220#10221#0" expanded="true" />
             <element signature="e#10254#10255#0" expanded="true" />
+            <element signature="e#10288#10289#0" expanded="true" />
             <element signature="e#10347#10348#0" expanded="true" />
+            <element signature="e#10377#10378#0" expanded="true" />
             <element signature="e#10448#10449#0" expanded="true" />
+            <element signature="e#10517#10518#0" expanded="true" />
             <element signature="e#10581#10582#0" expanded="true" />
+            <element signature="e#10652#10653#0" expanded="true" />
             <element signature="e#10703#10704#0" expanded="true" />
+            <element signature="e#11010#11011#0" expanded="true" />
             <element signature="e#11067#11068#0" expanded="true" />
+            <element signature="e#11103#11104#0" expanded="true" />
             <element signature="e#11168#11169#0" expanded="true" />
+            <element signature="e#11701#11702#0" expanded="true" />
             <element signature="e#11728#11729#0" expanded="true" />
+            <element signature="e#11778#11779#0" expanded="true" />
             <element signature="e#11806#11807#0" expanded="true" />
+            <element signature="e#11856#11857#0" expanded="true" />
             <element signature="e#11883#11884#0" expanded="true" />
+            <element signature="e#12136#12137#0" expanded="true" />
             <element signature="e#12171#12172#0" expanded="true" />
           </folding>
         </state>
@@ -1187,50 +1168,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/operator/BoundingOperator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
+        <state relative-caret-position="336">
           <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#973#974#0" expanded="true" />
-            <element signature="e#1012#1013#0" expanded="true" />
-            <element signature="e#1407#1408#0" expanded="true" />
-            <element signature="e#1434#1435#0" expanded="true" />
-            <element signature="e#1484#1485#0" expanded="true" />
-            <element signature="e#1512#1513#0" expanded="true" />
+            <element signature="e#1010#1011#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
+        <state relative-caret-position="816">
           <caret line="62" column="193" selection-start-line="62" selection-start-column="193" selection-end-line="62" selection-end-column="193" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/expression/SymbolTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="27" column="33" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/math/fraction/RootCalculus.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
+        <state relative-caret-position="256">
           <caret line="18" column="98" selection-start-line="18" selection-start-column="98" selection-end-line="18" selection-end-column="98" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/parser/ExpressionParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
+        <state relative-caret-position="2528">
           <caret line="171" column="35" selection-start-line="171" selection-start-column="35" selection-end-line="171" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#7418#7419#0" expanded="true" />
             <element signature="e#7446#7447#0" expanded="true" />
           </folding>
         </state>
@@ -1238,17 +1206,52 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/expression/Expression.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="33" column="159" selection-start-line="33" selection-start-column="159" selection-end-line="33" selection-end-column="159" />
+        <state relative-caret-position="256">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3293#3294#0" expanded="true" />
-            <element signature="e#3374#3375#0" expanded="true" />
-            <element signature="e#3464#3465#0" expanded="true" />
-            <element signature="e#3533#3534#0" expanded="true" />
-            <element signature="e#3578#3579#0" expanded="true" />
-            <element signature="e#3620#3621#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lexer/Lexer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-229">
+          <caret line="40" column="34" lean-forward="true" selection-start-line="40" selection-start-column="34" selection-end-line="40" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1045#1046#0" expanded="true" />
+            <element signature="e#1077#1078#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/expression/SymbolTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="17" column="41" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lexer/token/Token.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="24" column="38" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1212#1213#0" expanded="true" />
+            <element signature="e#1269#1270#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/misc/StringUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="48" column="9" selection-start-line="48" selection-start-column="9" selection-end-line="48" selection-end-column="9" />
         </state>
       </provider>
     </entry>
