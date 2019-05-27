@@ -1,9 +1,11 @@
 package expression;
 
+import ch.obermuhlner.math.big.BigDecimalMath;
 import lexer.token.Token;
 import math.fraction.ApproxFraction;
 import math.fraction.Fraction;
 import math.fraction.Fractionable;
+import misc.BigFunctions;
 import operator.BoundingOperator;
 import operator.binaryoperator.BinaryOperator;
 import operator.binaryoperator.EvaluatingOrder;
@@ -13,26 +15,40 @@ import operator.unaryoperator.UnaryOperator;
 import operator.unaryoperator.UnaryOperatorType;
 import parser.MyValueProvider;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.math.MathContext;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class Expression {
-    public final static Operator operatorAdd = new BinaryOperator(Token.ADD, (fractionable, fractionable2) -> fractionable.fractionValue().add(fractionable2.fractionValue()), EvaluatingOrder.LEFT_TO_RIGHT);
-    public final static Operator operatorSub = new BinaryOperator(Token.SUBTRACT, (fractionable, fractionable2) -> fractionable.fractionValue().subtract(fractionable2.fractionValue()), EvaluatingOrder.LEFT_TO_RIGHT);
-    public final static Operator operatorMul = new BinaryOperator(Token.MULTIPLY, (fractionable, fractionable2) -> fractionable.fractionValue().multiply(fractionable2.fractionValue()), EvaluatingOrder.LEFT_TO_RIGHT);
-    public final static Operator operatorDiv = new BinaryOperator(Token.DIVIDE, (fractionable, fractionable2) -> fractionable.fractionValue().divide(fractionable2.fractionValue()), EvaluatingOrder.LEFT_TO_RIGHT);
-    public final static Operator operatorPow = new BinaryOperator(Token.POWER, (fractionable, fractionable2) -> fractionable.fractionValue().power(fractionable2.fractionValue()), EvaluatingOrder.RIGHT_TO_LEFT);
-    public final static Operator operatorSqr = new UnaryOperator(Token.SQRT, fractionable -> fractionable.fractionValue().root(BigInteger.TWO), UnaryOperatorType.PREFIX);
-    public final static Operator operatorRot = new BinaryOperator(Token.ROOT, (fractionable, fractionable2) -> fractionable2.fractionValue().root(fractionable.fractionValue().safeIntValue()), EvaluatingOrder.LEFT_TO_RIGHT);
-    public final static Operator operatorNeg = new UnaryOperator(Token.SUBTRACT, fractionable -> fractionable.fractionValue().negate(), UnaryOperatorType.PREFIX);
-    public final static Operator operatorPos = new UnaryOperator(Token.ADD, fractionable -> fractionable, UnaryOperatorType.PREFIX);
-    public static final Operator operatorEll = new UnaryOperator(Token.ELLIPSIS, (fractionable) -> fractionable.fractionValue().toEndless(), UnaryOperatorType.BOUNDARY);
-    public static final Operator operatorFac = new UnaryOperator(Token.EXCLAMATION, fractionable -> fractionable.fractionValue().factorial(), UnaryOperatorType.SUFFIX);
-    public static final Operator operatorIPo = new BinaryOperator(Token.INVPOW, (fractionable, fractionable2) -> fractionable.fractionValue().power(fractionable2.fractionValue().negate()), EvaluatingOrder.RIGHT_TO_LEFT);
+    public static final MathContext CONTEXT = MathContext.DECIMAL128;
 
-    public static final Operator operatorAbs = new BoundingOperator(Token.ABS, Token.ABS, (fractionable) -> fractionable.fractionValue().abs(), "Absolute value");
-    public static final Operator operatorParen = new BoundingOperator(Token.LPAREN, Token.RPAREN, fractionable -> fractionable, "Parenthesis");
+    public final static Operator operatorAdd = new BinaryOperator(Token.ADD,        (fractionable, fractionable2) -> fractionable.fractionValue().add(fractionable2.fractionValue()), EvaluatingOrder.LEFT_TO_RIGHT);
+    public final static Operator operatorSub = new BinaryOperator(Token.SUBTRACT,   (fractionable, fractionable2) -> fractionable.fractionValue().subtract(fractionable2.fractionValue()), EvaluatingOrder.LEFT_TO_RIGHT);
+    public final static Operator operatorMul = new BinaryOperator(Token.MULTIPLY,   (fractionable, fractionable2) -> fractionable.fractionValue().multiply(fractionable2.fractionValue()), EvaluatingOrder.LEFT_TO_RIGHT);
+    public final static Operator operatorDiv = new BinaryOperator(Token.DIVIDE,     (fractionable, fractionable2) -> fractionable.fractionValue().divide(fractionable2.fractionValue()), EvaluatingOrder.LEFT_TO_RIGHT);
+    public final static Operator operatorPow = new BinaryOperator(Token.POWER,      (fractionable, fractionable2) -> fractionable.fractionValue().power(fractionable2.fractionValue()), EvaluatingOrder.RIGHT_TO_LEFT);
+    public final static Operator operatorRot = new BinaryOperator(Token.ROOT,       (fractionable, fractionable2) -> fractionable2.fractionValue().root(fractionable.fractionValue().safeIntValue()), EvaluatingOrder.LEFT_TO_RIGHT);
+    public final static Operator operatorIPo = new BinaryOperator(Token.INVPOW,     (fractionable, fractionable2) -> fractionable.fractionValue().power(fractionable2.fractionValue().negate()), EvaluatingOrder.RIGHT_TO_LEFT);
+    public final static Operator operatorIRo = new BinaryOperator(Token.NEG_ROOT,   (fractionable, fractionable2) -> fractionable2.fractionValue().negate().root(fractionable.fractionValue().safeIntValue()), EvaluatingOrder.LEFT_TO_RIGHT);
+
+    public final static Operator operatorSqr = new UnaryOperator(Token.SQRT,                       (fractionable) -> fractionable.fractionValue().root(BigInteger.TWO), UnaryOperatorType.PREFIX);
+    public final static Operator operatorNeg = new UnaryOperator(Token.SUBTRACT,                   (fractionable) -> fractionable.fractionValue().negate(), UnaryOperatorType.PREFIX);
+    public final static Operator operatorPos = new UnaryOperator(Token.ADD,                        (fractionable) -> fractionable, UnaryOperatorType.PREFIX);
+    public final static Operator operatorEll = new UnaryOperator(Token.ELLIPSIS,                   (fractionable) -> fractionable.fractionValue().toEndless(), UnaryOperatorType.BOUNDARY);
+    public final static Operator operatorFac = new UnaryOperator(Token.EXCLAMATION,                (fractionable) -> fractionable.fractionValue().factorial(), UnaryOperatorType.SUFFIX);
+    public final static Operator operatorISq = new UnaryOperator(Token.NEG_SQRT,                   (fractionable) -> fractionable.fractionValue().negate().root(BigInteger.TWO), UnaryOperatorType.PREFIX);
+
+    public final static Operator operatorSin = new UnaryOperator(Token.SIN,                        (fractionable) -> new ApproxFraction(BigDecimalMath.sin(fractionable.fractionValue().toDecimal(), CONTEXT)), UnaryOperatorType.PREFIX);
+    public final static Operator operatorCos = new UnaryOperator(Token.COS,                        (fractionable) -> new ApproxFraction(BigDecimalMath.cos(fractionable.fractionValue().toDecimal(), CONTEXT)), UnaryOperatorType.PREFIX);
+    public final static Operator operatorTan = new UnaryOperator(Token.TAN,                        (fractionable) -> new ApproxFraction(BigDecimalMath.tan(fractionable.fractionValue().toDecimal(), CONTEXT)), UnaryOperatorType.PREFIX);
+    public final static Operator operatorL10 = new UnaryOperator(Token.LOG10,                      (fractionable) -> new ApproxFraction(BigDecimalMath.log10(fractionable.fractionValue().toDecimal(), CONTEXT)), UnaryOperatorType.PREFIX);
+    public final static Operator operatorLo2 = new UnaryOperator(Token.LOG2,                       (fractionable) -> new ApproxFraction(BigDecimalMath.log2(fractionable.fractionValue().toDecimal(), CONTEXT)), UnaryOperatorType.PREFIX);
+    public final static Operator operatorLon = new UnaryOperator(Token.LN,                         (fractionable) -> new ApproxFraction(BigFunctions.ln(fractionable.fractionValue().toDecimal(), CONTEXT.getPrecision())), UnaryOperatorType.PREFIX);
+
+    public final static Operator operatorAbs = new BoundingOperator(Token.ABS, Token.ABS,          (fractionable) -> fractionable.fractionValue().abs(), "Absolute value");
+    public final static Operator operatorParen = new BoundingOperator(Token.LPAREN, Token.RPAREN,  (fractionable) -> fractionable, "Parenthesis");
 
 
     public Tree<Payload> getTree () {

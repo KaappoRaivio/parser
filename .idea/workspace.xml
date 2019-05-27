@@ -2,9 +2,64 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c5d0c37b-dd10-46d2-8faf-1ac2c9187819" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/misc/StringUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/misc/StringUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/misc/StringUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/misc/StringUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/expression/Expression$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/expression/Expression.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/expression/Node.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/expression/Payload.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/expression/SymbolTable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/expression/Tree.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/expression/TreeIterator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/lexer/Lexer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/lexer/UnknownTokenException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/lexer/token/FoundToken.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/lexer/token/NumberToken.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/lexer/token/SymbolToken.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/lexer/token/Token.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/math/error/MathError.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/math/fraction/ApproxFraction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/math/fraction/BigIntegerUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/math/fraction/Fraction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/math/fraction/FractionConverter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/math/fraction/Fractionable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/math/fraction/RootCalculus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/math/symbol/Polynomial.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/math/symbol/Term.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/misc/BigFunctions.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/misc/Pair.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/misc/Saver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/misc/Saver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/misc/StringUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/operator/BoundingOperator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/operator/binaryoperator/BinaryOperator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/operator/binaryoperator/BinaryOperatorGroup.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/operator/binaryoperator/BinaryOperatorStack.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/operator/binaryoperator/EvaluatingOrder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/operator/genericoperator/GenericOperatorGroup.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/operator/genericoperator/GenericOperatorStack.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/operator/genericoperator/Operator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/operator/genericoperator/OperatorType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/operator/unaryoperator/UnaryOperator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/operator/unaryoperator/UnaryOperatorGroup.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/operator/unaryoperator/UnaryOperatorType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/parser/ExpressionParser$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/parser/ExpressionParser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/parser/MyValueProvider.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/parser/ValueProvider.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/expression/Expression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/expression/Expression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lexer/Lexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lexer/Lexer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lexer/token/Token.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lexer/token/Token.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/math/fraction/ApproxFraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/math/fraction/ApproxFraction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/math/fraction/Fraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/math/fraction/Fraction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/math/fraction/RootCalculus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/math/fraction/RootCalculus.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -16,7 +71,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DarkyenusTimeTracker">
-    <option name="totalTimeSeconds" value="171205" />
+    <option name="totalTimeSeconds" value="174493" />
     <option name="gitIntegration" value="true" />
     <option name="naggedAbout" value="1" />
   </component>
@@ -46,10 +101,51 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/expression/SymbolTable.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/math/fraction/Fraction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="18" column="15" lean-forward="true" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
+            <state relative-caret-position="-871">
+              <caret line="219" column="112" selection-start-line="219" selection-start-column="112" selection-end-line="219" selection-end-column="112" />
+              <folding>
+                <element signature="e#5520#5521#0" expanded="true" />
+                <element signature="e#5575#5576#0" expanded="true" />
+                <element signature="e#6101#6102#0" expanded="true" />
+                <element signature="e#6154#6155#0" expanded="true" />
+                <element signature="e#9813#9814#0" expanded="true" />
+                <element signature="e#9891#9892#0" expanded="true" />
+                <element signature="e#10146#10147#0" expanded="true" />
+                <element signature="e#10178#10179#0" expanded="true" />
+                <element signature="e#10220#10221#0" expanded="true" />
+                <element signature="e#10254#10255#0" expanded="true" />
+                <element signature="e#10288#10289#0" expanded="true" />
+                <element signature="e#10347#10348#0" expanded="true" />
+                <element signature="e#10377#10378#0" expanded="true" />
+                <element signature="e#10448#10449#0" expanded="true" />
+                <element signature="e#10517#10518#0" expanded="true" />
+                <element signature="e#10581#10582#0" expanded="true" />
+                <element signature="e#10652#10653#0" expanded="true" />
+                <element signature="e#10703#10704#0" expanded="true" />
+                <element signature="e#11010#11011#0" expanded="true" />
+                <element signature="e#11067#11068#0" expanded="true" />
+                <element signature="e#11103#11104#0" expanded="true" />
+                <element signature="e#11168#11169#0" expanded="true" />
+                <element signature="e#11701#11702#0" expanded="true" />
+                <element signature="e#11728#11729#0" expanded="true" />
+                <element signature="e#11778#11779#0" expanded="true" />
+                <element signature="e#11806#11807#0" expanded="true" />
+                <element signature="e#11856#11857#0" expanded="true" />
+                <element signature="e#11883#11884#0" expanded="true" />
+                <element signature="e#12136#12137#0" expanded="true" />
+                <element signature="e#12171#12172#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/math/fraction/ApproxFraction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="251">
+              <caret line="108" column="59" selection-start-line="108" selection-start-column="59" selection-end-line="108" selection-end-column="59" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -60,8 +156,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/expression/Expression.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+            <state relative-caret-position="284">
+              <caret line="47" column="206" selection-start-line="47" selection-start-column="206" selection-end-line="47" selection-end-column="206" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -72,8 +168,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/lexer/token/Token.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="27">
-              <caret line="33" column="68" selection-start-line="33" selection-start-column="68" selection-end-line="33" selection-end-column="68" />
+            <state relative-caret-position="80">
+              <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1212#1213#0" expanded="true" />
@@ -90,22 +186,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/misc/StringUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="40" column="38" lean-forward="true" selection-start-line="40" selection-start-column="38" selection-end-line="40" selection-end-column="38" />
-              <folding>
-                <element signature="e#2167#2168#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/lexer/Lexer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="43">
-              <caret line="50" column="30" lean-forward="true" selection-start-line="50" selection-start-column="30" selection-end-line="50" selection-end-column="30" />
+            <state relative-caret-position="381">
+              <caret line="117" column="19" selection-start-line="117" selection-start-column="19" selection-end-line="117" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1045#1046#0" expanded="true" />
@@ -116,24 +200,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/parser/ExpressionParser.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
-              <caret line="31" selection-start-line="31" selection-end-line="31" />
+            <state relative-caret-position="177">
+              <caret line="66" column="16" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/misc/BigFunctions.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="143">
+              <caret line="149" column="65" selection-start-line="149" selection-start-column="65" selection-end-line="149" selection-end-column="65" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#7418#7419#0" expanded="true" />
-                <element signature="e#7446#7447#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+        <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="62" selection-start-line="62" selection-end-line="62" />
+            <state relative-caret-position="240">
+              <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -141,22 +232,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/math/fraction/RootCalculus.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="18" column="98" selection-start-line="18" selection-start-column="98" selection-end-line="18" selection-end-column="98" />
+            <state relative-caret-position="177">
+              <caret line="18" column="70" selection-start-line="18" selection-start-column="70" selection-end-line="18" selection-end-column="70" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/operator/BoundingOperator.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/misc/Saver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#973#974#0" expanded="true" />
-                <element signature="e#1010#1011#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="64">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -176,11 +262,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>prefix</find>
-      <find>in</find>
-      <find>invoke</find>
-      <find>mo</find>
-      <find>static</find>
       <find>romdeci</find>
       <find>public</find>
       <find>add</find>
@@ -206,6 +287,11 @@
       <find>number</find>
       <find>bounda</find>
       <find>getToken</find>
+      <find>static final</find>
+      <find>sin</find>
+      <find>cos</find>
+      <find>MathContext.DECIMAL128</find>
+      <find>DECIMAL128</find>
     </findStrings>
     <replaceStrings>
       <replace>Token</replace>
@@ -220,6 +306,8 @@
       <replace>fractionable</replace>
       <replace>Fractionable</replace>
       <replace>Operator</replace>
+      <replace>Expression.CONTEXT</replace>
+      <replace>final static</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -228,7 +316,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/operator/genericoperator/OperatorType.java" />
         <option value="$PROJECT_DIR$/src/main/java/math/Fraction.java" />
         <option value="$PROJECT_DIR$/src/main/java/math/BigIntegerUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/math/RootCalculus.java" />
@@ -267,72 +354,50 @@
         <option value="$PROJECT_DIR$/src/main/java/parser/MyValueProvider.java" />
         <option value="$PROJECT_DIR$/src/main/java/misc/Saver.java" />
         <option value="$PROJECT_DIR$/src/main/java/misc/BigFunctions.java" />
-        <option value="$PROJECT_DIR$/src/main/java/lexer/Lexer.java" />
         <option value="$PROJECT_DIR$/src/main/java/math/error/MathError.java" />
-        <option value="$PROJECT_DIR$/src/main/java/math/fraction/ApproxFraction.java" />
-        <option value="$PROJECT_DIR$/src/main/java/math/fraction/Fraction.java" />
-        <option value="$PROJECT_DIR$/src/main/java/math/fraction/RootCalculus.java" />
         <option value="$PROJECT_DIR$/src/main/java/operator/BoundingOperator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/parser/ExpressionParser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/expression/Expression.java" />
         <option value="$PROJECT_DIR$/src/main/java/expression/SymbolTable.java" />
-        <option value="$PROJECT_DIR$/src/main/java/lexer/token/Token.java" />
         <option value="$PROJECT_DIR$/src/main/java/misc/StringUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/lexer/Lexer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/math/fraction/RootCalculus.java" />
+        <option value="$PROJECT_DIR$/src/main/java/lexer/token/Token.java" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/math/fraction/Fraction.java" />
+        <option value="$PROJECT_DIR$/src/main/java/math/fraction/ApproxFraction.java" />
+        <option value="$PROJECT_DIR$/src/main/java/expression/Expression.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-192" />
-    <option name="width" value="1910" />
-    <option name="height" value="753" />
+    <option name="x" value="1920" />
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="ProjectPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Kaappo Raivio" type="b2602c69:ProjectViewProjectNode" />
+              <item name="parser" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
             <path>
               <item name="Kaappo Raivio" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="Kaappo_Raivio" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-            </path>
-            <path>
-              <item name="Kaappo Raivio" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="Kaappo_Raivio" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-            </path>
-            <path>
-              <item name="Kaappo Raivio" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="Kaappo_Raivio" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="Kaappo Raivio" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="Kaappo_Raivio" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="expression" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="Kaappo Raivio" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="Kaappo_Raivio" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="lexer" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="Kaappo Raivio" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="Kaappo_Raivio" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="lexer" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="token" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -341,13 +406,13 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558894725597" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558973983883" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="last.edited.regexp" value="-1.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -371,6 +436,12 @@
       <recent name="puupaska" />
       <recent name="parser" />
     </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="gradle buildEnvironment" />
+      <command value="gradle build" />
+    </option>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -456,19 +527,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Expression" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="expression.Expression" />
-      <module name="Kaappo_Raivio.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="misc.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Lexer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="lexer.Lexer" />
       <module name="Kaappo_Raivio.main" />
@@ -489,31 +547,60 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Node" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="expression.Node" />
-      <module name="Kaappo_Raivio.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="misc.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="parser [buildEnvironment]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="buildEnvironment" />
+          </list>
+        </option>
+        <option name="vmOptions" value="" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
     </configuration>
-    <configuration name="Tree" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="expression.Tree" />
-      <module name="Kaappo_Raivio.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="misc.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="parser [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" value="" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="parser" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
     </configuration>
     <configuration name="LexerTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="Kaappo_Raivio.test" />
@@ -541,21 +628,21 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main without tests" />
-      <item itemvalue="Application.Node" />
-      <item itemvalue="Application.Tree" />
-      <item itemvalue="Application.Expression" />
       <item itemvalue="Application.ApproxFraction" />
       <item itemvalue="Application.Lexer" />
       <item itemvalue="JUnit.TokenTest" />
       <item itemvalue="JUnit.LexerTest" />
+      <item itemvalue="Gradle.parser" />
+      <item itemvalue="Gradle.parser [buildEnvironment]" />
+      <item itemvalue="Gradle.parser [build]" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.parser [build]" />
+        <item itemvalue="Gradle.parser [buildEnvironment]" />
+        <item itemvalue="Gradle.parser" />
         <item itemvalue="Application.Lexer" />
         <item itemvalue="Application.ApproxFraction" />
-        <item itemvalue="Application.Expression" />
-        <item itemvalue="Application.Node" />
-        <item itemvalue="Application.Tree" />
       </list>
     </recent_temporary>
   </component>
@@ -614,7 +701,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="27" width="1920" height="1004" extended-state="6" />
+    <frame x="1920" y="27" width="1920" height="1004" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17075774" />
@@ -626,7 +713,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32718894" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.46313363" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.46313363" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3986175" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -635,7 +722,7 @@
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Build" order="10" weight="0.3293348" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32513967" />
+      <window_info active="true" anchor="bottom" id="Messages" order="11" visible="true" weight="0.3248848" />
       <window_info anchor="bottom" id="Tail" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -691,7 +778,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/parser/Parser.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/puupaska/Symbol.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/expression/Payload.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -953,20 +1039,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///usr/lib/jvm/jdk-11.0.2/lib/src.zip!/java.base/java/math/MathContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="77" column="36" selection-start-line="77" selection-start-column="36" selection-end-line="77" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/misc/Saver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/jdk-11.0.2/lib/src.zip!/java.base/java/math/BigDecimal.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
@@ -1009,16 +1081,6 @@
           <folding>
             <element signature="e#4990#4991#0" expanded="true" />
             <element signature="e#5036#5037#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/misc/BigFunctions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1872">
-          <caret lean-forward="true" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1067,38 +1129,89 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/math/fraction/ApproxFraction.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/operator/BoundingOperator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="101" column="41" selection-start-line="101" selection-start-column="41" selection-end-line="101" selection-end-column="41" />
+        <state relative-caret-position="336">
+          <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1387#1388#0" expanded="true" />
-            <element signature="e#1432#1433#0" expanded="true" />
-            <element signature="e#1490#1491#0" expanded="true" />
-            <element signature="e#1567#1568#0" expanded="true" />
-            <element signature="e#1787#1788#0" expanded="true" />
-            <element signature="e#1860#1861#0" expanded="true" />
-            <element signature="e#1917#1918#0" expanded="true" />
-            <element signature="e#1992#1993#0" expanded="true" />
-            <element signature="e#2049#2050#0" expanded="true" />
-            <element signature="e#2076#2077#0" expanded="true" />
-            <element signature="e#2139#2140#0" expanded="true" />
-            <element signature="e#2221#2222#0" expanded="true" />
-            <element signature="e#2268#2269#0" expanded="true" />
-            <element signature="e#2331#2332#0" expanded="true" />
-            <element signature="e#2630#2631#0" expanded="true" />
-            <element signature="e#2670#2671#0" expanded="true" />
-            <element signature="e#2714#2715#0" expanded="true" />
-            <element signature="e#2755#2756#0" expanded="true" />
+            <element signature="e#973#974#0" expanded="true" />
+            <element signature="e#1010#1011#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/expression/SymbolTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="18" column="15" lean-forward="true" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/misc/StringUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="40" column="38" lean-forward="true" selection-start-line="40" selection-start-column="38" selection-end-line="40" selection-end-column="38" />
+          <folding>
+            <element signature="e#2167#2168#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/parser/ExpressionParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#7418#7419#0" expanded="true" />
+            <element signature="e#7446#7447#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lexer/token/Token.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1212#1213#0" expanded="true" />
+            <element signature="e#1269#1270#0" expanded="true" />
+            <element signature="e#1607#1608#0" expanded="true" />
+            <element signature="e#1672#1673#0" expanded="true" />
+            <element signature="e#1718#1719#0" expanded="true" />
+            <element signature="e#1745#1746#0" expanded="true" />
+            <element signature="e#1970#1971#0" expanded="true" />
+            <element signature="e#1998#1999#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/misc/BigFunctions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="149" column="65" selection-start-line="149" selection-start-column="65" selection-end-line="149" selection-end-column="65" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/math/fraction/Fraction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2464">
-          <caret line="175" column="90" selection-start-line="175" selection-start-column="90" selection-end-line="175" selection-end-column="90" />
+        <state relative-caret-position="-871">
+          <caret line="219" column="112" selection-start-line="219" selection-start-column="112" selection-end-line="219" selection-end-column="112" />
           <folding>
             <element signature="e#5520#5521#0" expanded="true" />
             <element signature="e#5575#5576#0" expanded="true" />
@@ -1134,74 +1247,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/operator/BoundingOperator.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/math/fraction/ApproxFraction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
+        <state relative-caret-position="251">
+          <caret line="108" column="59" selection-start-line="108" selection-start-column="59" selection-end-line="108" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#973#974#0" expanded="true" />
-            <element signature="e#1010#1011#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+    <entry file="jar:///usr/lib/jvm/jdk-11.0.2/lib/src.zip!/java.base/java/math/MathContext.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="62" selection-start-line="62" selection-end-line="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/math/fraction/RootCalculus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="18" column="98" selection-start-line="18" selection-start-column="98" selection-end-line="18" selection-end-column="98" />
+        <state relative-caret-position="127">
+          <caret line="100" column="41" selection-start-line="100" selection-start-column="31" selection-end-line="100" selection-end-column="41" />
+          <folding>
+            <element signature="e#6732#6733#0" expanded="true" />
+            <element signature="e#6764#6765#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/expression/Expression.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+        <state relative-caret-position="284">
+          <caret line="47" column="206" selection-start-line="47" selection-start-column="206" selection-end-line="47" selection-end-column="206" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/expression/SymbolTable.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/misc/Saver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="18" column="15" lean-forward="true" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="64">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lexer/token/Token.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/math/fraction/RootCalculus.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="33" column="68" selection-start-line="33" selection-start-column="68" selection-end-line="33" selection-end-column="68" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1212#1213#0" expanded="true" />
-            <element signature="e#1269#1270#0" expanded="true" />
-            <element signature="e#1607#1608#0" expanded="true" />
-            <element signature="e#1672#1673#0" expanded="true" />
-            <element signature="e#1718#1719#0" expanded="true" />
-            <element signature="e#1745#1746#0" expanded="true" />
-            <element signature="e#1970#1971#0" expanded="true" />
-            <element signature="e#1998#1999#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="177">
+          <caret line="18" column="70" selection-start-line="18" selection-start-column="70" selection-end-line="18" selection-end-column="70" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/lexer/Lexer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="43">
-          <caret line="50" column="30" lean-forward="true" selection-start-line="50" selection-start-column="30" selection-end-line="50" selection-end-column="30" />
+        <state relative-caret-position="381">
+          <caret line="117" column="19" selection-start-line="117" selection-start-column="19" selection-end-line="117" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1045#1046#0" expanded="true" />
@@ -1210,25 +1304,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/misc/StringUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="40" column="38" lean-forward="true" selection-start-line="40" selection-start-column="38" selection-end-line="40" selection-end-column="38" />
-          <folding>
-            <element signature="e#2167#2168#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/parser/ExpressionParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="31" selection-start-line="31" selection-end-line="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#7418#7419#0" expanded="true" />
-            <element signature="e#7446#7447#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="177">
+          <caret line="66" column="16" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="16" />
         </state>
       </provider>
     </entry>

@@ -1,5 +1,6 @@
 package math.fraction;
 
+import expression.Expression;
 import expression.SymbolTable;
 import lexer.token.SymbolToken;
 import misc.BigFunctions;
@@ -44,7 +45,7 @@ public class ApproxFraction extends Fraction {
 
     @Override
     public Fraction inverse () {
-        return new ApproxFraction(BigDecimal.ONE.divide(actualValue, MathContext.DECIMAL128));
+        return new ApproxFraction(BigDecimal.ONE.divide(actualValue, Expression.CONTEXT));
     }
 
     @Override
@@ -89,7 +90,7 @@ public class ApproxFraction extends Fraction {
 
     @Override
     public Fraction power (Fraction exponent) {
-        return new ApproxFraction(BigFunctions.exp(BigFunctions.ln(actualValue, Fraction.PRECISION).multiply(exponent.toDecimal(), MathContext.DECIMAL128), Fraction.PRECISION));
+        return new ApproxFraction(BigFunctions.exp(BigFunctions.ln(actualValue, Fraction.PRECISION).multiply(exponent.toDecimal(), Expression.CONTEXT), Fraction.PRECISION));
     }
 
     @Override
@@ -102,7 +103,13 @@ public class ApproxFraction extends Fraction {
         return actualValue.signum() == -1;
     }
 
+    @Override
+    public boolean equals (Object o) {
+//        return super.equals(o);
+        throw new RuntimeException("Not implemented yet!");
+    }
+
     protected Fraction inversePower (Fraction mantissa) {
-        return new ApproxFraction(BigFunctions.exp(BigFunctions.ln(mantissa.toDecimal(), Fraction.PRECISION).multiply(actualValue, MathContext.DECIMAL128), Fraction.PRECISION));
+        return new ApproxFraction(BigFunctions.exp(BigFunctions.ln(mantissa.toDecimal(), Fraction.PRECISION).multiply(actualValue, Expression.CONTEXT), Fraction.PRECISION));
     }
 }

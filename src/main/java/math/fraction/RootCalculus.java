@@ -29,7 +29,11 @@ public class RootCalculus {
             xPrev = x;
             x = new BigDecimal(n.subtract(BigInteger.ONE))
                     .multiply(x)
-                    .add(a.divide(x.pow(n.subtract(BigInteger.ONE).intValue()), SCALE, ROUNDING_MODE))
+                    .add(a
+                            .divide(x
+                                    .pow(n
+                                            .subtract(BigInteger.ONE)
+                                            .intValue()), SCALE, ROUNDING_MODE))
                     .divide(new BigDecimal(n), SCALE, ROUNDING_MODE);
         }
         return x;

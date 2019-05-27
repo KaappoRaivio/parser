@@ -79,6 +79,7 @@ public class Lexer {
                 .getRemoverRegex()
                 .matcher(input)
                 .replaceFirst("");
+
         if (input.equals(inputBefore)) {
             throw new RuntimeException("Doesnt recognize " + input + "!");
         }

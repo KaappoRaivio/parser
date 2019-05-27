@@ -1,6 +1,8 @@
+import ch.obermuhlner.math.big.BigDecimalMath;
 import expression.SymbolTable;
 import math.error.MathError;
 import math.fraction.Fraction;
+import misc.BigFunctions;
 import operator.binaryoperator.BinaryOperator;
 import operator.genericoperator.GenericOperatorGroup;
 import operator.genericoperator.GenericOperatorStack;
@@ -49,8 +51,8 @@ public class Main {
                 new GenericOperatorGroup(OperatorType.BINARY, Expression.operatorMul, Expression.operatorDiv),
                 new GenericOperatorGroup(OperatorType.UNARY,  Expression.operatorNeg, Expression.operatorPos),
                 new GenericOperatorGroup(OperatorType.BINARY, Expression.operatorPow, Expression.operatorIPo),
-                new GenericOperatorGroup(OperatorType.BINARY, Expression.operatorRot),
-                new GenericOperatorGroup(OperatorType.UNARY,  Expression.operatorSqr)
+                new GenericOperatorGroup(OperatorType.BINARY, Expression.operatorRot, Expression.operatorIRo),
+                new GenericOperatorGroup(OperatorType.UNARY,  Expression.operatorSqr, Expression.operatorISq)
         );
         //√
 //        Parser parser1 = new Parser("-2^2", new ValueProvider<>(), UnaryOperatorGroup.UNARY_OPERATOR_GROUP, binaryOperatorStack);

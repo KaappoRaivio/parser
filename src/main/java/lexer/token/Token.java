@@ -8,6 +8,16 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public enum Token {
+    ELLIPSIS ("(\\.\\.\\.)?", "Ellipsis", -2),
+    SYMBOL ("([a-z]|%)?", "Symbol", -1),
+
+    SIN ("sin", "Sin", 0),
+    COS ("cos", "Cos", 0),
+    TAN ("tan", "Tan", 0),
+    LOG10 ("log10", "Log10", 0),
+    LOG2 ("log2", "Log2", 0),
+    LN ("ln", "Ln", 0),
+
     ADD ("\\+", "Plus", 1),
     SUBTRACT ("\\-", "Minus", 1),
     MULTIPLY ("\\*", "Asterisk", 1),
@@ -15,15 +25,17 @@ public enum Token {
     LPAREN ("\\(", "Left parenthesis", 1),
     RPAREN ("\\)", "Right parenthesis", 1),
     END ("$", "End", 1),
-    NUMBER ("([0123456789])+([.,]([0123456789])+)?", "Number", 4),
     ABS ("\\|", "Pipe", 1),
     SQRT ("(\\√|sqrt)", "Square root", 1),
     ROOT ("root", "nth root", 1),
     EXCLAMATION ("\\!", "Factorial", 1),
     POWER ("(\\*\\*|\\^)", "Power", 2),
     INVPOW("(\\*\\*|\\^)( )?-", "Inverse Power", 3),
-    SYMBOL ("([a-z]|%)?", "Symbol", -1),
-    ELLIPSIS ("(\\.\\.\\.)?", "Ellipsis", 0);
+    NEG_SQRT ("(\\√|sqrt)( )?-", "negative square root", 3),
+    NEG_ROOT ("root( )?-", "negative nth root", 3),
+    NUMBER ("([0123456789])+([.,]([0123456789])+)?", "Number", 4);
+
+
 //    FACTORIAL ("\\!", "Factorial", 0);
 
 

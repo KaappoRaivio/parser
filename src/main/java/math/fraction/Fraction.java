@@ -1,5 +1,6 @@
 package math.fraction;
 
+import expression.Expression;
 import math.error.MathError;
 import misc.Pair;
 import misc.StringUtil;
@@ -216,7 +217,7 @@ public class Fraction implements Fractionable {
     }
 
     public BigDecimal toDecimal () {
-        BigDecimal tempResult = new BigDecimal(numerator).divide(new BigDecimal(denominator), MathContext.DECIMAL128);
+        BigDecimal tempResult = new BigDecimal(numerator).divide(new BigDecimal(denominator), Expression.CONTEXT);
         String string = tempResult.toString();
 
         return new BigDecimal(string);
