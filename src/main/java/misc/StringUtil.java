@@ -33,12 +33,23 @@ public class StringUtil {
         int newcommaplace = commaPlace + amount;
 
 
-        if (newcommaplace > number.length() - 1) {
-            return moveComma(number + "0", amount, commaPlace);
+//        if (newcommaplace > number.length() - 1) {
+//            return moveComma(number + "0", amount, commaPlace);
+//        }
+        StringBuilder numberBuilder = new StringBuilder(number);
+        while (newcommaplace >= numberBuilder.length()) {
+            numberBuilder.append("0");
         }
-        if (newcommaplace < 1) {
-            return moveComma("0" + number, amount);
+
+        while (newcommaplace < 1) {
+            numberBuilder.insert(0, "0");
+            newcommaplace = getCurrentCommaPlace(number) + amount;
         }
+        number = numberBuilder.toString();
+
+//        if (newcommaplace < 1) {
+//            return moveComma("0" + number, amount);
+//        }
 
         String temp = number.replaceAll("[.,]", "");
 
