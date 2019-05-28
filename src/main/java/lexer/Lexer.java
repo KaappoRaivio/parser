@@ -73,7 +73,7 @@ public class Lexer {
         else {
             foundToken = new FoundToken(token);
         }
-
+        System.out.println(foundToken);
         String inputBefore = input;
         input = token
                 .getRemoverRegex()

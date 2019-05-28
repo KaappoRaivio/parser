@@ -8,8 +8,8 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public enum Token {
-    ELLIPSIS ("(\\.\\.\\.)?", "Ellipsis", -2),
-    SYMBOL ("([a-z]|%)?", "Symbol", -1),
+    ELLIPSIS ("\\.\\.\\.", "Ellipsis", -2),
+    SYMBOL ("[a-z\\%]", "Symbol", -1),
 
     SIN ("sin", "Sin", 0),
     COS ("cos", "Cos", 0),
