@@ -4,6 +4,7 @@ import expression.Expression;
 import expression.SymbolTable;
 import lexer.token.SymbolToken;
 import math.fraction.fraction.Fraction;
+import math.utils.TrigonometryUtils;
 import misc.BigFunctions;
 import misc.StringUtil;
 
@@ -31,16 +32,16 @@ public class ApproxFraction extends Fraction {
         this(fraction.toDecimal());
     }
 
-    protected static Fraction fromEndingDecimal (String s) {
+    public static Fraction fromEndingDecimal (String s) {
         String original = s;
 
 
         int commaPlace = StringUtil.getCurrentCommaPlace(s);
         s = s.replaceAll("[.,]", "");
 
-        Fraction fraction = new ApproxFraction(s, StringUtil.moveComma("1.0", s.length() - commaPlace));
+        ApproxFraction fraction = new ApproxFraction(s, StringUtil.moveComma("1.0", s.length() - commaPlace));
         fraction.originalRepresentation = original;
-        return fraction;
+        return  fraction;
     }
 
     @Override
@@ -142,33 +143,25 @@ public class ApproxFraction extends Fraction {
 
     @Override
     public Fraction sin () {
-        if (equals(getPi()) || equals(getMinusPi())) {
-            return new Fraction(0, 1);
-        } else if (equals(getHalfPi())) {
-            return new Fraction(1, 1);
-        } else if (equals(getZero())) {
-            return new Fraction(-1 , 1);
+        if (USE_DEGREES) {
+            return TrigonometryUtils.sinMapDegrees.getOrDefault(modulo(BigDecimal.valueOf(360)), super.sin());
         } else {
-            return super.sin();
+            System.out.println("asd: " + modulo(SymbolTable.defaultTable.getValue(new SymbolToken("p")).fractionValue().multiply(2).toDecimal()));
+            return TrigonometryUtils.sinMapRadians.getOrDefault(modulo(SymbolTable.defaultTable.getValue(new SymbolToken("p")).fractionValue().multiply(2).toDecimal()), super.sin());
         }
+    }
+
+    private Fraction modulo (BigDecimal divisor) {
+        return new ApproxFraction(toDecimal().remainder(divisor));
     }
 
     @Override
     public Fraction cos () {
-        if (equals(getHalfPi()) || equals(getZero())) {
-            return new Fraction(0, 1);
-        } else if (equals(getPi())) {
-            return new Fraction(-1, 1);
-        } else if (equals(getZero())) {
-            return new Fraction(1 , 1);
+        if (USE_DEGREES) {
+            return TrigonometryUtils.cosMapDegrees.getOrDefault(this, super.cos());
         } else {
-            return super.cos();
+            return TrigonometryUtils.cosMapRadians.getOrDefault(this, super.cos());
         }
-    }
-
-    @Override
-    public Fraction tan () {
-        return super.tan();
     }
 
     private static ApproxFraction getZero () {

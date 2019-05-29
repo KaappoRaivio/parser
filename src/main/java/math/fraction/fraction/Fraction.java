@@ -7,6 +7,7 @@ import lexer.token.SymbolToken;
 import math.error.MathError;
 import math.fraction.approxfraction.ApproxFraction;
 import math.utils.RootCalculus;
+import math.utils.TrigonometryUtils;
 import misc.BigFunctions;
 import misc.Pair;
 import misc.StringUtil;
@@ -21,7 +22,7 @@ import java.util.stream.Stream;
 public class Fraction implements Fractionable {
     public static boolean USE_DEGREES = false;
 
-    static final int PRECISION = 34;
+    public static final int PRECISION = 34;
 
 
     protected String originalRepresentation;
@@ -87,7 +88,7 @@ public class Fraction implements Fractionable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(numerator, denominator);
+        return Objects.hash(toDecimal());
     }
 
     @Override
@@ -223,17 +224,17 @@ public class Fraction implements Fractionable {
 
     public Fraction sin () {
         if (USE_DEGREES) {
-            return new ApproxFraction(BigDecimalMath.sin(toRadians().toDecimal(), Expression.CONTEXT)).toDegrees();
+            return TrigonometryUtils.sinMapDegrees.getOrDefault(this, new ApproxFraction(BigDecimalMath.sin(toRadians().toDecimal(), Expression.CONTEXT)).toDegrees());
         } else {
-            return new ApproxFraction(BigDecimalMath.sin(toDecimal(), Expression.CONTEXT));
+            return TrigonometryUtils.sinMapRadians.getOrDefault(this, new ApproxFraction(BigDecimalMath.sin(toDecimal(), Expression.CONTEXT)));
         }
     }
 
     public Fraction cos () {
         if (USE_DEGREES) {
-            return new ApproxFraction(BigDecimalMath.cos(toRadians().toDecimal(), Expression.CONTEXT)).toDegrees();
+            return TrigonometryUtils.sinMapDegrees.getOrDefault(this, new ApproxFraction(BigDecimalMath.cos(toRadians().toDecimal(), Expression.CONTEXT)).toDegrees());
         } else {
-            return new ApproxFraction(BigDecimalMath.cos(toDecimal(), Expression.CONTEXT));
+            return TrigonometryUtils.sinMapRadians.getOrDefault(this, new ApproxFraction(BigDecimalMath.cos(toDecimal(), Expression.CONTEXT)));
         }
     }
 
@@ -253,7 +254,7 @@ public class Fraction implements Fractionable {
         return new ApproxFraction(BigFunctions.ln(toDecimal(), Expression.CONTEXT.getPrecision()));
     }
 
-    Fraction toDegrees () {
+    public Fraction toDegrees () {
         return divide(SymbolTable.defaultTable.getValue(new SymbolToken("p")).fractionValue().multiply(2)).multiply(360);
     }
 
@@ -400,7 +401,7 @@ public class Fraction implements Fractionable {
 
 
     public boolean isInteger () {
-        return denominator.equals(BigInteger.ONE);
+        return denominator.abs().equals(BigInteger.ONE);
     }
 
     public boolean isNegative () {
@@ -434,6 +435,8 @@ public class Fraction implements Fractionable {
     public boolean isFraction () {
         return true;
     }
+
+
 
     private static BigInteger lcm (BigInteger num, BigInteger den) {
         return Stream.of(num, den).reduce(new BigInteger("1"), (x, y) -> x.multiply(y.divide(gcd(x, y))));

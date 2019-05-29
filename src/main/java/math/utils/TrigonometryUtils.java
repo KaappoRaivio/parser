@@ -21,12 +21,12 @@ public class TrigonometryUtils {
             Map.entry(SymbolTable.defaultTable.getValue(new SymbolToken("p")).fractionValue(),                        new Fraction(0, 1)),
 
             Map.entry(SymbolTable.defaultTable.getValue(new SymbolToken("p")).fractionValue().multiply(7).divide(6),  new Fraction(-1, 2)),
-            Map.entry(SymbolTable.defaultTable.getValue(new SymbolToken("p")).fractionValue().multiply(5).divide(4),  new Fraction(-2, 1).root(BigInteger.TWO).divide(2)),
-            Map.entry(SymbolTable.defaultTable.getValue(new SymbolToken("p")).fractionValue().multiply(4).divide(3),  new Fraction(-3, 1).root(BigInteger.TWO).divide(2)),
+            Map.entry(SymbolTable.defaultTable.getValue(new SymbolToken("p")).fractionValue().multiply(5).divide(4),  new Fraction(2, 1).root(BigInteger.TWO).divide(-2)),
+            Map.entry(SymbolTable.defaultTable.getValue(new SymbolToken("p")).fractionValue().multiply(4).divide(3),  new Fraction(3, 1).root(BigInteger.TWO).divide(-2)),
             Map.entry(SymbolTable.defaultTable.getValue(new SymbolToken("p")).fractionValue().multiply(3).divide(2),  new Fraction(-1, 1)),
 
-            Map.entry(SymbolTable.defaultTable.getValue(new SymbolToken("p")).fractionValue().multiply(5).divide(3),  new Fraction(-3, 1).root(BigInteger.TWO).divide(2)),
-            Map.entry(SymbolTable.defaultTable.getValue(new SymbolToken("p")).fractionValue().multiply(7).divide(4),  new Fraction(-2, 1).root(BigInteger.TWO).divide(2)),
+            Map.entry(SymbolTable.defaultTable.getValue(new SymbolToken("p")).fractionValue().multiply(5).divide(3),  new Fraction(3, 1).root(BigInteger.TWO).divide(-2)),
+            Map.entry(SymbolTable.defaultTable.getValue(new SymbolToken("p")).fractionValue().multiply(7).divide(4),  new Fraction(2, 1).root(BigInteger.TWO).divide(-2)),
             Map.entry(SymbolTable.defaultTable.getValue(new SymbolToken("p")).fractionValue().multiply(11).divide(6), new Fraction(-1, 2)),
             Map.entry(new Fraction(0, 1),  new Fraction(0, 1))
     );
@@ -43,12 +43,12 @@ public class TrigonometryUtils {
             Map.entry(new Fraction(180, 1),                                                            new Fraction(0, 1)),
 
             Map.entry(new Fraction(210, 1),                                                            new Fraction(-1, 2)),
-            Map.entry(new Fraction(225, 1),                                                            new Fraction(-2, 1).root(BigInteger.TWO).divide(2)),
-            Map.entry(new Fraction(240, 1),                                                            new Fraction(-3, 1).root(BigInteger.TWO).divide(2)),
+            Map.entry(new Fraction(225, 1),                                                            new Fraction(2, 1).root(BigInteger.TWO).divide(-2)),
+            Map.entry(new Fraction(240, 1),                                                            new Fraction(3, 1).root(BigInteger.TWO).divide(-2)),
             Map.entry(new Fraction(270, 1),                                                            new Fraction(-1, 1)),
 
-            Map.entry(new Fraction(300, 1),                                                            new Fraction(-3, 1).root(BigInteger.TWO).divide(2)),
-            Map.entry(new Fraction(315, 1),                                                            new Fraction(-2, 1).root(BigInteger.TWO).divide(2)),
+            Map.entry(new Fraction(300, 1),                                                            new Fraction(3, 1).root(BigInteger.TWO).divide(-2)),
+            Map.entry(new Fraction(315, 1),                                                            new Fraction(2, 1).root(BigInteger.TWO).divide(-2)),
             Map.entry(new Fraction(330, 1),                                                            new Fraction(-1, 2)),
             Map.entry(new Fraction(0, 1),                                                              new Fraction(0, 1))
     );
@@ -60,12 +60,12 @@ public class TrigonometryUtils {
             Map.entry(SymbolTable.defaultTable.getValue(new SymbolToken("p")).fractionValue().divide(2),               new Fraction(0, 1)),
 
             Map.entry(SymbolTable.defaultTable.getValue(new SymbolToken("p")).fractionValue().multiply(2).divide(3),   new Fraction(-1, 2)),
-            Map.entry(SymbolTable.defaultTable.getValue(new SymbolToken("p")).fractionValue().multiply(3).divide(4),   new Fraction(-2, 1).root(BigInteger.TWO).divide(2)),
-            Map.entry(SymbolTable.defaultTable.getValue(new SymbolToken("p")).fractionValue().multiply(5).divide(6),   new Fraction(-3, 1).root(BigInteger.TWO).divide(2)),
+            Map.entry(SymbolTable.defaultTable.getValue(new SymbolToken("p")).fractionValue().multiply(3).divide(4),   new Fraction(2, 1).root(BigInteger.TWO).divide(-2)),
+            Map.entry(SymbolTable.defaultTable.getValue(new SymbolToken("p")).fractionValue().multiply(5).divide(6),   new Fraction(3, 1).root(BigInteger.TWO).divide(-2)),
             Map.entry(SymbolTable.defaultTable.getValue(new SymbolToken("p")).fractionValue(),                         new Fraction(-1, 1)),
 
-            Map.entry(SymbolTable.defaultTable.getValue(new SymbolToken("p")).fractionValue().multiply(7).divide(6),   new Fraction(-3, 1).root(BigInteger.TWO).divide(2)),
-            Map.entry(SymbolTable.defaultTable.getValue(new SymbolToken("p")).fractionValue().multiply(5).divide(4),   new Fraction(-2, 1).root(BigInteger.TWO).divide(2)),
+            Map.entry(SymbolTable.defaultTable.getValue(new SymbolToken("p")).fractionValue().multiply(7).divide(6),   new Fraction(3, 1).root(BigInteger.TWO).divide(-2)),
+            Map.entry(SymbolTable.defaultTable.getValue(new SymbolToken("p")).fractionValue().multiply(5).divide(4),   new Fraction(2, 1).root(BigInteger.TWO).divide(-2)),
             Map.entry(SymbolTable.defaultTable.getValue(new SymbolToken("p")).fractionValue().multiply(4).divide(3),   new Fraction(-1, 2)),
             Map.entry(SymbolTable.defaultTable.getValue(new SymbolToken("p")).fractionValue().multiply(3).divide(2),   new Fraction(0, 1)),
 
@@ -82,12 +82,12 @@ public class TrigonometryUtils {
             Map.entry(new Fraction(90, 1),                                                              new Fraction(0, 1)),
 
             Map.entry(new Fraction(120, 1),                                                             new Fraction(-1, 2)),
-            Map.entry(new Fraction(135, 1),                                                             new Fraction(-2, 1).root(BigInteger.TWO).divide(2)),
-            Map.entry(new Fraction(150, 1),                                                             new Fraction(-3, 1).root(BigInteger.TWO).divide(2)),
+            Map.entry(new Fraction(135, 1),                                                             new Fraction(2, 1).root(BigInteger.TWO).divide(-2)),
+            Map.entry(new Fraction(150, 1),                                                             new Fraction(3, 1).root(BigInteger.TWO).divide(-2)),
             Map.entry(new Fraction(180, 1),                                                             new Fraction(-1, 1)),
 
-            Map.entry(new Fraction(210, 1),                                                             new Fraction(-3, 1).root(BigInteger.TWO).divide(2)),
-            Map.entry(new Fraction(225, 1),                                                             new Fraction(-2, 1).root(BigInteger.TWO).divide(2)),
+            Map.entry(new Fraction(210, 1),                                                             new Fraction(3, 1).root(BigInteger.TWO).divide(-2)),
+            Map.entry(new Fraction(225, 1),                                                             new Fraction(2, 1).root(BigInteger.TWO).divide(-2)),
             Map.entry(new Fraction(240, 1),                                                             new Fraction(-1, 2)),
             Map.entry(new Fraction(270, 1),                                                             new Fraction(0, 1)),
 
