@@ -116,7 +116,7 @@ public class ApproxFraction extends Fraction {
 //        throw new RuntimeException("Not implemented yet!");
     }
 
-    protected Fraction inversePower (Fraction mantissa) {
+    public Fraction inversePower (Fraction mantissa) {
         return new ApproxFraction(BigFunctions.exp(BigFunctions.ln(mantissa.toDecimal(), Fraction.PRECISION).multiply(actualValue, Expression.CONTEXT), Fraction.PRECISION));
     }
 

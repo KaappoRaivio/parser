@@ -13,5 +13,6 @@ repositories {
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
-    compile 'ch.obermuhlner:big-fraction:2.1.0'
+    implementation 'ch.obermuhlner:big-math:2.1.0'
+
 }

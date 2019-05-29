@@ -1,6 +1,6 @@
 package math.fraction.fraction;
 
-import ch.obermuhlner.math.big.BigDecimalMath;
+
 import expression.Expression;
 import expression.SymbolTable;
 import lexer.token.SymbolToken;
@@ -11,6 +11,8 @@ import misc.BigFunctions;
 import misc.Pair;
 import misc.StringUtil;
 
+
+import ch.obermuhlner.math.big.BigDecimalMath;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Objects;
@@ -20,9 +22,6 @@ public class Fraction implements Fractionable {
     public static boolean USE_DEGREES = false;
 
     static final int PRECISION = 34;
-
-    private static final BigInteger BIG = new BigInteger("100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000");
-
 
 
     protected String originalRepresentation;
@@ -239,11 +238,7 @@ public class Fraction implements Fractionable {
     }
 
     public Fraction tan () {
-        if (USE_DEGREES) {
-            return new ApproxFraction(BigDecimalMath.tan(toRadians().toDecimal(), Expression.CONTEXT)).toDegrees();
-        } else {
-            return new ApproxFraction(BigDecimalMath.tan(toDecimal(), Expression.CONTEXT));
-        }
+        return sin().divide(cos());
     }
 
     public Fraction log10 () {
