@@ -1,11 +1,8 @@
 package expression;
 
-import ch.obermuhlner.math.big.BigDecimalMath;
 import lexer.token.Token;
-import math.fraction.ApproxFraction;
-import math.fraction.Fraction;
-import math.fraction.Fractionable;
-import misc.BigFunctions;
+import math.fraction.fraction.Fraction;
+import math.fraction.fraction.Fractionable;
 import operator.BoundingOperator;
 import operator.binaryoperator.BinaryOperator;
 import operator.binaryoperator.EvaluatingOrder;
@@ -15,7 +12,6 @@ import operator.unaryoperator.UnaryOperator;
 import operator.unaryoperator.UnaryOperatorType;
 import parser.MyValueProvider;
 
-import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.MathContext;
 import java.util.ArrayList;

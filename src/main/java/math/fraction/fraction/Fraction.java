@@ -1,19 +1,19 @@
-package math.fraction;
+package math.fraction.fraction;
 
 import ch.obermuhlner.math.big.BigDecimalMath;
 import expression.Expression;
 import expression.SymbolTable;
 import lexer.token.SymbolToken;
 import math.error.MathError;
+import math.fraction.approxfraction.ApproxFraction;
+import math.utils.RootCalculus;
 import misc.BigFunctions;
 import misc.Pair;
 import misc.StringUtil;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.math.MathContext;
 import java.util.Objects;
-import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 public class Fraction implements Fractionable {

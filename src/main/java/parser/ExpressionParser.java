@@ -6,7 +6,7 @@ import lexer.token.FoundToken;
 import lexer.token.NumberToken;
 import lexer.token.SymbolToken;
 import lexer.token.Token;
-import math.fraction.Fractionable;
+import math.fraction.fraction.Fractionable;
 import operator.BoundingOperator;
 import operator.binaryoperator.BinaryOperator;
 import operator.genericoperator.GenericOperatorGroup;

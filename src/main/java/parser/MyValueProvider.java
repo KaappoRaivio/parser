@@ -1,9 +1,6 @@
 package parser;
 
-import math.fraction.Fraction;
-import math.fraction.Fractionable;
-
-import java.util.regex.Pattern;
+import math.fraction.fraction.Fractionable;
 
 public class MyValueProvider<T extends Fractionable> implements ValueProvider<T> {
 

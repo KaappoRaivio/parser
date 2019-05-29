@@ -2,9 +2,9 @@ package expression;
 
 import lexer.token.SymbolToken;
 
-import math.fraction.ApproxFraction;
-import math.fraction.Fraction;
-import math.fraction.Fractionable;
+import math.fraction.approxfraction.ApproxFraction;
+import math.fraction.fraction.Fraction;
+import math.fraction.fraction.Fractionable;
 
 import java.math.BigDecimal;
 import java.util.Map;

@@ -1,13 +1,10 @@
 package operator;
 
 import lexer.token.Token;
-import math.fraction.Fractionable;
-import operator.genericoperator.Operator;
+import math.fraction.fraction.Fractionable;
 import operator.genericoperator.OperatorType;
 import operator.unaryoperator.UnaryOperator;
 import operator.unaryoperator.UnaryOperatorType;
-
-import java.util.List;
 
 public class BoundingOperator extends UnaryOperator {
     private final Token rightToken;

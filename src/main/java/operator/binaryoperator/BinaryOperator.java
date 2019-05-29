@@ -1,8 +1,7 @@
 package operator.binaryoperator;
 
 import lexer.token.Token;
-import math.fraction.Fraction;
-import math.fraction.Fractionable;
+import math.fraction.fraction.Fractionable;
 import operator.genericoperator.Operator;
 import operator.genericoperator.OperatorType;
 import expression.Payload;

@@ -1,4 +1,7 @@
-package math.fraction;
+package math.utils;
+
+import math.fraction.fraction.Fraction;
+import math.fraction.fraction.Fractionable;
 
 import java.math.BigInteger;
 

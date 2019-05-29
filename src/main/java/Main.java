@@ -1,8 +1,6 @@
-import ch.obermuhlner.math.big.BigDecimalMath;
 import expression.SymbolTable;
 import math.error.MathError;
-import math.fraction.Fraction;
-import misc.BigFunctions;
+import math.fraction.fraction.Fraction;
 import operator.binaryoperator.BinaryOperator;
 import operator.genericoperator.GenericOperatorGroup;
 import operator.genericoperator.GenericOperatorStack;
@@ -56,7 +54,7 @@ public class Main {
                 new GenericOperatorGroup(OperatorType.UNARY,  Expression.operatorSqr, Expression.operatorISq,
                                                               Expression.operatorSin, Expression.operatorCos,
                                                               Expression.operatorTan, Expression.operatorL10,
-                                                              Expression.operatorLo2)
+                                                              Expression.operatorLo2, Expression.operatorLon)
 
         );
         //√

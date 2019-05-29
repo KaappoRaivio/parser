@@ -1,4 +1,4 @@
-package math.fraction;
+package math.fraction.fraction;
 
 import expression.Payload;
 

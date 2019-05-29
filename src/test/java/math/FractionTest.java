@@ -1,6 +1,6 @@
 package math;
 
-import math.fraction.Fraction;
+import math.fraction.fraction.Fraction;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigInteger;

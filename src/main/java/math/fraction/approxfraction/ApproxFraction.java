@@ -1,14 +1,14 @@
-package math.fraction;
+package math.fraction.approxfraction;
 
 import expression.Expression;
 import expression.SymbolTable;
 import lexer.token.SymbolToken;
+import math.fraction.fraction.Fraction;
 import misc.BigFunctions;
 import misc.StringUtil;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.math.MathContext;
 
 public class ApproxFraction extends Fraction {
     private BigDecimal actualValue;
@@ -105,11 +105,77 @@ public class ApproxFraction extends Fraction {
 
     @Override
     public boolean equals (Object o) {
+        if (o == null) {
+            return false;
+        } else if (o instanceof Fraction) {
+            return actualValue.equals(((ApproxFraction) o).toDecimal());
+        } else {
+            return false;
+        }
 //        return super.equals(o);
-        throw new RuntimeException("Not implemented yet!");
+//        throw new RuntimeException("Not implemented yet!");
     }
 
     protected Fraction inversePower (Fraction mantissa) {
         return new ApproxFraction(BigFunctions.exp(BigFunctions.ln(mantissa.toDecimal(), Fraction.PRECISION).multiply(actualValue, Expression.CONTEXT), Fraction.PRECISION));
+    }
+
+    private static ApproxFraction getPi () {
+        if (USE_DEGREES) {
+            return new ApproxFraction(BigDecimal.valueOf(180));
+        } else {
+            return (ApproxFraction) SymbolTable.defaultTable.getValue(new SymbolToken("p")).fractionValue();
+        }
+    }
+
+    private static ApproxFraction getMinusPi () {
+        return new ApproxFraction(BigDecimal.valueOf(0));
+    }
+
+    private static ApproxFraction getHalfPi () {
+        if (USE_DEGREES) {
+            return new ApproxFraction(BigDecimal.valueOf(90));
+        } else {
+            return (ApproxFraction) SymbolTable.defaultTable.getValue(new SymbolToken("p")).fractionValue().divide(2);
+        }
+    }
+
+    @Override
+    public Fraction sin () {
+        if (equals(getPi()) || equals(getMinusPi())) {
+            return new Fraction(0, 1);
+        } else if (equals(getHalfPi())) {
+            return new Fraction(1, 1);
+        } else if (equals(getZero())) {
+            return new Fraction(-1 , 1);
+        } else {
+            return super.sin();
+        }
+    }
+
+    @Override
+    public Fraction cos () {
+        if (equals(getHalfPi()) || equals(getZero())) {
+            return new Fraction(0, 1);
+        } else if (equals(getPi())) {
+            return new Fraction(-1, 1);
+        } else if (equals(getZero())) {
+            return new Fraction(1 , 1);
+        } else {
+            return super.cos();
+        }
+    }
+
+    @Override
+    public Fraction tan () {
+        return super.tan();
+    }
+
+    private static ApproxFraction getZero () {
+        if (USE_DEGREES) {
+            return new ApproxFraction(BigDecimal.valueOf(-90));
+        } else {
+            return (ApproxFraction) SymbolTable.defaultTable.getValue(new SymbolToken("p")).fractionValue().divide(2).negate();
+        }
     }
 }
