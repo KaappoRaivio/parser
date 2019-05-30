@@ -20,7 +20,7 @@ import java.util.Objects;
 import java.util.stream.Stream;
 
 public class Fraction implements Fractionable {
-    public static boolean USE_DEGREES = false;
+    public static boolean USE_DEGREES = true;
 
     public static final int PRECISION = 34;
 
@@ -35,7 +35,8 @@ public class Fraction implements Fractionable {
 
     private Fraction (BigInteger numerator, BigInteger denominator, boolean compact) {
         if (denominator.equals(BigInteger.ZERO)) {
-            throw new ArithmeticException("Denominator cannot be zero!");
+//            throw new ArithmeticException("Denominator cannot be zero!");
+            throw new MathError("Cannot divide by zero!", "Not a number");
         }
 
 
@@ -224,17 +225,17 @@ public class Fraction implements Fractionable {
 
     public Fraction sin () {
         if (USE_DEGREES) {
-            return TrigonometryUtils.sinMapDegrees.getOrDefault(this, new ApproxFraction(BigDecimalMath.sin(toRadians().toDecimal(), Expression.CONTEXT)).toDegrees());
+            return TrigonometryUtils.sinMapDegrees.getOrDefault(this.normalize(), new ApproxFraction(BigDecimalMath.sin(toRadians().toDecimal(), Expression.CONTEXT)).toDegrees());
         } else {
-            return TrigonometryUtils.sinMapRadians.getOrDefault(this, new ApproxFraction(BigDecimalMath.sin(toDecimal(), Expression.CONTEXT)));
+            return TrigonometryUtils.sinMapRadians.getOrDefault(this.normalize(), new ApproxFraction(BigDecimalMath.sin(toDecimal(), Expression.CONTEXT)));
         }
     }
 
     public Fraction cos () {
         if (USE_DEGREES) {
-            return TrigonometryUtils.sinMapDegrees.getOrDefault(this, new ApproxFraction(BigDecimalMath.cos(toRadians().toDecimal(), Expression.CONTEXT)).toDegrees());
+            return TrigonometryUtils.cosMapDegrees.getOrDefault(this.normalize(), new ApproxFraction(BigDecimalMath.cos(toRadians().toDecimal(), Expression.CONTEXT)).toDegrees());
         } else {
-            return TrigonometryUtils.sinMapRadians.getOrDefault(this, new ApproxFraction(BigDecimalMath.cos(toDecimal(), Expression.CONTEXT)));
+            return TrigonometryUtils.cosMapRadians.getOrDefault(this.normalize(), new ApproxFraction(BigDecimalMath.cos(toDecimal(), Expression.CONTEXT)));
         }
     }
 
@@ -303,7 +304,6 @@ public class Fraction implements Fractionable {
 
         int commaPlace = StringUtil.getCurrentCommaPlace(x);
         x = x.replaceAll("[.,]", "");
-        System.out.println(x + ", " + x.length());
         Fraction fraction = new Fraction(x, StringUtil.moveComma("1.0", x.length() - commaPlace));
         fraction.originalRepresentation = original;
         return fraction;
@@ -419,6 +419,28 @@ public class Fraction implements Fractionable {
         }
 
         return result;
+    }
+
+    public Fraction normalize () {
+        boolean tooSmall = isNegative();
+        if (USE_DEGREES) {
+            Fraction result = this;
+            if (tooSmall) {
+                while (result.toDecimal().signum() < 0) {
+                    result = result.add(new Fraction(360, 1));
+                }
+
+                return result;
+            } else {
+                while (result.toDecimal().compareTo(new Fraction(360, 1).toDecimal()) > 0) {
+                    result = result.subtract(new Fraction(360, 1));
+                }
+
+                return result;
+            }
+        } else {
+            return this;
+        }
     }
 
     @Override

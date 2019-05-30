@@ -73,7 +73,6 @@ public class Lexer {
         else {
             foundToken = new FoundToken(token);
         }
-        System.out.println(foundToken);
         String inputBefore = input;
         input = token
                 .getRemoverRegex()
@@ -138,7 +137,4 @@ public class Lexer {
         return tokens.size() == 1; // 1 for the END token
     }
 
-    public static void main (String[] args) {
-        System.out.println(new Lexer("3x(2 + 2)(2-4)", (BinaryOperator) Expression.operatorMul));
-    }
 }

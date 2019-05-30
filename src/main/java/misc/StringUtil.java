@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 public class StringUtil {
     private final static Pattern pattern = Pattern.compile("^(.+?)\\1+$");
 
-    public static int getCurrentCommaPlace(String string) {
+    public static int getCurrentCommaPlace (String string) {
         int commaplace = string.indexOf(".");
         if (commaplace == -1) {
             commaplace = string.indexOf(",");
@@ -19,7 +19,7 @@ public class StringUtil {
     }
 
 
-    public static Pair<String, String> findPattern(String s) {
+    public static Pair<String, String> findPattern (String s) {
         s = s.replaceAll("([.,])", "");
 
         for (int i = 0; i < s.length(); i++) {
@@ -29,6 +29,7 @@ public class StringUtil {
         }
         return new Pair<>(s, "");
     }
+
     private static String moveComma (String number, final int amount, final int commaPlace) {
         int newcommaplace = commaPlace + amount;
 
@@ -60,11 +61,8 @@ public class StringUtil {
         }
     }
 
-    public static String moveComma(String number, int amount) {
+    public static String moveComma (String number, int amount) {
         return moveComma(number, amount, getCurrentCommaPlace(number));
     }
-
-    public static void main(String[] args) {
-        System.out.println(moveComma("1.23", 1));
-    }
 }
+

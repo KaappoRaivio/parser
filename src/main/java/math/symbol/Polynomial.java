@@ -65,8 +65,4 @@ public class Polynomial {
     }
 
 
-    public static void main(String[] args) {
-        var a = new Polynomial(new Term(3, 2), new Term(-2, 1), new Term(10, 0));
-        System.out.println(a);
-    }
 }

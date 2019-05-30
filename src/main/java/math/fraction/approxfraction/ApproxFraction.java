@@ -96,7 +96,7 @@ public class ApproxFraction extends Fraction {
 
     @Override
     public BigDecimal toDecimal () {
-        return actualValue;
+        return actualValue.stripTrailingZeros();
     }
 
     @Override
@@ -108,8 +108,8 @@ public class ApproxFraction extends Fraction {
     public boolean equals (Object o) {
         if (o == null) {
             return false;
-        } else if (o instanceof Fraction) {
-            return actualValue.equals(((ApproxFraction) o).toDecimal());
+        } else if (o instanceof ApproxFraction) {
+            return actualValue.compareTo(((ApproxFraction) o).toDecimal()) == 0;
         } else {
             return false;
         }
@@ -144,31 +144,55 @@ public class ApproxFraction extends Fraction {
     @Override
     public Fraction sin () {
         if (USE_DEGREES) {
-            return TrigonometryUtils.sinMapDegrees.getOrDefault(modulo(BigDecimal.valueOf(360)), super.sin());
+            return TrigonometryUtils.sinMapDegrees.getOrDefault(this.normalize(), super.sin());
         } else {
-            System.out.println("asd: " + modulo(SymbolTable.defaultTable.getValue(new SymbolToken("p")).fractionValue().multiply(2).toDecimal()));
-            return TrigonometryUtils.sinMapRadians.getOrDefault(modulo(SymbolTable.defaultTable.getValue(new SymbolToken("p")).fractionValue().multiply(2).toDecimal()), super.sin());
+            return TrigonometryUtils.sinMapRadians.getOrDefault(this.normalize(), super.sin());
         }
-    }
-
-    private Fraction modulo (BigDecimal divisor) {
-        return new ApproxFraction(toDecimal().remainder(divisor));
     }
 
     @Override
     public Fraction cos () {
         if (USE_DEGREES) {
-            return TrigonometryUtils.cosMapDegrees.getOrDefault(this, super.cos());
+            return TrigonometryUtils.cosMapDegrees.getOrDefault(this.normalize(), super.cos());
         } else {
-            return TrigonometryUtils.cosMapRadians.getOrDefault(this, super.cos());
+            return TrigonometryUtils.cosMapRadians.getOrDefault(this.normalize(), super.cos());
         }
     }
 
-    private static ApproxFraction getZero () {
+    @Override
+    public Fraction normalize () {
+        boolean tooSmall = isNegative();
         if (USE_DEGREES) {
-            return new ApproxFraction(BigDecimal.valueOf(-90));
+//            Fraction result = this;
+//            if (tooSmall) {
+//                while (result.toDecimal().signum() < 0) {
+//                    result = result.add(new Fraction(360, 1));
+//                }
+//
+//                return result;
+//            } else {
+//                while (result.toDecimal().compareTo(new Fraction(360, 1).toDecimal()) > 0) {
+//                    result = result.subtract(new Fraction(360, 1));
+//                }
+//
+//                return result;
+//            }
+            return this;
         } else {
-            return (ApproxFraction) SymbolTable.defaultTable.getValue(new SymbolToken("p")).fractionValue().divide(2).negate();
+            ApproxFraction result = this;
+            if (tooSmall) {
+                while (result.toDecimal().signum() < 0) {
+                    result = (ApproxFraction) result.add(SymbolTable.defaultTable.getValue(new SymbolToken("p")).fractionValue().multiply(2));
+                }
+
+                return new ApproxFraction(result.toDecimal().stripTrailingZeros());
+            } else {
+                while (result.toDecimal().compareTo(SymbolTable.defaultTable.getValue(new SymbolToken("p")).fractionValue().multiply(2).toDecimal()) > 0) {
+                    result = (ApproxFraction) result.subtract(SymbolTable.defaultTable.getValue(new SymbolToken("p")).fractionValue().multiply(2));
+                }
+
+                return new ApproxFraction(result.toDecimal().stripTrailingZeros());
+            }
         }
     }
 }
