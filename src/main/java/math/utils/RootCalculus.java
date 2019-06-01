@@ -18,7 +18,7 @@ public class RootCalculus {
     }
 
     private static BigDecimal nthRoot (final BigInteger n, final BigDecimal a, final BigDecimal precision) {
-        if (a.compareTo(BigDecimal.ZERO) < 0 && n.remainder(BigInteger.TWO).equals(BigInteger.ZERO)) {
+        if (a.compareTo(BigDecimal.ZERO) < 0 && n.remainder(BigInteger.valueOf(2)).equals(BigInteger.ZERO)) {
             throw new IllegalArgumentException("Roots are only defined for positive numbers");
         }
         if (a.equals(BigDecimal.ZERO)) {

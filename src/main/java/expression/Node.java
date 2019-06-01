@@ -58,7 +58,7 @@ public class Node<T> implements Serializable {
 
     private String string(int amountOfTab) {
 
-        String tab = "\t".repeat(amountOfTab);
+        String tab = new String(new char[amountOfTab]).replace("\0", "\t");;
 
         if (children.isEmpty()) {
             return tab + value.toString();

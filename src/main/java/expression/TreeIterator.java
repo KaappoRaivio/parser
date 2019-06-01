@@ -15,7 +15,7 @@ public class TreeIterator<T> implements Iterator<Node<T>> {
     }
 
     private void dfs (Node<T> current) {
-        for (var child : current.getChildren()) {
+        for (Node<T> child : current.getChildren()) {
             dfs(child);
         }
 
@@ -30,7 +30,7 @@ public class TreeIterator<T> implements Iterator<Node<T>> {
 
     @Override
     public Node<T> next() {
-        var temp = nodeList.get(currentIndex);
+        Node<T> temp = nodeList.get(currentIndex);
         currentIndex += 1;
         return temp;
     }

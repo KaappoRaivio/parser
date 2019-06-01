@@ -15,6 +15,7 @@ import parser.MyValueProvider;
 import java.math.BigInteger;
 import java.math.MathContext;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class Expression {
@@ -29,12 +30,12 @@ public class Expression {
     public final static Operator operatorIPo = new BinaryOperator(Token.INVPOW,     (fractionable, fractionable2) -> fractionable.fractionValue().power(fractionable2.fractionValue().negate()), EvaluatingOrder.RIGHT_TO_LEFT);
     public final static Operator operatorIRo = new BinaryOperator(Token.NEG_ROOT,   (fractionable, fractionable2) -> fractionable2.fractionValue().negate().root(fractionable.fractionValue().safeIntValue()), EvaluatingOrder.LEFT_TO_RIGHT);
 
-    public final static Operator operatorSqr = new UnaryOperator(Token.SQRT,                       (fractionable) -> fractionable.fractionValue().root(BigInteger.TWO), UnaryOperatorType.PREFIX);
+    public final static Operator operatorSqr = new UnaryOperator(Token.SQRT,                       (fractionable) -> fractionable.fractionValue().root(BigInteger.valueOf(2)), UnaryOperatorType.PREFIX);
     public final static Operator operatorNeg = new UnaryOperator(Token.SUBTRACT,                   (fractionable) -> fractionable.fractionValue().negate(), UnaryOperatorType.PREFIX);
     public final static Operator operatorPos = new UnaryOperator(Token.ADD,                        (fractionable) -> fractionable, UnaryOperatorType.PREFIX);
     public final static Operator operatorEll = new UnaryOperator(Token.ELLIPSIS,                   (fractionable) -> fractionable.fractionValue().toEndless(), UnaryOperatorType.BOUNDARY);
     public final static Operator operatorFac = new UnaryOperator(Token.EXCLAMATION,                (fractionable) -> fractionable.fractionValue().factorial(), UnaryOperatorType.SUFFIX);
-    public final static Operator operatorISq = new UnaryOperator(Token.NEG_SQRT,                   (fractionable) -> fractionable.fractionValue().negate().root(BigInteger.TWO), UnaryOperatorType.PREFIX);
+    public final static Operator operatorISq = new UnaryOperator(Token.NEG_SQRT,                   (fractionable) -> fractionable.fractionValue().negate().root(BigInteger.valueOf(2)), UnaryOperatorType.PREFIX);
 
     public final static Operator operatorSin = new UnaryOperator(Token.SIN,                        (fractionable) -> fractionable.fractionValue().sin(), UnaryOperatorType.PREFIX);
     public final static Operator operatorCos = new UnaryOperator(Token.COS,                        (fractionable) -> fractionable.fractionValue().cos(), UnaryOperatorType.PREFIX);
@@ -71,7 +72,7 @@ public class Expression {
             throw new RuntimeException(operator.toString() + " is not a binary operator!");
         }
 
-        var newParent = new Node<Payload>(operator);
+        Node<Payload> newParent = new Node<Payload>(operator);
         newParent.addChild(tree.getParentNode(), otherOperand.tree.getParentNode());
         tree = new Tree<>(newParent);
 
@@ -84,7 +85,7 @@ public class Expression {
             throw new RuntimeException(operator.toString() + " is not a binary operator!");
         }
 
-        var newParent = new Node<Payload>(operator);
+        Node<Payload> newParent = new Node<Payload>(operator);
         newParent.addChild(tree.getParentNode(), new Node<>(otherOperand));
         tree = new Tree<>(newParent);
 
@@ -97,7 +98,7 @@ public class Expression {
             throw new RuntimeException(operator.toString() + " is not an unary operator!");
         }
 
-        var newParent = new Node<Payload>(operator);
+        Node<Payload> newParent = new Node<Payload>(operator);
         newParent.addChild(tree.getParentNode());
         tree = new Tree<>(newParent);
 
@@ -114,8 +115,8 @@ public class Expression {
         } else {
             Operator operator = (Operator) currentNode.getValue();
 
-            var children = currentNode.getChildren();
-            var evaluated = children.stream().map(this::reduce).collect(Collectors.toCollection(ArrayList::new));
+            List<Node<Payload>> children = currentNode.getChildren();
+            ArrayList<Fractionable> evaluated = children.stream().map(this::reduce).collect(Collectors.toCollection(ArrayList::new));
 
             if (evaluated.size() != operator.getArity()) {
                 throw new RuntimeException("Wrong number of operands " + evaluated + " for operator " + operator + "!");

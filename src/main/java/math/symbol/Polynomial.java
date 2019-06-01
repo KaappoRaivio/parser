@@ -10,7 +10,7 @@ public class Polynomial {
     private List<Term> terms;
 
     public List<Term> getTerms (int stretch) {
-        var sorted = getTerms();
+        List<Term> sorted = getTerms();
 
         for (int i = stretch - 1; i >= 0; i--) {
             if (sorted.stream().anyMatch((term) -> term.isLikeIn(this))) {
@@ -56,7 +56,7 @@ public class Polynomial {
         return getTerms()
                 .stream()
                 .max(Comparator.comparingInt(Term::getN))
-                .orElseThrow();
+                .orElseThrow(RuntimeException::new);
     }
 
     @Override

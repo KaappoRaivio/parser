@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Kaappo_Raivio.main:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Kaappo_Raivio_main_jar</output-path>
+    <root id="archive" name="Kaappo_Raivio.main.jar">
+      <element id="module-output" name="Kaappo_Raivio.main" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/ch.obermuhlner/big-math/2.1.0/9e758e01ce780fd02a4650cb5e0517cbc1cb20ce/big-math-2.1.0.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

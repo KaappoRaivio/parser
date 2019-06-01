@@ -180,7 +180,7 @@ public class Fraction implements Fractionable {
     }
 
     public Fraction root (BigInteger n) {
-        if (isNegative() && n.remainder(BigInteger.TWO).equals(BigInteger.ZERO)) {
+        if (isNegative() && n.remainder(BigInteger.valueOf(2)).equals(BigInteger.ZERO)) {
             throw new MathError("Even roots are only defined for positive numbers!", "i");
         }
 

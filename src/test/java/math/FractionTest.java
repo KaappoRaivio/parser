@@ -24,7 +24,7 @@ class FractionTest {
 
     @Test
     public void testExpanding () {
-        assertEquals(new Fraction(6, 8).expand(BigInteger.TWO), new Fraction(12, 16));
+        assertEquals(new Fraction(6, 8).expand(BigInteger.valueOf(2)), new Fraction(12, 16));
     }
 
     @Test

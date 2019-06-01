@@ -100,24 +100,28 @@ public class Lexer {
 
     private static boolean needsImplicitOperator (FoundToken left, FoundToken right) {
 //        latestToken.getTokenType() == Token.RPAREN || foundToken.getTokenType() == Token.LPAREN
-        return Map.ofEntries(
-                Map.entry(new Pair<>(Token.SYMBOL, Token.SYMBOL), true),
-                Map.entry(new Pair<>(Token.NUMBER, Token.SYMBOL), true),
-                Map.entry(new Pair<>(Token.SYMBOL, Token.NUMBER), true),
 
-                Map.entry(new Pair<>(Token.RPAREN, Token.LPAREN), true),
+//        return Map.ofEntries(
 
-                Map.entry(new Pair<>(Token.RPAREN, Token.NUMBER), true),
-                Map.entry(new Pair<>(Token.RPAREN, Token.SYMBOL), true),
+//        )
+        Map<Pair<Token, Token>, Boolean> map = new HashMap<>();
 
-                Map.entry(new Pair<>(Token.NUMBER, Token.LPAREN), true),
-                Map.entry(new Pair<>(Token.SYMBOL, Token.LPAREN), true),
+        map.put(new Pair<>(Token.SYMBOL, Token.SYMBOL), true);
+        map.put(new Pair<>(Token.NUMBER, Token.SYMBOL), true);
+        map.put(new Pair<>(Token.SYMBOL, Token.NUMBER), true);
 
-                Map.entry(new Pair<>(Token.NUMBER, Token.SQRT), true),
-                Map.entry(new Pair<>(Token.SYMBOL, Token.SQRT), true)
-        )
-                .getOrDefault(new Pair<>(left.getTokenType(), right.getTokenType()), false);
+        map.put(new Pair<>(Token.RPAREN, Token.LPAREN), true);
 
+        map.put(new Pair<>(Token.RPAREN, Token.NUMBER), true);
+        map.put(new Pair<>(Token.RPAREN, Token.SYMBOL), true);
+
+        map.put(new Pair<>(Token.NUMBER, Token.LPAREN), true);
+        map.put(new Pair<>(Token.SYMBOL, Token.LPAREN), true);
+
+        map.put(new Pair<>(Token.NUMBER, Token.SQRT), true);
+        map.put(new Pair<>(Token.SYMBOL, Token.SQRT), true);
+
+        return map.getOrDefault(new Pair<>(left.getTokenType(), right.getTokenType()), false);
     }
 
     public FoundToken getNextToken () {

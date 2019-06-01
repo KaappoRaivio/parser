@@ -105,7 +105,7 @@ public class ExpressionParser<T extends Fractionable> {
         if (operatorStackPointer >= genericOperatorStack.size()) {
             return boundaryUnary();
         }
-        var currentOperators = genericOperatorStack.getGroup(operatorStackPointer);
+        GenericOperatorGroup currentOperators = genericOperatorStack.getGroup(operatorStackPointer);
         if (currentOperators.getGroupType() == OperatorType.BINARY) {
             return binaryEval(operatorStackPointer);
         }
@@ -147,7 +147,7 @@ public class ExpressionParser<T extends Fractionable> {
 //        System.out.println(genericOperatorStack.getSuffixOperators() + ", " + nextToken);
 
         if (genericOperatorStack.getSuffixOperators().isOperator(nextToken)) {
-            var operator = genericOperatorStack.getSuffixOperators().getOperator(nextToken);
+            Operator operator = genericOperatorStack.getSuffixOperators().getOperator(nextToken);
 
             return suffixUnary(expression.makeUnaryOperation(((UnaryOperator) operator)));
         } else {
@@ -161,7 +161,7 @@ public class ExpressionParser<T extends Fractionable> {
 
         if (genericOperatorStack.getBoundaryOperators().isOperator(nextToken)) {
             BoundingOperator operator = (BoundingOperator) genericOperatorStack.getBoundaryOperators().getOperator(nextToken);
-            var operand = binaryEval(0);
+            Expression operand = binaryEval(0);
 
             FoundToken expectedClosing = lexer.getNextToken();
 

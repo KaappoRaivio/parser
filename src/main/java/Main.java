@@ -1,6 +1,7 @@
 import expression.SymbolTable;
 import math.error.MathError;
 import math.fraction.fraction.Fraction;
+import math.fraction.fraction.Fractionable;
 import operator.binaryoperator.BinaryOperator;
 import operator.genericoperator.GenericOperatorGroup;
 import operator.genericoperator.GenericOperatorStack;
@@ -63,14 +64,14 @@ public class Main {
         while (true) {
             try {
                 String instr = new Scanner(System.in).nextLine();
-                var start = System.currentTimeMillis();
+                long start = System.currentTimeMillis();
 
                 ExpressionParser parser1 = new ExpressionParser<Fraction>(instr, new MyValueProvider<>(), operatorStack, (BinaryOperator) Expression.operatorMul, SymbolTable.defaultTable, false);
                 System.out.println(parser1.getLexer());
-                var tree = parser1.parse();
-                var reduced = tree.reduce();
+                Expression tree = parser1.parse();
+                Fractionable reduced = tree.reduce();
 
-                var end = System.currentTimeMillis();
+                long end = System.currentTimeMillis();
 
                 System.out.println(tree.toString());
                 System.out.println("Result: " + reduced);
