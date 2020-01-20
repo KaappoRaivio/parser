@@ -66,4 +66,36 @@ Calculating took 28 milliseconds.
     in decimal: -2.7
     Calculating took 7 milliseconds. 
 ```
+
+```
+>>> 0.142857142857...
+Lexer: [Number{0.142857142857}, Ellipsis, End] at 0
+Parse tree: Ellipsis {
+	(142857142857 / 1000000000000)
+}
+Result: (1 / 7)
+in decimal: 0.1428571428571429
+Calculating took 3 milliseconds.
+```
+
+```
+>>> 0.33... * 0.66... + 0.142857142857...
+Lexer: [Number{0.33}, Ellipsis, Asterisk, Number{0.66}, Ellipsis, Plus, Number{0.142857142857}, Ellipsis, End] at 0
+Parse tree: Plus {
+	Asterisk {
+		Ellipsis {
+			(33 / 100)
+		}
+		Ellipsis {
+			(33 / 50)
+		}
+	}
+	Ellipsis {
+		(142857142857 / 1000000000000)
+	}
+}
+Result: (23 / 63)
+in decimal: 0.3650793650793651
+Calculating took 6 milliseconds.
+```
 </details>
