@@ -18,9 +18,10 @@ This is my attempt to create a parser capable of parsing mathematical expression
 1. Clone the repository to your computer and ```cd``` into it.
 2. Execute the following command: ```java -cp parser.jar Main```
 4. Now, you can play with different inputs. The demo program also prints out the lexer and parse tree.
-<details><summary>Here are some snippets about different inputs and outputs:</summary>
+<details><summary>Here are some snippets with different inputs and outputs:</summary>
     
-```>>> (1 + sqrt 5) / 2
+```
+>>> (1 + sqrt 5) / 2
 Lexer: [Left parenthesis, Number{1}, Plus, Square root, Number{5}, Right parenthesis, Slash, Number{2}, End] at 0
 Parse tree: Slash {
     Parenthesis {
@@ -39,32 +40,32 @@ Calculating took 28 milliseconds.
 ```
 
 ```
-    >>> 3 ^ 2 ^ 1 * (-3) / |-10|
-    Lexer: [Number{3}, Power, Number{2}, Power, Number{1}, Asterisk, Left parenthesis, Minus, Number{3}, Right parenthesis, Slash, Pipe, Minus, Number{10}, Pipe, End] at 0
-    Parse tree: Slash {
-        Asterisk {
+>>> 3 ^ 2 ^ 1 * (-3) / |-10|
+Lexer: [Number{3}, Power, Number{2}, Power, Number{1}, Asterisk, Left parenthesis, Minus, Number{3}, Right parenthesis, Slash, Pipe, Minus, Number{10}, Pipe, End] at 0
+Parse tree: Slash {
+    Asterisk {
+        Power {
+            3
             Power {
-                3
-                Power {
-                    2
-                    1
-                }
-            }
-            Parenthesis {
-                Minus {
-                    3
-                }
+                2
+                1
             }
         }
-        Absolute value {
+        Parenthesis {
             Minus {
-                10
+                3
             }
         }
     }
-    Result: (-27 / 10)
-    in decimal: -2.7
-    Calculating took 7 milliseconds. 
+    Absolute value {
+        Minus {
+            10
+        }
+    }
+}
+Result: (-27 / 10)
+in decimal: -2.7
+Calculating took 7 milliseconds. 
 ```
 
 ```
