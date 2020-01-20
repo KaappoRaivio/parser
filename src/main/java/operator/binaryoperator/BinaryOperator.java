@@ -8,24 +8,21 @@ import expression.Payload;
 
 import java.util.List;
 
-public class BinaryOperator implements Operator, Payload {
+public class BinaryOperator implements Operator {
     private java.util.function.BinaryOperator<Fractionable> function;
     private EvaluatingOrder evaluatingOrder;
     private Token token;
 
-    public BinaryOperator(Token token, java.util.function.BinaryOperator<Fractionable> function, EvaluatingOrder evaluatingOrder) {
+    public BinaryOperator (Token token, java.util.function.BinaryOperator<Fractionable> function, EvaluatingOrder evaluatingOrder) {
         this.function = function;
         this.evaluatingOrder = evaluatingOrder;
         this.token = token;
     }
 
-    public EvaluatingOrder getEvaluatingOrder() {
+    public EvaluatingOrder getEvaluatingOrder () {
         return evaluatingOrder;
     }
 
-    public Token getToken() {
-        return token;
-    }
 
     public Fractionable invoke (List<Fractionable> operands) {
         if (operands.size() != getArity()) {
@@ -35,21 +32,17 @@ public class BinaryOperator implements Operator, Payload {
     }
 
     @Override
-    public OperatorType getOperatorType() {
+    public OperatorType getOperatorType () {
         return OperatorType.BINARY;
     }
 
     @Override
-    public String toString() {
-//        return "BinaryOperator{" +
-//                ", evaluatingOrder=" + evaluatingOrder +
-//                ", token=" + token +
-//                '}';
+    public String toString () {
         return token.toString();
     }
 
     @Override
-    public Token getTokenType() {
+    public Token getTokenType () {
         return token;
     }
 
@@ -59,12 +52,16 @@ public class BinaryOperator implements Operator, Payload {
     }
 
     @Override
-    public boolean isOperator() {
+    public boolean isOperator () {
         return true;
     }
 
     @Override
     public boolean isFraction () {
         return false;
+    }
+
+    public Token getToken () {
+        return token;
     }
 }

@@ -113,8 +113,6 @@ public class ApproxFraction extends Fraction {
         } else {
             return false;
         }
-//        return super.equals(o);
-//        throw new RuntimeException("Not implemented yet!");
     }
 
     public Fraction inversePower (Fraction mantissa) {
@@ -126,18 +124,6 @@ public class ApproxFraction extends Fraction {
             return new ApproxFraction(BigDecimal.valueOf(180));
         } else {
             return (ApproxFraction) SymbolTable.defaultTable.getValue(new SymbolToken("p")).fractionValue();
-        }
-    }
-
-    private static ApproxFraction getMinusPi () {
-        return new ApproxFraction(BigDecimal.valueOf(0));
-    }
-
-    private static ApproxFraction getHalfPi () {
-        if (USE_DEGREES) {
-            return new ApproxFraction(BigDecimal.valueOf(90));
-        } else {
-            return (ApproxFraction) SymbolTable.defaultTable.getValue(new SymbolToken("p")).fractionValue().divide(2);
         }
     }
 

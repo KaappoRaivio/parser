@@ -30,9 +30,6 @@ public enum Token {
     ROOT ("root", "nth root", 1),
     EXCLAMATION ("\\!", "Factorial", 1),
     POWER ("(\\*\\*|\\^)", "Power", 2),
-    INVPOW("(\\*\\*|\\^)( )?-", "Inverse Power", 3),
-    NEG_SQRT ("(\\√|sqrt)( )?-", "negative square root", 3),
-    NEG_ROOT ("root( )?-", "negative nth root", 3),
     NUMBER ("([0123456789])+([.,]([0123456789])+)?", "Number", 4);
 
 
