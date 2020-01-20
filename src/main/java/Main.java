@@ -43,6 +43,7 @@ public class Main {
 
         while (true) {
             try {
+                System.out.print(">>> ");
                 String inputString = scanner.nextLine();
 
                 long start = System.currentTimeMillis();
