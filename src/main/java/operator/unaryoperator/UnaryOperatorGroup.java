@@ -1,19 +1,17 @@
 package operator.unaryoperator;
 
 import lexer.token.FoundToken;
-import lexer.token.Token;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class UnaryOperatorGroup {
 //    public static final UnaryOperatorGroup UNARY_OPERATOR_GROUP = new UnaryOperatorGroup(
-//            Arrays.asList(new UnaryOperator(Token.ADD, a -> a, UnaryOperatorType.PREFIX),
-//                    new UnaryOperator(Token.SUBTRACT, fractionable -> fractionable.fractionValue().negate(), UnaryOperatorType.PREFIX),
-//                    new UnaryOperator(Token.SQRT, fractionable -> fractionable.fractionValue().root(2), UnaryOperatorType.PREFIX)),
+//            Arrays.asList(new UnaryOperator(OldToken.ADD, a -> a, UnaryOperatorType.PREFIX),
+//                    new UnaryOperator(OldToken.SUBTRACT, fractionable -> fractionable.fractionValue().negate(), UnaryOperatorType.PREFIX),
+//                    new UnaryOperator(OldToken.SQRT, fractionable -> fractionable.fractionValue().root(2), UnaryOperatorType.PREFIX)),
 //
-//            Arrays.asList(new UnaryOperator(Token.ELLIPSIS, fractionable -> fractionable.fractionValue().toEndless(), UnaryOperatorType.SUFFIX),
-//                    new UnaryOperator(Token.EXCLAMATION, fractionable -> fractionable.fractionValue().factorial(), UnaryOperatorType.SUFFIX))
+//            Arrays.asList(new UnaryOperator(OldToken.ELLIPSIS, fractionable -> fractionable.fractionValue().toEndless(), UnaryOperatorType.SUFFIX),
+//                    new UnaryOperator(OldToken.EXCLAMATION, fractionable -> fractionable.fractionValue().factorial(), UnaryOperatorType.SUFFIX))
 //    );
 
 
@@ -36,7 +34,7 @@ public class UnaryOperatorGroup {
                 .stream()
                 .filter(unaryOperator -> token.is(unaryOperator.getTokenType()))
                 .findAny()
-                .orElseThrow(() -> new RuntimeException("Token " + token + " is not defined as a suffix operator!"));
+                .orElseThrow(() -> new RuntimeException("OldToken " + token + " is not defined as a suffix operator!"));
     }
 
     public UnaryOperator getPrefixOperator (FoundToken token) {
@@ -44,7 +42,7 @@ public class UnaryOperatorGroup {
                 .stream()
                 .filter(unaryOperator -> token.is(unaryOperator.getTokenType()))
                 .findAny()
-                .orElseThrow(() -> new RuntimeException("Token " + token + " is not defined as a prefix operator!"));
+                .orElseThrow(() -> new RuntimeException("OldToken " + token + " is not defined as a prefix operator!"));
     }
 
     public boolean isSuffixOperator (FoundToken token) {

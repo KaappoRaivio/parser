@@ -1,21 +1,13 @@
 #Parser
+
 ###Introduction
-This is my attempt to create a parser capable of parsing mathematical expressions for use in my upcoming calculator app in Android.
+This is my attempt to create a parser capable of parsing mathematical expressions for use in my upcoming calculator app for Android.
 
-Currently supported functionalities and operators are:
-* Add, subtract, multiply and divide
-* Exponentation and roots
-* Absolute value with pipe operators ("|")
-* uses fractions to represent the numbers exactly (ending or repeating decimal) or apporoximately (enless non-repeating decimal)
-    * It has the ability to parse repeating decimals into fractions
-
-###Order of Operations
-1. **Ellipsis** (left to right)
-2. **Exponentiation** (right to left)
-3. **Unary minus** (left to right)
-4. **Multiplication**, division (left to right)
-5. **Addition**, **subtraction** (left to right)
-6. 
-
-
+Currently supported functionalities are:
+* User-definable operators
+    * These can be binary or unary operators. With unary operators, they can be either prefix (ie. square root) or suffix (ie. factorial).
+    * Comes with some built-in operators
+    * You can either bind your own operators to the built-in tokens or define your own.
+* Ability to use rational numbers
+    * Able to parse rationals from cycling, repeating decimals (ie. 3.33... &rarr; (1 / 3), 0.142857142857... &rarr; (1 / 7))
 

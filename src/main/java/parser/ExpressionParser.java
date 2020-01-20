@@ -2,12 +2,9 @@ package parser;
 
 import expression.*;
 import lexer.Lexer;
-import lexer.token.FoundToken;
-import lexer.token.NumberToken;
-import lexer.token.SymbolToken;
-import lexer.token.Token;
+import lexer.token.*;
 import math.fraction.fraction.Fractionable;
-import operator.BoundingOperator;
+import operator.BoundOperator;
 import operator.binaryoperator.BinaryOperator;
 import operator.genericoperator.GenericOperatorGroup;
 import operator.genericoperator.GenericOperatorStack;
@@ -17,20 +14,20 @@ import operator.unaryoperator.UnaryOperator;
 
 public class ExpressionParser<T extends Fractionable> {
     private Lexer lexer;
-    private ValueProvider<T> valueProvider;
+    private NumberParser<T> numberParser;
     private GenericOperatorStack genericOperatorStack;
     private SymbolTable symbolTable;
     private boolean mustClose;
 
-    public ExpressionParser (String input, ValueProvider<T> valueProvider, GenericOperatorStack genericOperatorStack, BinaryOperator implicitOperator, SymbolTable symbolTable) {
-        this(input, valueProvider, genericOperatorStack, implicitOperator, symbolTable, true);
+    public ExpressionParser (String input, NumberParser<T> numberParser, GenericOperatorStack genericOperatorStack, BinaryOperator implicitOperator, SymbolTable symbolTable) {
+        this(input, numberParser, genericOperatorStack, implicitOperator, symbolTable, true);
     }
 
-    public ExpressionParser (String input, ValueProvider<T> valueProvider, GenericOperatorStack genericOperatorStack, BinaryOperator implicitOperator, SymbolTable symbolTable, boolean mustClose) {
+    public ExpressionParser (String input, NumberParser<T> numberParser, GenericOperatorStack genericOperatorStack, BinaryOperator implicitOperator, SymbolTable symbolTable, boolean mustClose) {
         this.symbolTable = symbolTable;
         this.mustClose = mustClose;
-        lexer = new Lexer(input, implicitOperator);
-        this.valueProvider = valueProvider;
+        lexer = new Lexer(input, implicitOperator, Tokens.DEFAULT_TOKENS);
+        this.numberParser = numberParser;
         this.genericOperatorStack = genericOperatorStack;
 
 
@@ -65,10 +62,6 @@ public class ExpressionParser<T extends Fractionable> {
 
         if (currentOperators.isOperator(operatorToken)) {
             Operator operator = currentOperators.getOperator(operatorToken);
-
-            if (operator.getOperatorType() != OperatorType.BINARY) {
-                throw new RuntimeException("Operator " + operator + " is inside a GenericOperatorGroup of type BINARY but appears to have type " + operator.getOperatorType() + "!");
-            }
 
             BinaryOperator binaryOperator = (BinaryOperator) operator;
 
@@ -129,7 +122,7 @@ public class ExpressionParser<T extends Fractionable> {
         Expression value;
 
         if (token instanceof NumberToken) {
-            value = new Expression(valueProvider.valueOf(((NumberToken) token).getValue()));
+            value = new Expression(numberParser.valueOf(((NumberToken) token).getValue()));
         } else if (token instanceof SymbolToken) {
             value = new Expression(symbolTable.getValue((SymbolToken) token));
         }
@@ -160,12 +153,12 @@ public class ExpressionParser<T extends Fractionable> {
         FoundToken nextToken = lexer.getNextToken();
 
         if (genericOperatorStack.getBoundaryOperators().isOperator(nextToken)) {
-            BoundingOperator operator = (BoundingOperator) genericOperatorStack.getBoundaryOperators().getOperator(nextToken);
+            BoundOperator operator = (BoundOperator) genericOperatorStack.getBoundaryOperators().getOperator(nextToken);
             Expression operand = binaryEval(0);
 
             FoundToken expectedClosing = lexer.getNextToken();
 
-            if (operator.getRightToken() != expectedClosing.getTokenType()) {
+            if (!operator.getRightToken().equals(expectedClosing.getTokenType())) {
                 if (mustClose) {
                     throw new RuntimeException("Unbalanced bounding operator tokens, expecting " + operator.getRightToken() + " but found " + expectedClosing.getTokenType() + "! " + lexer);
                 } else {

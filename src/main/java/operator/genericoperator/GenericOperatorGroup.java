@@ -28,6 +28,13 @@ public class GenericOperatorGroup {
     public GenericOperatorGroup (OperatorType groupType, List<Operator> operators) {
         this.groupType = groupType;
         this.operators = operators;
+
+
+        for (Operator op : operators) {
+            if (!op.getOperatorType().equals(groupType)) {
+                throw new RuntimeException("Group type is " + groupType + ", but encountered a " + op + " operator with type " + op.getOperatorType() + "!");
+            }
+        }
     }
 
     public boolean isOperator (FoundToken token) {
@@ -41,6 +48,6 @@ public class GenericOperatorGroup {
                 .stream()
                 .filter(operator -> token.is(operator.getTokenType()))
                 .findAny()
-                .orElseThrow(() -> new RuntimeException("Token " + token + " is not defined as an operator!"));
+                .orElseThrow(() -> new RuntimeException("OldToken " + token + " is not defined as an operator!"));
     }
 }

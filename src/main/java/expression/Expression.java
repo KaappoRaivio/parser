@@ -1,18 +1,13 @@
 package expression;
 
-import lexer.token.Token;
 import math.fraction.fraction.Fraction;
 import math.fraction.fraction.Fractionable;
-import operator.BoundingOperator;
 import operator.binaryoperator.BinaryOperator;
-import operator.binaryoperator.EvaluatingOrder;
 import operator.genericoperator.Operator;
 import operator.genericoperator.OperatorType;
 import operator.unaryoperator.UnaryOperator;
-import operator.unaryoperator.UnaryOperatorType;
-import parser.MyValueProvider;
+import parser.MyNumberParser;
 
-import java.math.BigInteger;
 import java.math.MathContext;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +24,7 @@ public class Expression {
     private Tree<Payload> tree;
 
     public Expression () {
-        tree = new Tree<>(new Node<>(new MyValueProvider().valueOf("0")));
+        tree = new Tree<>(new Node<>(new MyNumberParser().valueOf("0")));
     }
 
     public Expression (Fractionable initialValue) {
@@ -83,14 +78,14 @@ public class Expression {
         return reduce(getTree().getParentNode());
     }
 
-    private Fractionable reduce (Node<Payload> currentNode) {
+    private Fraction reduce (Node<Payload> currentNode) {
         if (currentNode.getValue().isFraction()) {
             return  (Fraction) currentNode.getValue();
         } else {
             Operator operator = (Operator) currentNode.getValue();
 
             List<Node<Payload>> children = currentNode.getChildren();
-            ArrayList<Fractionable> evaluated = children.stream().map(this::reduce).collect(Collectors.toCollection(ArrayList::new));
+            ArrayList<Fraction> evaluated = children.stream().map(this::reduce).collect(Collectors.toCollection(ArrayList::new));
 
             if (evaluated.size() != operator.getArity()) {
                 throw new RuntimeException("Wrong number of operands " + evaluated + " for operator " + operator + "!");

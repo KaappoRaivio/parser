@@ -1,61 +1,31 @@
 package lexer.token;
 
-import lexer.UnknownTokenException;
-
-import java.util.Arrays;
-import java.util.List;
+import java.util.Objects;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
-public enum Token {
-    ELLIPSIS ("\\.\\.\\.", "Ellipsis", -2),
-    SYMBOL ("[a-z\\%]", "Symbol", -1),
-
-    SIN ("sin", "Sin", 0),
-    COS ("cos", "Cos", 0),
-    TAN ("tan", "Tan", 0),
-    LOG10 ("log10", "Log10", 0),
-    LOG2 ("log2", "Log2", 0),
-    LN ("ln", "Ln", 0),
-
-    ADD ("\\+", "Plus", 1),
-    SUBTRACT ("\\-", "Minus", 1),
-    MULTIPLY ("\\*", "Asterisk", 1),
-    DIVIDE ("\\/", "Slash", 1),
-    LPAREN ("\\(", "Left parenthesis", 1),
-    RPAREN ("\\)", "Right parenthesis", 1),
-    END ("$", "End", 1),
-    ABS ("\\|", "Pipe", 1),
-    SQRT ("(\\√|sqrt)", "Square root", 1),
-    ROOT ("root", "nth root", 1),
-    EXCLAMATION ("\\!", "Factorial", 1),
-    POWER ("(\\*\\*|\\^)", "Power", 2),
-    NUMBER ("([0123456789])+([.,]([0123456789])+)?", "Number", 4);
-
-
-//    FACTORIAL ("\\!", "Factorial", 0);
-
+public class Token {
+    public static final Token END = new Token ("$", "End", 1);
+    public static final Token NUMBER = new Token("([0123456789])+([.,]([0123456789])+)?", "Number", 4, TokenType.NUMBER);
+    public static final Token SYMBOL = new Token("(.*?)", "Symbol", -10, TokenType.SYMBOL);
 
     private final Pattern regex;
     private final String repr;
     private final int precedence;
+    private final TokenType tokenType;
 
-    Token(final String regex, final String repr, final int precedence) {
+    public Token(final String regex, final String repr, final int precedence) {
+        this(regex, repr, precedence, TokenType.NORMAL);
+    }
+
+    public Token (final String regex, final String repr, final int precedence, TokenType tokenType) {
         this.regex = Pattern.compile("^" + regex);
         this.repr = repr;
         this.precedence = precedence;
+        this.tokenType = tokenType;
     }
 
     public boolean matches (String another) {
         return regex.matcher(another).lookingAt();
-    }
-
-    public static Token getToken (String pattern) {
-        return sortedValues()
-                .stream()
-                .filter(token -> token.matches(pattern))
-                .findAny()
-                .orElseThrow(() -> new UnknownTokenException("Unknown token " + pattern + "!"));
     }
 
     public Pattern getRemoverRegex () {
@@ -63,15 +33,34 @@ public enum Token {
     }
 
     @Override
-    public String toString() {
+    public String toString () {
         return repr;
     }
 
-    public static List<Token> sortedValues () {
-        return Arrays.stream(Token.values()).sorted((item1, item2) -> item2.precedence - item1.precedence).collect(Collectors.toList());
+    public Pattern getRegex () {
+        return regex;
     }
 
-    public Pattern getRegex() {
-        return regex;
+    public int getPrecedence () {
+        return precedence;
+    }
+
+    @Override
+    public boolean equals (Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Token token = (Token) o;
+        return precedence == token.precedence &&
+                Objects.equals(regex, token.regex) &&
+                Objects.equals(repr, token.repr);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(regex, repr, precedence);
+    }
+
+    public TokenType getTokenType() {
+        return tokenType;
     }
 }

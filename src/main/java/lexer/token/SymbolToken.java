@@ -1,10 +1,5 @@
 package lexer.token;
 
-import lexer.token.FoundToken;
-import lexer.token.Token;
-
-import java.rmi.server.ExportException;
-
 public class SymbolToken extends FoundToken {
 
     private String value;

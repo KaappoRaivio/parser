@@ -28,7 +28,7 @@ public class FoundToken {
 
     public boolean is (Object o) {
         if (o == null) return false;
-        else if (o.getClass() == Token.class) return tokenType == o;
+        else if (o.getClass() == Token.class) return tokenType.equals(o);
         else return equals(o);
     }
 
@@ -43,16 +43,7 @@ public class FoundToken {
     }
 
     public boolean isIn (List<Token> tokenList) {
-        boolean found = false;
-
-        for (Token a : tokenList) {
-            if (is(a)) {
-                found = true;
-                break;
-            }
-        }
-
-        return found;
+        return tokenList.stream().anyMatch(this::is);
     }
 
 }

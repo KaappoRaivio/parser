@@ -1,7 +1,7 @@
 package operator.unaryoperator;
 
 import lexer.token.Token;
-import math.fraction.fraction.Fractionable;
+import math.fraction.fraction.Fraction;
 import operator.genericoperator.Operator;
 import operator.genericoperator.OperatorType;
 import expression.Payload;
@@ -9,19 +9,19 @@ import expression.Payload;
 import java.util.List;
 
 public class UnaryOperator implements Operator, Payload {
-    private java.util.function.UnaryOperator<Fractionable> function;
+    private java.util.function.UnaryOperator<Fraction> function;
     private UnaryOperatorType unaryOperatorType;
     private Token token;
 
 
 
-    public UnaryOperator(Token token, java.util.function.UnaryOperator<Fractionable> function, UnaryOperatorType unaryOperatorType) {
+    public UnaryOperator(Token token, java.util.function.UnaryOperator<Fraction> function, UnaryOperatorType unaryOperatorType) {
         this.token = token;
         this.function = function;
         this.unaryOperatorType = unaryOperatorType;
     }
 
-    public Fractionable invoke (List<Fractionable> operands) {
+    public Fraction invoke (List<Fraction> operands) {
         if (operands.size() != getArity()) {
             throw new RuntimeException("Unary operator " + toString() + " cannot be applied to " + operands + "!");
         } else {
@@ -29,7 +29,7 @@ public class UnaryOperator implements Operator, Payload {
         }
     }
 
-    public UnaryOperatorType getUnaryOperatorType() {
+    public UnaryOperatorType getUnaryOperatorType () {
         return unaryOperatorType;
     }
 
@@ -40,10 +40,6 @@ public class UnaryOperator implements Operator, Payload {
 
     @Override
     public String toString() {
-//        return "UnaryOperator{" +
-//                "unaryOperatorType=" + unaryOperatorType +
-//                ", token=" + token +
-//                '}';
         return token.toString();
     }
 

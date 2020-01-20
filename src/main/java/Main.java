@@ -9,21 +9,19 @@ import operator.genericoperator.Operator;
 import operator.genericoperator.OperatorType;
 import parser.ExpressionParser;
 import expression.Expression;
-import parser.MyValueProvider;
+import parser.MyNumberParser;
 
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         GenericOperatorStack operatorStack = new GenericOperatorStack(
-                new GenericOperatorGroup(
-                        OperatorType.UNARY,
+                new GenericOperatorGroup(OperatorType.UNARY,
                         Operator.operatorEllipsis,
                         Operator.operatorFactorial
                 ),
 
-                new GenericOperatorGroup(
-                        OperatorType.UNARY,
+                new GenericOperatorGroup(OperatorType.BOUNDARY,
                         Operator.operatorAbs,
                         Operator.operatorParen
                 ),
@@ -31,10 +29,9 @@ public class Main {
                 new GenericOperatorGroup(OperatorType.BINARY, Operator.operatorAdd, Operator.operatorSubtract),
                 new GenericOperatorGroup(OperatorType.BINARY, Operator.operatorMultiply, Operator.operatorDivide),
                 new GenericOperatorGroup(OperatorType.UNARY,  Operator.operatorNegate, Operator.operatorPosite),
-                new GenericOperatorGroup(OperatorType.BINARY, Operator.operatorPower, Expression.operatorInversePower),
-                new GenericOperatorGroup(OperatorType.BINARY, Operator.operatorRoot, Expression.operatorInverseRoot),
+                new GenericOperatorGroup(OperatorType.BINARY, Operator.operatorPower, Operator.operatorRoot),
 
-                new GenericOperatorGroup(OperatorType.UNARY,  Operator.operatorSqrt, Expression.operatorISq,
+                new GenericOperatorGroup(OperatorType.UNARY,  Operator.operatorSqrt,
                                                               Operator.operatorSin, Operator.operatorCos,
                                                               Operator.operatorTan, Operator.operatorLog10,
                                                               Operator.operatorLog2, Operator.operatorLn)
@@ -42,22 +39,25 @@ public class Main {
         );
         //√
 
+        Scanner scanner = new Scanner(System.in);
+
         while (true) {
             try {
-                String instr = new Scanner(System.in).nextLine();
+                String inputString = scanner.nextLine();
+
                 long start = System.currentTimeMillis();
 
-                ExpressionParser parser1 = new ExpressionParser<Fraction>(instr, new MyValueProvider<>(), operatorStack, (BinaryOperator) Operator.operatorMultiply, SymbolTable.defaultTable, false);
-                System.out.println(parser1.getLexer());
-                Expression tree = parser1.parse();
-                Fractionable reduced = tree.reduce();
+                ExpressionParser parser1 = new ExpressionParser<Fraction>(inputString, new MyNumberParser<>(), operatorStack, (BinaryOperator) Operator.operatorMultiply, SymbolTable.defaultTable, false);
+                System.out.println("Lexer: " + parser1.getLexer());
+                Expression expression = parser1.parse();
+                Fractionable reduced = expression.reduce();
 
                 long end = System.currentTimeMillis();
 
-                System.out.println(tree.toString());
+                System.out.println("Parse tree: " + expression);
                 System.out.println("Result: " + reduced);
-                System.out.println("in decimal " + reduced.fractionValue().toDecimal());
-                System.out.println("took " + (end - start) + " ms");
+                System.out.println("in decimal: " + reduced.fractionValue().toDecimal());
+                System.out.println("Calculating took " + (end - start) + " milliseconds.");
 
             } catch (MathError e) {
                 System.out.println(e.getResult());
