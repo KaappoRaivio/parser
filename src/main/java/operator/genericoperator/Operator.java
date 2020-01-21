@@ -14,28 +14,28 @@ import java.math.BigInteger;
 import java.util.List;
 
 public interface Operator extends Payload {
-    Operator operatorAdd        = new BinaryOperator(Tokens.DEFAULT_TOKENS.getByName("Plus"),      Fraction::add, EvaluatingOrder.LEFT_TO_RIGHT);
-    Operator operatorSubtract   = new BinaryOperator(Tokens.DEFAULT_TOKENS.getByName("Minus"), Fraction::subtract, EvaluatingOrder.LEFT_TO_RIGHT);
-    Operator operatorMultiply   = new BinaryOperator(Tokens.DEFAULT_TOKENS.getByName("Asterisk"), Fraction::multiply, EvaluatingOrder.LEFT_TO_RIGHT);
-    Operator operatorDivide     = new BinaryOperator(Tokens.DEFAULT_TOKENS.getByName("Slash"),              Fraction::divide, EvaluatingOrder.LEFT_TO_RIGHT);
-    Operator operatorPower      = new BinaryOperator(Tokens.DEFAULT_TOKENS.getByName("Power"),               Fraction::power, EvaluatingOrder.RIGHT_TO_LEFT);
-    Operator operatorRoot       = new BinaryOperator(Tokens.DEFAULT_TOKENS.getByName("Nth root"),                (fraction, fraction2) -> fraction2.root(fraction.safeIntValue()), EvaluatingOrder.LEFT_TO_RIGHT);
-    Operator operatorSqrt       = new UnaryOperator(Tokens.DEFAULT_TOKENS.getByName("Square root"), fraction -> fraction.root(BigInteger.valueOf(2)), UnaryOperatorType.PREFIX);
-    Operator operatorNegate     = new UnaryOperator(Tokens.DEFAULT_TOKENS.getByName("Minus"),             Fraction::negate, UnaryOperatorType.PREFIX);
-    Operator operatorPosite     = new UnaryOperator(Tokens.DEFAULT_TOKENS.getByName("Plus"), fraction -> fraction, UnaryOperatorType.PREFIX);
-    Operator operatorEllipsis   = new UnaryOperator(Tokens.DEFAULT_TOKENS.getByName("Ellipsis"),             Fraction::toEndless, UnaryOperatorType.BOUNDARY);
-    Operator operatorFactorial  = new UnaryOperator(Tokens.DEFAULT_TOKENS.getByName("Factorial"),          Fraction::factorial, UnaryOperatorType.SUFFIX);
-    Operator operatorSin        = new UnaryOperator(Tokens.DEFAULT_TOKENS.getByName("Sin"),                  Fraction::sin, UnaryOperatorType.PREFIX);
-    Operator operatorCos        = new UnaryOperator(Tokens.DEFAULT_TOKENS.getByName("Cos"),                  Fraction::cos, UnaryOperatorType.PREFIX);
-    Operator operatorTan        = new UnaryOperator(Tokens.DEFAULT_TOKENS.getByName("Tan"),                  Fraction::tan, UnaryOperatorType.PREFIX);
-    Operator operatorLog10      = new UnaryOperator(Tokens.DEFAULT_TOKENS.getByName("Log10"),                Fraction::log10, UnaryOperatorType.PREFIX);
-    Operator operatorLog2       = new UnaryOperator(Tokens.DEFAULT_TOKENS.getByName("Log2"),                 Fraction::log2, UnaryOperatorType.PREFIX);
-    Operator operatorLn         = new UnaryOperator(Tokens.DEFAULT_TOKENS.getByName("Ln"),                   Fraction::ln, UnaryOperatorType.PREFIX);
+    Operator operatorAdd        = new BinaryOperator(Token.Default.PLUS,        Fraction::add, EvaluatingOrder.LEFT_TO_RIGHT);
+    Operator operatorSubtract   = new BinaryOperator(Token.Default.MINUS,       Fraction::subtract, EvaluatingOrder.LEFT_TO_RIGHT);
+    Operator operatorMultiply   = new BinaryOperator(Token.Default.ASTERISK,    Fraction::multiply, EvaluatingOrder.LEFT_TO_RIGHT);
+    Operator operatorDivide     = new BinaryOperator(Token.Default.SLASH,       Fraction::divide, EvaluatingOrder.LEFT_TO_RIGHT);
+    Operator operatorPower      = new BinaryOperator(Token.Default.POWER,       Fraction::power, EvaluatingOrder.RIGHT_TO_LEFT);
+    Operator operatorRoot       = new BinaryOperator(Token.Default.NTH_ROOT,    (fraction, fraction2) -> fraction2.root(fraction.safeIntValue()), EvaluatingOrder.LEFT_TO_RIGHT);
+    Operator operatorSqrt       = new UnaryOperator(Token.Default.SQUARE_ROOT,  fraction -> fraction.root(BigInteger.valueOf(2)), UnaryOperatorType.PREFIX);
+    Operator operatorNegate     = new UnaryOperator(Token.Default.MINUS,        Fraction::negate, UnaryOperatorType.PREFIX);
+    Operator operatorPosite     = new UnaryOperator(Token.Default.PLUS,         fraction -> fraction, UnaryOperatorType.PREFIX);
+    Operator operatorEllipsis   = new UnaryOperator(Token.Default.ELLIPSIS,     Fraction::toEndless, UnaryOperatorType.BOUNDARY);
+    Operator operatorFactorial  = new UnaryOperator(Token.Default.EXCLAMATION,  Fraction::factorial, UnaryOperatorType.SUFFIX);
+    Operator operatorSin        = new UnaryOperator(Token.Default.SIN,          Fraction::sin, UnaryOperatorType.PREFIX);
+    Operator operatorCos        = new UnaryOperator(Token.Default.COS,          Fraction::cos, UnaryOperatorType.PREFIX);
+    Operator operatorTan        = new UnaryOperator(Token.Default.TAN,          Fraction::tan, UnaryOperatorType.PREFIX);
+    Operator operatorLog10      = new UnaryOperator(Token.Default.LOG10,        Fraction::log10, UnaryOperatorType.PREFIX);
+    Operator operatorLog2       = new UnaryOperator(Token.Default.LOG2,         Fraction::log2, UnaryOperatorType.PREFIX);
+    Operator operatorLn         = new UnaryOperator(Token.Default.LN,           Fraction::ln, UnaryOperatorType.PREFIX);
 
-    Operator operatorAbs        = new BoundOperator(Tokens.DEFAULT_TOKENS.getByName("Pipe"),
-            Tokens.DEFAULT_TOKENS.getByName("Pipe"),       Fraction::abs, "Absolute value");
-    Operator operatorParen      = new BoundOperator(Tokens.DEFAULT_TOKENS.getByName("Left parenthesis"),
-            Tokens.DEFAULT_TOKENS.getByName("Right parenthesis"), fraction -> fraction, "Parenthesis");
+    Operator operatorAbs        = new BoundOperator(Token.Default.PIPE,
+            Token.Default.PIPE,       Fraction::abs, "Absolute value");
+    Operator operatorParen      = new BoundOperator(Token.Default.LEFT_PARENTHESIS,
+            Token.Default.RIGHT_PARENTHESIS, fraction -> fraction, "Parenthesis");
 
     OperatorType getOperatorType ();
     Token getTokenType();

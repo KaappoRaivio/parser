@@ -7,28 +7,30 @@ import java.util.stream.Collectors;
 
 public class Tokens {
     public static final Tokens DEFAULT_TOKENS = new Tokens(
-            new Token ("\\.\\.\\.", "Ellipsis", -2),
-            new Token ("[a-z\\%]", "Symbol", -1),
+            Token.Default.ELLIPSIS,
+            Token.Default.SYMBOL,
 
-            new Token ("sin", "Sin", 0),
-            new Token ("cos", "Cos", 0),
-            new Token ("tan", "Tan", 0),
-            new Token ("log10", "Log10", 0),
-            new Token ("log2", "Log2", 0),
-            new Token ("ln", "Ln", 0),
+            Token.Default.SIN,
+            Token.Default.COS,
+            Token.Default.TAN,
+            Token.Default.LOG10,
+            Token.Default.LOG2,
+            Token.Default.LN,
 
-            new Token ("\\+", "Plus", 1),
-            new Token ("\\-", "Minus", 1),
-            new Token ("\\*", "Asterisk", 1),
-            new Token ("\\/", "Slash", 1),
-            new Token ("\\(", "Left parenthesis", 1),
-            new Token ("\\)", "Right parenthesis", 1),
-            new Token ("\\|", "Pipe", 1),
-            new Token ("(\\√|sqrt)", "Square root", 1),
-            new Token ("root", "nth root", 1),
-            new Token ("\\!", "Factorial", 1),
-            new Token ("(\\*\\*|\\^)", "Power", 2),
-            Token.NUMBER
+            Token.Default.PLUS,
+            Token.Default.MINUS,
+            Token.Default.ASTERISK,
+            Token.Default.SLASH,
+
+            Token.Default.LEFT_PARENTHESIS,
+            Token.Default.RIGHT_PARENTHESIS,
+            Token.Default.PIPE,
+
+            Token.Default.SQUARE_ROOT,
+            Token.Default.NTH_ROOT,
+            Token.Default.EXCLAMATION,
+            Token.Default.POWER,
+            Token.Default.NUMBER
     );
 
     private List<Token> tokens;
@@ -64,5 +66,9 @@ public class Tokens {
     public boolean needsImplicitOperator (FoundToken previousToken, FoundToken latestToken) {
         return implicitTokens.contains(previousToken.getTokenType())
             && implicitTokens.contains(latestToken.getTokenType());
+    }
+
+    public void addToken (Token token) {
+        tokens.add(token);
     }
 }
