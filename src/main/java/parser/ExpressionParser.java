@@ -12,18 +12,18 @@ import operator.genericoperator.Operator;
 import operator.genericoperator.OperatorType;
 import operator.unaryoperator.UnaryOperator;
 
-public class ExpressionParser<T extends Fractionable> {
+public class ExpressionParser {
     private Lexer lexer;
-    private NumberParser<T> numberParser;
+    private NumberParser numberParser;
     private GenericOperatorStack genericOperatorStack;
     private SymbolTable symbolTable;
     private boolean mustClose;
 
-    public ExpressionParser (String input, NumberParser<T> numberParser, GenericOperatorStack genericOperatorStack, BinaryOperator implicitOperator, SymbolTable symbolTable) {
+    public ExpressionParser (String input, NumberParser numberParser, GenericOperatorStack genericOperatorStack, BinaryOperator implicitOperator, SymbolTable symbolTable) {
         this(input, numberParser, genericOperatorStack, implicitOperator, symbolTable, true);
     }
 
-    public ExpressionParser (String input, NumberParser<T> numberParser, GenericOperatorStack genericOperatorStack, BinaryOperator implicitOperator, SymbolTable symbolTable, boolean mustClose) {
+    public ExpressionParser (String input, NumberParser numberParser, GenericOperatorStack genericOperatorStack, BinaryOperator implicitOperator, SymbolTable symbolTable, boolean mustClose) {
         this.symbolTable = symbolTable;
         this.mustClose = mustClose;
         lexer = new Lexer(input, implicitOperator, Tokens.DEFAULT_TOKENS);
@@ -40,7 +40,7 @@ public class ExpressionParser<T extends Fractionable> {
         Expression expression = binaryEval(0);
 
         FoundToken token = lexer.getNextToken();
-        if (!token.is(Token.END)) {
+        if (!token.is(Token.Default.END)) {
             throw new RuntimeException("End expected, got " + token + " instead!");
         } else {
             return expression;
@@ -108,7 +108,6 @@ public class ExpressionParser<T extends Fractionable> {
         if (currentOperators.isOperator(token)) {
             Operator operator = currentOperators.getOperator(token);
             UnaryOperator unaryOperator = (UnaryOperator) operator;
-//            return unaryOperator.invoke(prefixUnary(operatorStackPointer));
             return prefixUnary(operatorStackPointer).makeUnaryOperation(unaryOperator);
         } else {
             lexer.revert();
@@ -137,8 +136,6 @@ public class ExpressionParser<T extends Fractionable> {
     private Expression suffixUnary (Expression expression) {
         FoundToken nextToken = lexer.getNextToken();
 
-//        System.out.println(genericOperatorStack.getSuffixOperators() + ", " + nextToken);
-
         if (genericOperatorStack.getSuffixOperators().isOperator(nextToken)) {
             Operator operator = genericOperatorStack.getSuffixOperators().getOperator(nextToken);
 
@@ -160,7 +157,7 @@ public class ExpressionParser<T extends Fractionable> {
 
             if (!operator.getRightToken().equals(expectedClosing.getTokenType())) {
                 if (mustClose) {
-                    throw new RuntimeException("Unbalanced bounding operator tokens, expecting " + operator.getRightToken() + " but found " + expectedClosing.getTokenType() + "! " + lexer);
+                    throw new RuntimeException("Unbalanced bounding opernmator tokens, expecting " + operator.getRightToken() + " but found " + expectedClosing.getTokenType() + "! " + lexer);
                 } else {
                     lexer.revert();
                 }
