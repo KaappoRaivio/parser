@@ -6,16 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c5d0c37b-dd10-46d2-8faf-1ac2c9187819" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/parser/ExpressionParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/parser/ExpressionParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/parser/NumberParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/parser/NumberParser.java" afterDir="false" />
-    </list>
+    <list default="true" id="c5d0c37b-dd10-46d2-8faf-1ac2c9187819" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -98,7 +89,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="last.edited.regexp" value="-1.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../opencv.d" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -385,6 +376,10 @@
       <screen x="54" y="27" width="1866" height="1053" />
     </state>
     <state x="646" y="209" width="671" height="695" key="#Main/54.27.1866.1053@54.27.1866.1053" timestamp="1579591532056" />
+    <state x="770" y="298" width="424" height="491" key="FileChooserDialogImpl" timestamp="1580030922828">
+      <screen x="54" y="0" width="1866" height="1080" />
+    </state>
+    <state x="770" y="298" width="424" height="491" key="FileChooserDialogImpl/0.1080.1920.1080/54.0.1866.1080@54.0.1866.1080" timestamp="1580030922828" />
     <state width="1820" height="308" key="GridCell.Tab.0.bottom" timestamp="1579591563642">
       <screen x="54" y="27" width="1866" height="1053" />
     </state>
