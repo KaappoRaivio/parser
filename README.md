@@ -1,4 +1,4 @@
-#Parser
+# Parser
 
 ### Introduction
 This is my attempt to create a parser capable of parsing mathematical expressions for use in my upcoming calculator app for Android.
